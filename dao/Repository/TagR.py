@@ -31,6 +31,12 @@ class Tags_handler:
             ret['messages'] = e
         return ret
 
+    def fetch_tags_id(self,name):
+        tag_id=[]
+        models.UserProfile.objects.filter(name='').
 
-aa=Tags_handler()
-aa.insert_tags(name='test')
+    def insert_dao_userprofile_tags(self):
+        pass
+
+
+
