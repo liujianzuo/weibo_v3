@@ -28,4 +28,5 @@ urlpatterns = [
     url(r'^blog/', cont.blog),
     url(r'^pub/', cont.pub),
     url(r'^article/', cont.article),
+    url(r'^test/',account.test)
 ]
