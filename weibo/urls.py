@@ -31,4 +31,5 @@ urlpatterns = [
     url(r'^article/', cont.article),
     url(r'^index/', weibo_index.index),
     url(r'^lay_out/', weibo_index.lay_out),
+    url(r'^test_lay_out/', weibo_index.test_lay_out),
 ]

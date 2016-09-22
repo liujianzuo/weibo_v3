@@ -15,4 +15,9 @@ def lay_out(request):
     print("首页测试")
     return render(request,"lay_out/lay_out.html")
 
+def test_lay_out(request):
+
+    print("首页测试")
+    return render(request,"_lay_mu_out/_layout.html")
+
 
