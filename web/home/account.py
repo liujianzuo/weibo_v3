@@ -55,3 +55,10 @@ def logout(request):
     request.session['is_login'] = False
     request.session['username'] = None
     return redirect("/blog/")
+
+
+
+
+def test(request):
+
+    return render(request, 'test/test.html')
