@@ -1,0 +1,86 @@
+.W_miniblog{
+            background-repeat: no-repeat;
+            background-position: center 0;
+            padding-top: 60px;
+            background-image: url("../image/body_bg.png");
+        }
+
+
+.content_weibo{
+    margin: 0 auto;
+    min-width: 980px;
+    width: 980px;
+    height: 572px;
+        background-image: url("../image/repeat_bg_y.png");
+        background-repeat: repeat-y;
+}
+
+.W_main{
+}
+.W_main_l {
+    float: left;
+    width: 150px;
+    overflow: hidden;
+}
+.left_nav_line legend.tit {
+    line-height: 22px;
+    font-size: 12px;
+    padding: 1px 5px 0;
+}
+.S_txt3 {
+    color: #aeaeae;
+}
+.left_nav_line fieldset {
+    display: block;
+    height: 22px;
+    margin: 10px 0 0 0;
+    padding: 0 0 6px 15px;
+    zoom: 1;
+    clear: both;
+}
+.S_line3, .send_weibo .input, .WB_left_nav .lev_edit .lev a {
+    border-color: #cccccc;
+}
+fieldset {
+    display: block;
+    padding: 0 0 0 20px;
+    border-style: solid;
+    border-width: 1px 0 0 0;
+}
+
+.left_nav_line fieldset {
+    display: block;
+    height: 22px;
+    margin: 10px 0 0 0;
+    padding: 0 0 6px 15px;
+    zoom: 1;
+    clear: both;
+}
+
+.WB_left_nav .level_1_Box .lev a {
+    height: 35px;
+    line-height: 35px;
+    font-size: 14px;
+}
+
+.WB_left_nav a.lev_curr, .WB_left_nav a.lev_curr:hover {
+    background-image: url("../image/account_ico.png");
+    _background-image: none;
+    background-position: left bottom;
+    background-repeat: no-repeat;
+    font-weight: bold;
+}
+.WB_left_nav .lev .W_ico20 {
+    margin-right: 10px;
+    vertical-align: -5px;
+    _margin: 7px 10px 7px 0;
+}
+.lev_curr .ico_personinfo {
+}
+.W_ico20 {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+
+    background-repeat: no-repeat;
+}
