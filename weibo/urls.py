@@ -18,6 +18,7 @@ from django.contrib import admin
 
 from web.home import account
 from web.controller import controller as cont
+from web.main import index as weibo_index
 
 
 urlpatterns = [
@@ -28,4 +29,5 @@ urlpatterns = [
     url(r'^blog/', cont.blog),
     url(r'^pub/', cont.pub),
     url(r'^article/', cont.article),
+    url(r'^index/', weibo_index.index),
 ]
