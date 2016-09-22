@@ -29,6 +29,7 @@ urlpatterns = [
     url(r'^blog/', cont.blog),
     url(r'^pub/', cont.pub),
     url(r'^article/', cont.article),
+<<<<<<< HEAD
 # <<<<<<< HEAD
     url(r'^test/',account.test),
 # =======
@@ -39,4 +40,20 @@ urlpatterns = [
 # =======
 # >>>>>>> f6efd67c2525c9ffc1c44b38a0dd4e541ab663f4
 # >>>>>>> 7cb20227d6d21313dd1514355b23d570838579e7
+=======
+
+    url(r'^search/',account.search),
+
+    url(r'^index/', weibo_index.index),
+<<<<<<< HEAD
+
+=======
+<<<<<<< HEAD
+    url(r'^lay_out/', weibo_index.lay_out),
+    url(r'^test_lay_out/', weibo_index.test_lay_out),
+=======
+>>>>>>> f6efd67c2525c9ffc1c44b38a0dd4e541ab663f4
+>>>>>>> 7cb20227d6d21313dd1514355b23d570838579e7
+>>>>>>> 76a59e649662ce5dd89b25a195d6d5f82ee416c7
+>>>>>>> 1813207509d9651a7f35420977702c978eab8d8e
 ]
