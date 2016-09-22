@@ -33,7 +33,7 @@ class Tags_handler:
 
     def fetch_tags_id(self,name):
         tag_id=[]
-        models.UserProfile.objects.filter(name='').
+        # models.UserProfile.objects.filter(name='').
 
     def insert_dao_userprofile_tags(self):
         pass
