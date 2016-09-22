@@ -59,6 +59,6 @@ def logout(request):
 
 
 
-def test(request):
+def search(request):
 
-    return render(request, 'test/test.html')
+    return render(request, 'search/search.html')

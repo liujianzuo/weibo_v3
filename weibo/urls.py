@@ -29,9 +29,9 @@ urlpatterns = [
     url(r'^blog/', cont.blog),
     url(r'^pub/', cont.pub),
     url(r'^article/', cont.article),
-<<<<<<< HEAD
-    url(r'^test/',account.test)
-=======
+
+    url(r'^search/',account.search),
+
     url(r'^index/', weibo_index.index),
->>>>>>> f6efd67c2525c9ffc1c44b38a0dd4e541ab663f4
+
 ]
