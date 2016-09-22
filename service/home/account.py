@@ -67,3 +67,5 @@ def register(request):
         flag["error"] = f.errors
 
     return flag
+
+
