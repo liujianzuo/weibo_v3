@@ -1,0 +1,355 @@
+.W_f24 {
+    font-size: 24px;
+}
+
+.W_vline {
+    margin: 0 5px;
+}
+
+.ico_addr {
+    display: inline-block;
+    width: 13px;
+    height: 12px;
+    overflow: hidden;
+    vertical-align: middle;
+    background: url("../image/ico_addr.png?id=1376471504859") no-repeat;
+}
+
+.acc_form .info_item .zipnum {
+    width: 38px;
+}
+
+.acc_form .info_item .telnum {
+    width: 73px;
+}
+
+.acc_form .info_item .subnum {
+    width: 48px;
+}
+
+.acc_form .info_item .W_hline {
+    margin: 0 2px;
+    _margin: 0 -2px;
+}
+
+.acc_form .birthday_item .year select {
+    width: 58px;
+}
+
+.acc_form .birthday_item .month select, .acc_form .birthday_item .day select {
+    width: 44px;
+    _width: 38px;
+}
+
+.acc_form .birthday_item i {
+    margin-right: 5px;
+}
+
+.pf_add {
+    display: block;
+    margin-bottom: 10px;
+    padding: 8px 12px;
+    border-style: solid;
+    border-width: 1px;
+}
+
+.pf_add .addicon {
+    margin-right: 5px;
+    vertical-align: -1px;
+}
+
+.B_person_info .account_title .tit_main {
+    line-height: 1em;
+    padding: 14px 0 9px;
+}
+
+.B_person_info .account_title .tit_minor {
+    line-height: 1em;
+}
+
+.B_person_info .account_unfold .tab_box {
+    margin: 20px 0 15px 71px;
+    font-size: 0;
+    word-spacing: 0;
+}
+
+.B_person_info .account_unfold .tab_grid {
+    display: inline-block;
+    padding: 7px 34px;
+    border: 1px solid #d6d6d6;
+    text-decoration: none;
+    font-size: 12px;
+    margin-left: -1px;
+    color: #333;
+    background: #f3f3f3;
+}
+
+.B_person_info .account_unfold .tab_box .cur {
+    font-weight: bold;
+    padding-bottom: 6px;
+    border-bottom-width: 2px;
+    border-bottom-color: #faa725;
+    background: #fff;
+}
+
+.B_person_info .account_unfold .tab_grid:first-child {
+    -ms-border-bottom-left-radius: 2px;
+    -ms-border-top-left-radius: 2px;
+    -moz-border-bottom-left-radius: 2px;
+    moz-border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+    border-top-left-radius: 2px;
+}
+
+.B_person_info .account_unfold .tab_grid:last-child {
+    border-bottom-right-radius: 2px;
+    border-top-right-radius: 2px;
+}
+
+.B_person_info .account_unfold .passKword {
+    position: relative;
+}
+
+.B_person_info .account_unfold .enter_psw {
+    position: absolute;
+    left: 75px;
+    top: 1px;
+    color: #808080;
+}
+
+.B_person_info .account_unfold .color_week {
+    color: #e64141;
+}
+
+.B_person_info .account_unfold .color_middle {
+    color: #0a8cd2;
+}
+
+.B_person_info .account_unfold .color_strong {
+    color: #4bb900;
+}
+
+.addr_card {
+    border: 1px solid #d9d9d9;
+}
+
+.addr_card .info_list .info_item {
+    margin: 10px 0 0;
+}
+
+.addr_card .info_list .addr_item {
+    height: 36px;
+    overflow: hidden;
+}
+
+.addr_card .info_list .info_item .tit {
+    float: left;
+    width: 53px;
+    _width: 60px;
+    line-height: 18px;
+    text-align: right;
+    color: #808080;
+}
+
+.addr_card .info_list .info_item .inp {
+    margin-left: 73px;
+    line-height: 18px;
+    word-break: break-all;
+}
+
+.addr_card .info_list .area_item .W_autocut {
+    _width: 272px;
+}
+
+.addr_card .title {
+    padding: 0 10px;
+    background: #f2f2f2;
+    line-height: 30px;
+}
+
+.addr_card .title .ico_addr {
+    float: left;
+    margin: 10px 2px 0;
+}
+
+.addr_card .default_txt {
+    display: none;
+}
+
+.addr_card .set_default {
+    display: none;
+    _display: inline;
+}
+
+.addr_card:hover .set_default, .default_card .default_txt {
+    display: inline;
+}
+
+.default_card .set_default, .default_card:hover .set_default {
+    display: none;
+}
+
+.addr_card .content {
+    padding: 10px;
+}
+
+.B_person_info .account_unfold {
+    padding: 0;
+}
+
+.B_person_info .profile_pinfo, .B_person_info .visible_lev_form {
+    padding: 0 0 12px;
+}
+
+.B_person_info .weihao, .B_person_info .acc_form, .B_person_info .pinfo_tag {
+    padding: 0 0 20px;
+}
+
+.B_person_info .domain_settle, .B_person_info .domain_settled_state {
+    margin: 0 0 20px;
+}
+
+.B_person_info .safemail_form .btn_item {
+    padding: 6px 0 0;
+}
+
+.B_person_info .addr_card_list {
+    overflow: hidden;
+}
+
+.B_person_info .addr_card_list .addr_cards {
+    margin: 0 0 20px -8px;
+}
+
+.B_person_info .addr_card_list .addr_card {
+    float: left;
+    width: 368px;
+    margin: 10px 0 0 8px;
+    _display: inline;
+}
+
+.B_person_info .copy_link .W_input, .B_person_info .domain_settle .W_input {
+    width: 193px;
+    vertical-align: middle;
+}
+
+.B_person_info .domain_settled_state .method_select_v {
+    margin: 15px 0 0;
+}
+
+.B_person_info .domain_settle .settle_input {
+    position: relative;
+}
+
+.B_person_info .domain_settle .tips {
+    position: absolute;
+    top: 8px;
+    left: 310px;
+    _left: 324px;
+}
+
+.B_person_info .domain_settle .btn_item {
+    margin-left: 98px;
+    _margin-left: 108px;
+}
+
+.B_person_info .domain_settled_state .copy_link {
+    margin-bottom: 6px;
+}
+
+.B_person_info .domain_settled_state .ico_number_bronze {
+    vertical-align: middle;
+}
+
+.B_person_info .weihao .S_func1:hover {
+    cursor: default;
+}
+
+.B_person_info .W_pages_minibtn {
+    margin: 0 0 20px;
+}
+
+.B_person_info .profile_tag .pf_item .label {
+    line-height: 44px;
+}
+
+.B_person_info .profile_tag .pf_item .S_line2 {
+    _padding: 5px 0 0;
+}
+
+.B_person_info .profile_tag .tag_edit .tag {
+    _margin: 0 5px 6px;
+}
+
+.B_person_info .profile_tag .tags .tag {
+    _margin: 0 0 5px 5px;
+}
+
+.B_person_info .profile_tag .tag_edit input.tag {
+    vertical-align: middle;
+}
+
+.B_person_info .profile_tag .fake_input, .B_person_info .profile_pinfo .pf_item {
+    position: static;
+}
+
+.B_person_info .profile_pinfo .edit_area .pf_item {
+    position: relative;
+}
+
+.B_person_info .profile_pinfo .pf_item .permission {
+    width: auto;
+    _height: 28px;
+    *margin-top: 1px;
+}
+
+.B_person_info .profile_pinfo .pf_item .con .visibility {
+    margin-left: 10px;
+}
+
+.B_person_info .profile_pinfo .edit_area {
+    margin-bottom: 15px;
+}
+
+.B_person_info .profile_pinfo .edit_area.S_line2 {
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+}
+
+.B_person_info .profile_pinfo .edit_area .btn {
+    border: none;
+    padding-bottom: 10px;
+}
+
+.B_person_info .profile_pinfo .pf_item .limited {
+    width: 415px;
+}
+
+.B_person_info .profile_pinfo .hideblock:hover {
+    cursor: default;
+}
+
+.B_person_info .profile_pinfo .hideblock .action {
+    left: 432px;
+    *top: 8px;
+}
+
+.B_person_info .profile_pinfo .pf_item .status {
+    top: 7px;
+}
+
+.B_person_info .findmore_list .pic50 {
+    _width: 100%;
+}
+
+.B_person_info .title_option img {
+    *display: block;
+}
+
+#js_homestyle_css_patch_account_person_info {
+    height: 42px;
+}
+
+#js_style_css_patch_account_person_info {
+    height: 42px;
+}

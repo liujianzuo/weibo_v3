@@ -9,3 +9,10 @@ def index(request):
 
     print("首页测试")
     return render(request,"index/index.html")
+
+def lay_out(request):
+
+    print("首页测试")
+    return render(request,"lay_out/lay_out.html")
+
+
