@@ -64,16 +64,16 @@
                                 {% if not is_login %}
                                 <div class="gn_login">
                                     <ul class="gn_login_list">
-                                        <li><a href="#">注册</a></li>
+                                        <li><a href="/register">注册</a></li>
                                         <li class="W_vline S_line1"></li>
-                                        <li><a node-type="loginBtn" href="javascript:void(0)" class="S_txt1"
+                                        <li><a node-type="loginBtn" href="/login" class="S_txt1"
                                                target="_top">登录</a></li>
                                     </ul>
                                 </div>
                                     {% else %}
                                     <div class="gn_login">
                                     <ul class="gn_login_list">
-
+                                        <li><a href="/lay_out">{{ infomation.username }}</a></li>
                                         <li class="W_vline S_line1"></li>
                                         <li><a node-type="loginBtn" href="/logout" class="S_txt1"
                                                target="_top">退出</a></li>
@@ -140,47 +140,7 @@
                                                     class="unlogin_icon ficon_unlog_fel S_ficon"></em></span><span
                                                     class="levtxt">情感</span></a>
                                             </div>
-                                            <div class="lev " category_id="7" action-type="filter_cat"
-                                                 suda-data="key=nologin_home&amp;value=nologin_left_hot:7"
-                                                 suda-uatrack="key=www_unlogin_home&amp;value=society"><a
-                                                    href="javascript:void(0);" class="S_txt1 "><span
-                                                    class="#ico_block##"><em
-                                                    class="unlogin_icon ficon_unlog_soci S_ficon"></em></span><span
-                                                    class="levtxt">社会</span></a>
-                                            </div>
-                                            <div class="lev " category_id="27" action-type="filter_cat"
-                                                 suda-data="key=nologin_home&amp;value=nologin_left_hot:27"
-                                                 suda-uatrack="key=www_unlogin_home&amp;value=variety"><a
-                                                    href="javascript:void(0);" class="S_txt1 "><span
-                                                    class="#ico_block##"><em
-                                                    class="unlogin_icon ficon_unlog_scie S_ficon"></em></span><span
-                                                    class="levtxt">综艺</span></a>
-                                            </div>
-                                            <div class="lev " category_id="10045" action-type="filter_cat"
-                                                 suda-data="key=nologin_home&amp;value=nologin_left_hot:10045"
-                                                 suda-uatrack="key=www_unlogin_home&amp;value=beauty"><a
-                                                    href="javascript:void(0);" class="S_txt1 "><span
-                                                    class="#ico_block##"><em
-                                                    class="unlogin_icon ficon_unlog_makeup S_ficon"></em></span><span
-                                                    class="levtxt">美妆</span></a>
-                                            </div>
-                                            <div class="lev " category_id="10012" action-type="filter_cat"
-                                                 suda-data="key=nologin_home&amp;value=nologin_left_hot:10012"
-                                                 suda-uatrack="key=www_unlogin_home&amp;value=food"><a
-                                                    href="javascript:void(0);" class="S_txt1 "><span
-                                                    class="#ico_block##"><em
-                                                    class="unlogin_icon ficon_unlog_food S_ficon"></em></span><span
-                                                    class="levtxt">美食</span></a>
-                                            </div>
-                                            <div class="lev " category_id="10007" action-type="filter_cat"
-                                                 suda-data="key=nologin_home&amp;value=nologin_left_hot:10007"
-                                                 suda-uatrack="key=www_unlogin_home&amp;value=model"><a
-                                                    href="javascript:void(0);" class="S_txt1 "><span
-                                                    class="#ico_block##"><em
-                                                    class="unlogin_icon ficon_unlog_beauty S_ficon"></em></span><span
-                                                    class="levtxt">美女</span><em
-                                                    class="W_new_count W_new_count2">NEW</em></a>
-                                            </div>
+
                                             <div class="lev lev_more lev_more_v2"><a href="javascript:void(0);"
                                                                                      class="S_txt1 "><span
                                                     class="#ico_block##"><em
@@ -570,13 +530,13 @@
                                                                             href="/5356516674/profile?rightmod=1&amp;wvr=6&amp;mod=personinfo"
                                                                             title="妈妈说名字越长用的人越少真麻烦"><img
                                                             class="W_face_radius"
-                                                            src="http://tva2.sinaimg.cn/crop.0.0.100.100.180/005QvoGejw8en23k6m9rmj302s02st8l.jpg"
+                                                            src="/{{ infomation.userinfo.head_img }}"
                                                             width="60" height="60" alt="妈妈说名字越长用的人越少真麻烦"></a></div>
                                                 </div>
                                                 <div class="WB_innerwrap">
                                                     <div class="nameBox"><a bpfilter="page_frame"
                                                                             href="/5356516674/profile?rightmod=1&amp;wvr=6&amp;mod=personinfo"
-                                                                            class="name S_txt1" title="妈妈说名字越长用的人越少真麻烦">妈妈说名字越长用的人越少真麻烦</a><a
+                                                                            class="name S_txt1" title="妈妈说名字越长用的人越少真麻烦">{{ infomation.userinfo.name }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a><a
                                                             action-type="ignore_list" title="微博会员" target="_blank"
                                                             href="http://vip.weibo.com/"><i
                                                             class="W_icon icon_member_dis"></i></a><a target="_blank"
@@ -589,22 +549,22 @@
                                                             node-type="levelBox" levelup="0" action-data="level=9"
                                                             class="W_icon_level icon_level_c2"><span
                                                             class="txt_out"><span class="txt_in"><span
-                                                            node-type="levelNum" title="微博等级9 升级有好礼">Lv.9</span></span></span></span></a>
+                                                            node-type="levelNum" title="微博等级9 升级有好礼">&nbsp;Lv.9&nbsp;</span></span></span></span></a>
                                                     </div>
                                                     <ul class="user_atten clearfix W_f18">
                                                         <li class="S_line1"><a bpfilter="page_frame"
                                                                                href="/5356516674/follow?rightmod=1&amp;wvr=6"
                                                                                class="S_txt1"><strong
-                                                                node-type="follow">49</strong><span
+                                                                node-type="follow">{{ infomation.followed_num }} 个&nbsp;&nbsp;</strong><span
                                                                 class="S_txt2">关注</span></a></li>
                                                         <li class="S_line1"><a bpfilter="page_frame"
                                                                                href="/5356516674/fans?rightmod=1&amp;wvr=6"
                                                                                class="S_txt1"><strong
-                                                                node-type="fans">4</strong><span
+                                                                node-type="fans">{{ infomation.my_fans_num }} 个&nbsp;&nbsp;</strong><span
                                                                 class="S_txt2">粉丝</span></a></li>
                                                         <li class="S_line1"><a bpfilter="page_frame"
                                                                                href="/5356516674/profile?rightmod=1&amp;wvr=6&amp;mod=personnumber"
-                                                                               class="S_txt1"><strong node-type="weibo">87</strong><span
+                                                                               class="S_txt1"><strong node-type="weibo">{{ infomation.webo_count }} 条&nbsp;&nbsp;</strong><span
                                                                 class="S_txt2">微博</span></a></li>
                                                     </ul>
                                                 </div>
