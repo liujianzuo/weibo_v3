@@ -60,6 +60,7 @@
                                         <li><a href="#">游戏</a></li>
                                     </ul>
                                 </div>
+                                {% if not is_login %}
                                 <div class="gn_login">
                                     <ul class="gn_login_list">
                                         <li><a href="#">注册</a></li>
@@ -68,6 +69,16 @@
                                                target="_top">登录</a></li>
                                     </ul>
                                 </div>
+                                    {% else %}
+                                    <div class="gn_login">
+                                    <ul class="gn_login_list">
+
+                                        <li class="W_vline S_line1"></li>
+                                        <li><a node-type="loginBtn" href="/logout" class="S_txt1"
+                                               target="_top">退出</a></li>
+                                    </ul>
+                                </div>
+                                {% endif %}
                             </div>
                         </div>
                     </div>
@@ -247,7 +258,8 @@
                                                 <div class="m_wrap">
 {#登录之后显示上面的搜索框#}
 
-<div id="v6_pl_content_publishertop" class="hide"><div class="send_weibo S_bg2 clearfix" node-type="wrap">
+{% if is_login %}
+<div id="v6_pl_content_publishertop" class=""><div class="send_weibo S_bg2 clearfix" node-type="wrap">
     <div class="title_area clearfix">
         <div class="title" node-type="publishTitle"><span class="txt">What’s new with you?</span><p class="W_swficon ficon_swtxt"><em class="spac1">有什么新</em><em class="spac2">鲜</em><em class="spac3">事想告诉大家</em><em class="spac4">?</em></p></div>
             <div class="num S_txt2" node-type="num" style="display:none;">还可以输入<span>140</span>字</div>
@@ -277,7 +289,7 @@
             <select class="sel_time S_line1 W_fl" action-type="settime_min" node-type="settime_min">
 
                                 <option value="21" selected="true">21</option>
-                                
+
                             </select>
             <span class="set_time_txt W_fl">分</span>
             <a title="取消发布定时微博" href="javascript:void()" action-type="close" class="W_ficon ficon_close S_ficon">X</a> <a href="http://weibo.com/5356516674/profile?profile_ftype=1&amp;timefeed=1#_0" node-type="timing_blog_manage" class="rt_txt W_fr">管理待发布微博</a>
@@ -296,7 +308,7 @@
     </div>
 </div>
 </div>
-
+{% endif %}
 
 <!--中间内容-->
 <ul class="pt_ul clearfix" pagenum="" node-type="feed_list">
@@ -523,7 +535,8 @@
 
                                 <div class="WB_main_r" fixed-box="true">
 <!--登录用户上面的用户信息 -->
-                                    <div id="v6_pl_rightmod_myinfo" id="x2" class="hide">
+                                {% if is_login %}
+                                    <div id="v6_pl_rightmod_myinfo" id="x2" class="">
                                         <div class="WB_cardwrap S_bg2">
                                             <div class="W_person_info">
                                                 <div class="cover" id="skin_cover_s"
@@ -573,11 +586,13 @@
                                             </div>
                                         </div>
                                     </div>
-
+                                {% endif %}
                                     <div id="pl_unlogin_home_login">
                                         <div style="visibility: hidden;"></div>
                                         <div style="z-index: 10; transform: translateZ(0px); position: relative; width: 230px;">
-                                            <div class="W_unlogin_v2" fixed-inbox="true" fixed-id="2">
+                                            {% if not  is_login %}
+
+                                            <div class="W_unlogin_v2" id="W_unlogin_v2" fixed-inbox="true" fixed-id="2">
                                                 <div class="login_box" id="pl_login_form">
                                                     <div class="login_innerwrap">
                                                         <div class="info_header">
@@ -677,6 +692,7 @@
                                                 </div>
 
                                             </div>
+                                            {% endif %}
                                             <div style="height:1px;margin-top:-1px;visibility:hidden;"></div>
                                         </div>
                                         <div class="bg" node-type="qr_help"
@@ -824,7 +840,9 @@
     <script>
         $.ready(function () {
             Post_user();
+            check_is_login();
         })
+
 
 
         function Post_user(ths) {
@@ -841,8 +859,10 @@
 
                     console.log(data)
                     if (data.status){
-                        $("#v6_pl_content_publishertop").removeClass("hide")
-                        $("#v6_pl_rightmod_myinfo").removeClass("hide")
+                        location.href="/index"
+{#                        $("#v6_pl_content_publishertop").removeClass("hide")#}
+{#                        $("#v6_pl_rightmod_myinfo").removeClass("hide")#}
+{#                        $("#W_unlogin_v2").addClass("hide")#}
                     }else {
 
                     }

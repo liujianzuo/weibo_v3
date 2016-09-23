@@ -24,6 +24,7 @@ from Intrac import redis_conn
 def login(request):
     ret = {"status":True,"message":""}
     if request.method == "POST":
+
         username = request.POST.get('username')
         password = request.POST.get('password')
         print(username,password)
@@ -38,6 +39,11 @@ def login(request):
                 os.makedirs(user_dir)
                 os.makedirs(user_dir + "/temp")
 
+            #
+            request.session['is_login'] = True
+
+
+
             #设置活跃用户
             # redis_cccon.set("active_%s" % user.userprofile.id, True, ex=3600*12) #半天
             ret["message"] = "登录成功"
@@ -47,3 +53,10 @@ def login(request):
             ret["message"] = "登录失败"
 
     return HttpResponse(json.dumps(ret))
+
+
+def logout(request):
+
+    request.session['is_login'] = False
+
+    return redirect("/index")

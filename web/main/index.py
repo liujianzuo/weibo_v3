@@ -6,9 +6,11 @@ from django.shortcuts import HttpResponse
 from django.shortcuts import redirect
 
 def index(request):
+    if request.session.get("is_login",None):
+        print("首页测试")
+        return render(request,"index/index.html",{'is_login':True,})
+    return render(request, "index/index.html", {'is_login': False,})
 
-    print("首页测试")
-    return render(request,"index/index.html")
 
 def lay_out(request):
 

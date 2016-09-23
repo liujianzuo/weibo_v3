@@ -25,7 +25,7 @@ from  web.controller import new_account as n_acc
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^login/', account.login),
-    url(r'^logout/', account.logout),
+    url(r'^logout/', n_acc.logout),
     url(r'^register/', account.register),
 
     # url(r'^weibo_login/', cont.blog),
