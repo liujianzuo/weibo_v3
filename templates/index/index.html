@@ -6,6 +6,7 @@
     <link href="/statics/index_profile_js_css/frame.css" type="text/css" rel="stylesheet" charset="utf-8">
     <link href="/statics/index_profile_js_css/comb_login_v2.css" type="text/css" rel="stylesheet" charset="utf-8">
     <link href="/statics/index_profile_js_css/skin.css" type="text/css" rel="stylesheet" id="skin_style">
+    <link href="/statics/bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet" >
     <style>
         .hide {
             display: none;
@@ -261,14 +262,24 @@
 {% if is_login %}
 <div id="v6_pl_content_publishertop" class=""><div class="send_weibo S_bg2 clearfix" node-type="wrap">
     <div class="title_area clearfix">
-        <div class="title" node-type="publishTitle"><span class="txt">What’s new with you?</span><p class="W_swficon ficon_swtxt"><em class="spac1">有什么新</em><em class="spac2">鲜</em><em class="spac3">事想告诉大家</em><em class="spac4">?</em></p></div>
-            <div class="num S_txt2" node-type="num" style="display:none;">还可以输入<span>140</span>字</div>
+        <div class="title" node-type="publishTitle">
+            <span class="txt">What’s new with you?</span>
+            <p class="W_swficon ficon_swtxt">
+                <em class="spac1">有什么新</em>
+                <em class="spac2">鲜</em>
+                <em class="spac3">事想告诉大家</em>
+                <em class="spac4">?</em></p>
+        </div>
+            <div class="num S_txt2 hide" node-type="num">还可以输入<span>140</span>字</div>
             <div class="key" node-type="recommendTopic">
-                <a href="http://huati.weibo.com/4182737?refer=homright" target="_blank">河南幼儿园校车与货车相撞致2人重伤，原因正在调查(视频)</a>　<a href="http://hot.weibo.com?refer=homright" target="_blank">热门微博</a>                 <a href="javascript:;" style="position:absolute;top:-1000px;" title="微博内容列表"></a>
+                <a href="http://huati.weibo.com/4182737?refer=homright" target="_blank">
+                    河南幼儿园校车与货车相撞致2人重伤，原因正在调查(视频)</a>　
+                <a href="http://hot.weibo.com?refer=homright" target="_blank">热门微博</a>
+                <a href="javascript:;" style="position:absolute;top:-1000px;" title="微博内容列表"></a>
                 <a href="javascript:;" id="focus_feed_list" style="position:absolute;top:-1000px;"></a>
             </div>
     </div>
-    <div class="input" node-type="textElDiv">
+    <div class="input" node-type="textElDiv" >
         <textarea class="W_input " title="微博输入框" name="" node-type="textEl" range="0&amp;0" content=""></textarea>
         <div class="send_succpic" style="display:none" node-type="successTip"><span class="W_icon icon_succB"></span><span class="txt">发布成功</span></div>
         <form style="display:none;" node-type="extradata">
@@ -303,7 +314,21 @@
             <a href="javascript:void(0);" class="W_btn_a btn_30px W_btn_a_disable" diss-data="module=stissue" node-type="submit" title="发布微博按钮">发布</a>
         </div>
         <div class="kind">
-        	<a class="S_txt1" href="javascript:void(0);" action-type="face" action-data="type=500&amp;action=1&amp;log=face&amp;cate=1" title="表情" node-type="smileyBtn" suda-uatrack="key=tblog_home_edit&amp;value=phiz_button"><em class="W_ficon ficon_face">o</em>表情</a><a class="S_txt1" href="javascript:void(0);" action-type="multiimage" action-data="type=508&amp;action=1&amp;log=image&amp;cate=1" title="图片" suda-uatrack="key=tblog_new_image_upload&amp;value=image_button"><em class="W_ficon ficon_image">p</em>图片</a><a class="S_txt1" href="javascript:void(0);" action-type="video" action-data="type=502&amp;action=1&amp;log=video&amp;cate=1" title="视频" suda-uatrack="key=tblog_home_edit&amp;value=video_button"><em class="W_ficon ficon_video">q</em>视频</a><a class="S_txt1" href="javascript:void(0);" action-type="topic" action-data="type=504&amp;action=1&amp;log=topic&amp;cate=1" title="话题" suda-uatrack="key=tblog_home_edit&amp;value=topic_button"><em class="W_ficon ficon_swtopic">"</em>话题</a><a class="S_txt1" href="http://weibo.com/ttarticle/p/editor" target="_blank" title="头条文章" suda-uatrack="key=tblog_headline_article&amp;value=headline_article_button"><em class="W_ficon ficon_artical"></em>头条文章</a><a href="javascript:void(0);" node-type="more" class="W_ficon ficon_more S_ficon" title="查看更多">…</a>
+{#        	<a class="S_txt1" href="javascript:void(0);" action-type="face" action-data="type=500&amp;action=1&amp;log=face&amp;cate=1" title="表情" node-type="smileyBtn" suda-uatrack="key=tblog_home_edit&amp;value=phiz_button">#}
+{#                <em class="W_ficon ficon_face">o</em>表情</a>#}
+
+          <button aria-describedby="popover316925" title="" data-original-title="" type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+            表情
+          </button>
+            <a class="S_txt1" href="javascript:void(0);" action-type="multiimage" action-data="type=508&amp;action=1&amp;log=image&amp;cate=1" title="图片" suda-uatrack="key=tblog_new_image_upload&amp;value=image_button">
+                <em class="W_ficon ficon_image">p</em>图片</a>
+            <a class="S_txt1" href="javascript:void(0);" action-type="video" action-data="type=502&amp;action=1&amp;log=video&amp;cate=1" title="视频" suda-uatrack="key=tblog_home_edit&amp;value=video_button">
+                <em class="W_ficon ficon_video">q</em>视频</a>
+            <a class="S_txt1" href="javascript:void(0);" action-type="topic" action-data="type=504&amp;action=1&amp;log=topic&amp;cate=1" title="话题" suda-uatrack="key=tblog_home_edit&amp;value=topic_button">
+                <em class="W_ficon ficon_swtopic">"</em>话题</a>
+            <a class="S_txt1" href="http://weibo.com/ttarticle/p/editor" target="_blank" title="头条文章" suda-uatrack="key=tblog_headline_article&amp;value=headline_article_button">
+                <em class="W_ficon ficon_artical"></em>头条文章</a>
+            <a href="javascript:void(0);" node-type="more" class="W_ficon ficon_more S_ficon" title="查看更多">…</a>
 	                </div>
     </div>
 </div>
@@ -841,15 +866,16 @@
         $.ready(function () {
             Post_user();
             check_is_login();
-        })
+
+        });
 
 
 
         function Post_user(ths) {
-            arg1 = $("#username").val()
-            arg2 = $("#password").val()
-            console.log(arg1,arg2)
-            userinfo = {"username":arg1,"password":arg2}
+            arg1 = $("#username").val();
+            arg2 = $("#password").val();
+            console.log(arg1,arg2);
+            userinfo = {"username":arg1,"password":arg2};
             $.ajax({
                 url:"/weibo_login/",
                 type:"POST",
@@ -857,9 +883,9 @@
                 data:userinfo,
                 success:function (data) {
 
-                    console.log(data)
+                    console.log(data);
                     if (data.status){
-                        location.href="/index"
+                        location.href="/index";
 {#                        $("#v6_pl_content_publishertop").removeClass("hide")#}
 {#                        $("#v6_pl_rightmod_myinfo").removeClass("hide")#}
 {#                        $("#W_unlogin_v2").addClass("hide")#}
@@ -873,6 +899,9 @@
             })
 
         }
+
+
+    //end doc ready
 
     </script>
 
