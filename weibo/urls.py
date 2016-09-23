@@ -19,6 +19,7 @@ from django.contrib import admin
 from web.home import account,test
 from web.controller import controller as cont
 from web.main import index as weibo_index
+from  web.controller import new_account as n_acc
 
 
 urlpatterns = [
@@ -26,6 +27,8 @@ urlpatterns = [
     url(r'^login/', account.login),
     url(r'^logout/', account.logout),
     url(r'^register/', account.register),
+
+    # url(r'^weibo_login/', cont.blog),
     url(r'^blog/', cont.blog),
     # url(r'^tet/', test.test),
     url(r'^pub/', cont.pub),
@@ -34,4 +37,5 @@ urlpatterns = [
     url(r'^lay_out/', weibo_index.lay_out),
     url(r'^test_lay_out/', weibo_index.test_lay_out),
     url(r'^search/',account.search),
+    url(r'^weibo_login/',n_acc.login),
 ]
