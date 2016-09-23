@@ -30,7 +30,7 @@ urlpatterns = [
 
     # url(r'^weibo_login/', cont.blog),
     url(r'^blog/', cont.blog),
-    # url(r'^tet/', test.test),
+    url(r'^tet/', test.test),
     url(r'^pub/', cont.pub),
     url(r'^article/', cont.article),
     url(r'^index/', weibo_index.index),
@@ -38,4 +38,5 @@ urlpatterns = [
     url(r'^test_lay_out/', weibo_index.test_lay_out),
     url(r'^search/',account.search),
     url(r'^weibo_login/',n_acc.login),
+    url(r'^add_tags/',n_acc.login),
 ]

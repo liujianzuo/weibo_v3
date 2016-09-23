@@ -9,9 +9,12 @@ from django.shortcuts import render_to_response
 from django.shortcuts import redirect
 from django.utils.safestring import mark_safe
 from django.shortcuts import HttpResponse
-from django.contrib.auth import authenticate,login
+from django.contrib.auth import authenticate
 from django.contrib.auth import login as django_login
 from django.contrib.auth.decorators import login_required
+
+from dao.Repository.UserinfoRepository import UserRpostry
+
 
 
 from weibo import settings
@@ -39,9 +42,14 @@ def login(request):
                 os.makedirs(user_dir)
                 os.makedirs(user_dir + "/temp")
 
+            obj_user = UserRpostry()
+            user_info_dict = obj_user.select_all_one_user_msg(username)
+
+            print(user_info_dict)
             #
             request.session['is_login'] = True
-
+            request.session["userinfo"] = user_info_dict # {'data': [{'email': '1223995142@qq.com', 'head_img': 'statics/head_img/024B00103A7C6061429E5F1DB2913C74.png', 'follow_list__user_id': 2, 'id': 1, 'user_id__id': 1, 'age': 23, 'sex': 1, 'brief': '一江春水向东流', 'name': '刘健佐', 'tags__name': 'test'}], 'message': '', 'status': True}
+            request.session["username"] = username
 
 
             #设置活跃用户
@@ -56,7 +64,5 @@ def login(request):
 
 
 def logout(request):
-
     request.session['is_login'] = False
-
     return redirect("/index")
