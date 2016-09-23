@@ -39,4 +39,5 @@ urlpatterns = [
     url(r'^search/',account.search),
     url(r'^weibo_login/',n_acc.login),
     url(r'^add_tags/',weibo_index.add_tags),
+    url(r'^change_userprofile_name/',weibo_index.change_userprofile_name),
 ]

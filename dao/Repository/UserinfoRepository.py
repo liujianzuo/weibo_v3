@@ -104,6 +104,11 @@ class UserRpostry:
 
         return ret
 
+    def change_colume(self,nid,columeky,coloume_val):
+
+
+
+        models.UserProfile.objects.filter(id=nid).update(columeky=coloume_val)
 
 
 

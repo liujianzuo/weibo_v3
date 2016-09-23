@@ -18,10 +18,15 @@ def test(request):
     # obj = UserRpostry()
     # ret2 = obj.select_all_one_user_msg("liu")
     # ret = models.UserProfile.objects.filter(user_id__id=nid).values('id',"email","name","brief","sex","age","user_id__id","head_img","tags__name","follow_list__user_id",)
-    ret = models.UserProfile.objects.filter(user_id__id=nid).values('name',"tags__name",)
+    # ret = models.UserProfile.objects.filter(user_id__id=nid).values('name',"tags__name",)
     # ret1 = models.UserProfile.objects.filter(user_id__id=nid).values("my_followers__user_id")
     # print(11111,len(ret1),ret1,2222,ret2)
 
+
+    test1="name"
+    coloume_val = "玄霸天下"
+    dict = {test1:coloume_val}
+    ret = models.UserProfile.objects.filter(id=nid).update(**dict)
 
     # ret = models.Weibo.objects.filter(user_id=1)
     if not ret:
