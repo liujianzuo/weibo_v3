@@ -39,4 +39,24 @@ class Tags_handler:
         pass
 
 
+    # BY LIUJIANZUO
+
+    def get_user_about_tag(self,nid):
+
+        ret = {"status": True, "data": "", "message": ""}
+
+        try:
+
+            mod_ret = models.UserProfile.objects.filter(user_id__id=nid).values('name', "tags__name",)
+            view_model = list(mod_ret)
+
+            ret['data'] = view_model
+
+        except Exception as e:
+
+            ret['message'] = e
+            ret["status"] = False
+
+        return ret
+
 

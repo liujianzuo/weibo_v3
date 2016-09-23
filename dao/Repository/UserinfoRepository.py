@@ -26,7 +26,7 @@ class UserRpostry:
 
             if nid:
                 nid = int(nid)
-                data = list(models.UserProfile.objects.filter(user_id__id=nid).values("email", "name", "brief", "sex", "age",
+                data = list(models.UserProfile.objects.filter(user_id__id=nid).values("id","email", "name", "brief", "sex", "age",
                                                                                 "user_id__id", "head_img",
                                                                                 "follow_list__user_id"))
                 fans_data = list(models.UserProfile.objects.filter(user_id__id=nid).values("my_followers__user_id"))
@@ -76,6 +76,27 @@ class UserRpostry:
             else:
                 ret['message'] = "用户不存在,系统有漏洞被无效用户登录"
                 ret["status"] = False
+        except Exception as e:
+
+            ret['message'] = e
+            ret["status"] = False
+
+        return ret
+
+
+    #正向从profile插入tag
+
+    def insert_tag_from_profile(self,nid,tag_list):
+        ret = {"status": True, "data": "", "message": ""}
+        try:
+            print(tag_list,1111111123123)
+            new_list = []
+            obj = models.UserProfile.objects.get(id=nid)
+            for item in tag_list:
+                new_list.append(models.Tags.objects.get(name=item))
+
+            data_model = obj.tags.add(*new_list)
+            ret['data'] = data_model
         except Exception as e:
 
             ret['message'] = e
