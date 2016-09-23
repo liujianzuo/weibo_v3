@@ -30,7 +30,6 @@ def index(request):
             pass
         else:
             username = request.session['username']
-
             obj_user = UserRpostry()
             user_nid = obj_user.select_nid(username)
             user_nid = user_nid['data']
@@ -53,18 +52,13 @@ def index(request):
 
             # ret = json.dumps(infomation)
 
-
         return render(request,"index/index.html",{'is_login':True,'infomation':infomation})
-
-
-
-
-
 
     return render(request, "index/index.html", {'is_login': False,})
 
 
 def lay_out(request):
+    infomation ={}
     if not request.session.get("is_login", None):
         return redirect("/login")
 
@@ -72,9 +66,13 @@ def lay_out(request):
         pass
 
     else:
-
+        nid = request.session['userinfo']['data'][0]['id']
+        data_list = get_all_tags(nid)  # 数据库关联账户的所有标签
+        infomation['userinfo'] = request.session['userinfo']['data'][0]
+        infomation['username'] = request.session['username']
+        infomation['tag_list'] = data_list #返回渲染的
         pass
-    return render(request,"lay_out/lay_out.html",{'is_login': False,})
+    return render(request,"lay_out/lay_out.html",{'is_login': False,'infomation':infomation})
 
 def test_lay_out(request):
     if request.session.get("is_login", None):
@@ -88,8 +86,7 @@ def get_all_tags(nid):
     view_model = obj_tag.get_user_about_tag(
         nid)  # {'name': '刘健佐', 'tags__name': 'test'}{'name': '刘健佐', 'tags__name': 'dsfasdf'}
 
-    print(
-        view_model)  # {'message': '', 'data': [{'name': '刘健佐', 'tags__name': 'test'}, {'name': '刘健佐', 'tags__name': 'dsfasdf'}], 'status': True}
+    print(view_model)  # {'message': '', 'data': [{'name': '刘健佐', 'tags__name': 'test'}, {'name': '刘健佐', 'tags__name': 'dsfasdf'}], 'status': True}
 
     data_list = []
     if view_model['status']:
@@ -107,40 +104,51 @@ def get_all_tags(nid):
 def add_tags(request):
 
     rep = {"status":True,"message":""}
+    if not request.session.get("is_login", None):
+        return redirect("/login")
 
-    # if request.method == "POST":
-    if request.method == "GET":
+    if request.method == "POST":
+    # if request.method == "GET":
         nid = request.session['userinfo']['data'][0]['id']
-        data_list = get_all_tags(nid)
+        data_list = get_all_tags(nid) # 数据库关联账户的所有标签
+        print(data_list)
 
-        data_from_web = request.POST.get("data",None)
+        print(request.POST) # <QueryDict: {'data_tag': ['["sdfdsfsdfas"]']}>
+
+        data_from_web = request.POST["data_tag"]
+        print(data_from_web) #["sdfdsfsdfas"]  需要再load一次
+
+        data_from_web = json.loads(data_from_web)
+
         # data_from_web = ['宅控','是打发']
         # fromweb_tags_list = data_from_web
+        print(data_from_web)
 
         if not data_from_web:
             rep['status']= False
             rep['message']="nodata get 数据未获取到"
             return HttpResponse(json.dumps(rep))
-        test_from_web = json.loads(request.POST.get("data",None))
-        fromweb_tags_list = test_from_web['data_tag']
+
+        fromweb_tags_list = data_from_web
 
         print(fromweb_tags_list,12312312312)
         li=[]
         for item in  fromweb_tags_list:
             if item in data_list:
-
                 continue
             else:
                 li.append(item)
+                print(li,"li")
+                print(item)
                 # 开始插入新标签和多对多关系表数据
                 obj_tag = Tags_handler()
                 modle_view = obj_tag.insert_tags(item)
+                print(modle_view)
 
         # 插入profile——tag关系表
         user_obj = UserRpostry()
-        user_obj.insert_tag_from_profile(nid,li)
-
-
+        mod__d = user_obj.insert_tag_from_profile(nid,li)
+        print(mod__d)
         return HttpResponse(json.dumps(data_list))
 
 
