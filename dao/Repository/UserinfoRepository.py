@@ -104,11 +104,18 @@ class UserRpostry:
 
         return ret
 
-    def change_colume(self,nid,columeky,coloume_val):
+    def change_colume(self,nid,val_dict):
+        ret = {"status": True, "data": "", "message": ""}
+        try:
+            mod = models.UserProfile.objects.filter(id=nid).update(**val_dict)
 
+        except Exception as e:
 
+            ret['message'] = e
+            ret["status"] = False
 
-        models.UserProfile.objects.filter(id=nid).update(columeky=coloume_val)
+        return ret
+
 
 
 

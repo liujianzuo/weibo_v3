@@ -15,8 +15,9 @@ def wrapper(func):
     def inner(request):
         if not request.session.get("is_login", None):
             return redirect("/login")
-        else:
-            func(request)
+
+        print(func)
+        func(request)
 
     return inner
 
@@ -153,9 +154,24 @@ def add_tags(request):
 
 
 
-
+# @wrapper
 def change_userprofile_name(request):
+    rep = {"status":True,"message":""}
+
+    if not request.session.get("is_login", None):
+        return redirect("/login")
+
+    # if request.method == "POST":
+    if request.method == "GET":
+        nid = request.session['userinfo']['data'][0]['id']
+        # data_dict = request.POST.get("data_dict")
+        data_dict = {"name":'玄霸天下2'}
+
+        obj_user = UserRpostry()
+        change_name = obj_user.change_colume(nid,data_dict)
+        if not change_name['status']:
+            rep['status'] = False
+            rep['message'] = "但是"
 
 
-
-    pass
+    return HttpResponse(json.dumps(rep))
