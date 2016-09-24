@@ -152,3 +152,10 @@ def add_tags(request):
         return HttpResponse(json.dumps(data_list))
 
 
+
+
+def change_userprofile_name(request):
+
+
+
+    pass
