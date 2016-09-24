@@ -1,0 +1,710 @@
+.send_weibo {
+    margin: 0 0 10px 0;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.15);
+    border-radius: 2px;
+    padding: 15px 10px 10px;
+    _position: relative;
+    height: 140px;
+    overflow: hidden;
+}
+
+.PRF_sendtimer {
+    margin: 0 0 10px;
+}
+
+.send_weibo .title_area {
+    position: relative;
+    overflow: hidden;
+    height: 21px;
+}
+
+.send_weibo .title {
+    outline-style: none;
+    font: normal 16px Tahoma;
+    line-height: 16px;
+    *line-height: 22px;
+    float: left;
+    width: 200px;
+    height: 21px;
+}
+
+.send_weibo .title .W_swficon {
+    height: 21px;
+    font-size: 0;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.send_weibo .title .W_swficon .spac1 {
+    display: inline-block;
+    vertical-align: top;
+    height: 21px;
+    letter-spacing: -3px;
+}
+
+.send_weibo .title .W_swficon .spac2 {
+    display: inline-block;
+    vertical-align: top;
+    height: 21px;
+    padding-left: 4px;
+}
+
+.send_weibo .title .W_swficon .spac3 {
+    display: inline-block;
+    vertical-align: top;
+    height: 21px;
+    letter-spacing: -3.8px;
+}
+
+.send_weibo .title .W_swficon .spac4 {
+    display: inline-block;
+    vertical-align: top;
+    height: 18px;
+    padding: 3px 0 0 4px;
+}
+
+.send_weibo .title .txt {
+    display: none;
+}
+
+.send_weibo .num {
+    position: absolute;
+    right: 0;
+    top: -6px;
+}
+
+.send_weibo .num span {
+    font-weight: 700;
+    font-size: 22px;
+    font-style: italic;
+    font-family: Constantia, Georgia;
+}
+
+.send_weibo .num span.S_spetxt {
+    color: #f90;
+}
+
+.send_weibo .num a.S_txt2 {
+    text-decoration: none;
+    cursor: default;
+}
+
+.send_weibo .key {
+    position: absolute;
+    right: 0;
+    top: 2px;
+    max-width: 380px;
+    _width: 380px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+}
+
+.send_weibo .input, .send_weibo .input_simple {
+    position: relative;
+    border-width: 1px;
+    border-style: solid;
+    height: 68px;
+    margin: 4px 0 0;
+    padding: 5px;
+    box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.15) inset;
+}
+
+.send_weibo .input_simple {
+    box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.15) inset;
+}
+
+.send_weibo .input .W_input, .send_weibo .input_simple .W_input {
+    background: transparent;
+    width: 100%;
+    height: 68px;
+    font-size: 14px;
+    line-height: 18px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    word-wrap: break-word;
+    outline: none;
+    border: none;
+    _border: 0;
+    padding: 0;
+    box-shadow: none;
+}
+
+.send_weibo .input.clicked {
+    border-color: #fa7d3c;
+    box-shadow: none;
+}
+
+.send_weibo .input_simple.clicked {
+    border-color: #ffb941;
+    -webkit-box-shadow: -1px 1px 1px 0px #ddd inset;
+    -moz-box-shadow: -1px 1px 1px 0px #ddd inset;
+    box-shadow: -1px 1px 1px 0px #ddd inset;
+}
+
+.send_weibo .input_simple.clicked .W_arrow_bor i.S_line3 {
+    border-right-color: #ffb941;
+}
+
+.send_weibo .img_upload {
+    position: absolute;
+    z-index: 99;
+    border: 1px dashed #ccc;
+    left: 5px;
+    top: 5px;
+    right: 5px;
+    bottom: 5px;
+    *height: 77px;
+    _width: 548px;
+    color: #808080;
+    text-align: center;
+}
+
+.send_weibo .img_upload b {
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%
+}
+
+.send_weibo .img_upload .iu-tip {
+    display: inline-block;
+    vertical-align: middle
+}
+
+.send_weibo .img_upload .iu-tip .W_ico12 {
+    vertical-align: -2px;
+    *vertical-align: 0;
+    margin-right: 8px
+}
+
+.send_weibo .kind {
+    float: left;
+    width: 380px;
+    padding: 5px 0 0;
+}
+
+.send_weibo .kind a {
+    -webkit-text-size-adjust: none;
+    margin: 0 18px 0 0;
+}
+
+.send_weibo .kind a .W_ficon {
+    margin-top: -1px;
+}
+
+.send_weibo .kind a .ficon_vote {
+    margin-top: 0;
+}
+
+@media \0screen\,screen\9 {
+    .send_weibo .kind a .W_ficon {
+        margin-top: -4px;
+    }
+}
+
+.send_weibo .kind .ficon_more {
+    font-size: 16px;
+    margin: 5px 0 0 3px;
+}
+
+.send_weibo .func {
+    float: right;
+    padding: 5px 0 0;
+    text-align: right;
+    width: 200px;
+    white-space: nowrap;
+}
+
+.send_weibo .func .limits {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    margin: 10px 10px 0 0;
+    *margin-top: 9px;
+    vertical-align: top;
+}
+
+.send_weibo .func .limits .W_autocut {
+    display: inline-block;
+    width: 62px;
+    cursor: pointer;
+    text-align: right;
+    *vertical-align: top;
+}
+
+.send_weibo .func .limits .ficon_arrow_down {
+    margin: 0 0 0 2px;
+    vertical-align: 3px;
+}
+
+.send_weibo .func .opt {
+    *position: absolute;
+    display: inline-block;
+    width: 115px;
+    margin: 9px 7px 0 -37px;
+    *margin: 7px 7px 0 -120px;
+    overflow: hidden;
+    vertical-align: top;
+}
+
+.send_weibo .sendsucc_detail {
+    width: 365px;
+    left: 20%;
+    text-align: left;
+}
+
+.send_weibo .sendsucc_detail .W_icon {
+    float: left;
+    margin: 0 10px 0 0;
+}
+
+.send_weibo .sendsucc_detail .txt {
+    margin: 0;
+}
+
+.send_weibo .sendsucc_detail .note {
+    font-size: 12px;
+    display: block;
+    margin-top: 7px;
+}
+
+.send_weibo .set_timer {
+    height: 30px;
+    border-style: solid;
+    line-height: 30px;
+}
+
+.send_weibo .set_timer .set_date_txt {
+    margin-left: 10px;
+}
+
+.send_weibo .set_timer .set_data_mod {
+    width: 85px;
+    height: 17px;
+    margin: 6px 10px 0 0;
+    padding-left: 6px;
+    background: #fff;
+    border-style: solid;
+    border-width: 1px;
+}
+
+.send_weibo .set_timer .set_data_mod .ipt {
+    width: 65px;
+    height: 14px;
+    padding-top: 1px;
+    font-family: "宋体";
+    color: #333;
+    border: none;
+    line-height: 14px;
+    outline: none;
+    *border: 0;
+}
+
+.send_weibo .set_timer .set_data_mod .icon_calendar {
+    margin: 1px 1px 0 0;
+}
+
+.send_weibo .set_timer .sel_time {
+    margin: 6px 6px 0 0;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "宋体";
+    height: 19px;
+}
+
+.send_weibo .set_timer .set_time_txt {
+    margin-right: 5px;
+}
+
+.send_weibo .set_timer .rt_txt {
+    margin-right: 10px;
+}
+
+.send_weibo .input_set_timer .send_succpic {
+    margin-top: -36px;
+}
+
+.send_weibo .input .set_timer {
+    display: none;
+}
+
+.send_weibo .input_set_timer {
+    position: relative;
+}
+
+.send_weibo .input_set_timer .set_timer {
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    border-width: 1px 0 0;
+}
+
+.send_weibo .input_set_timer .W_input {
+    height: 37px;
+}
+
+.send_weibo .input_set_timer .ficon_close {
+    float: right;
+    margin: 0 6px 0 0;
+}
+
+.send_weibo .input_set_timer .set_timer .pc_caldr {
+    z-index: 10000 !important;
+}
+
+.send_weibo_simple {
+    background-image: none !important;
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+    height: auto;
+}
+
+.send_weibo_simple .title_hide {
+    float: left;
+    width: 282px;
+    height: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 20px;
+}
+
+.send_weibo_simple .input_simple_wrap {
+    *zoom: 1;
+}
+
+.send_weibo_simple .input_simple_wrap .userphoto {
+    float: left;
+    margin-top: 5px;
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+}
+
+.send_weibo_simple .input_simple_wrap .userphoto .pic {
+    display: block;
+}
+
+.send_weibo_simple .input_simple_wrap .inputfunc_simple_wrap {
+    float: right;
+    width: 504px;
+}
+
+.send_weibo_simple .input_simple .W_arrow_bor {
+    position: absolute;
+    top: 15px;
+    left: -15px;
+}
+
+.send_weibo_simple .kind {
+    width: 290px;
+}
+
+.send_weibo_simple .icon_starbar_a {
+    vertical-align: -1px;
+    *vertical-align: 0;
+}
+
+.send_weibo_simple .aftertext {
+    margin-left: 2px;
+    font-weight: normal;
+}
+
+.send_weibo_simple_fold .WB_innerwrap {
+    padding: 10px 16px;
+}
+
+.send_weibo_simple_fold .input_simple_wrap .userphoto {
+    margin-top: 0;
+}
+
+.send_weibo_simple_fold .title_area, .send_weibo_simple_fold .func_area {
+    display: none;
+}
+
+.send_weibo_simple_fold .input_simple {
+    height: 22px;
+    margin-top: 8px;
+}
+
+.send_weibo_simple_fold .input_simple .W_input {
+    height: 20px;
+}
+
+.send_weibo_simple_fold .input_simple .W_arrow_bor {
+    top: 9px;
+}
+
+.send_weibo_simple_remark_fold .WB_innerwrap {
+    padding: 11px 16px;
+    _padding: 15px 16px 8px 16px;
+}
+
+.send_weibo_simple_remark_fold .input_simple_wrap, .send_weibo_simple_remark_fold .title_area .num {
+    display: none;
+}
+
+.send_weibo_simple .t_half_star {
+    float: left;
+    width: 282px;
+    height: 22px;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 22px;
+}
+
+.send_weibo_simple .half_star {
+    display: inline-block;
+    height: 22px;
+    line-height: 22px;
+    font-size: 0px;
+    vertical-align: top;
+}
+
+.send_weibo_simple .half_star_txt {
+    display: inline-block;
+    height: 22px;
+    line-height: 22px;
+}
+
+.send_weibo_simple .t_half_star .aftertext {
+    display: inline-block;
+    height: 22px;
+    line-height: 22px;
+}
+
+.send_weibo_simple .s_star_a {
+    display: inline-block;
+    width: 17px;
+    margin-right: 5px;
+    height: 22px;
+    background: url("../../../images/common/half_start.png");
+    background-position: -3px -102px;
+    vertical-align: middle;
+}
+
+.send_weibo_simple .s_star_b {
+    display: inline-block;
+    width: 17px;
+    margin-right: 5px;
+    height: 22px;
+    background: url("../../../images/common/half_start.png");
+    background-position: -3px -75px;
+    vertical-align: middle;
+}
+
+.send_weibo_simple .s_star_c {
+    display: inline-block;
+    width: 17px;
+    margin-right: 5px;
+    height: 22px;
+    background: url("../../../images/common/half_start.png");
+    background-position: -3px -51px;
+    vertical-align: middle;
+}
+
+.send_weibo_simple .l_star_b {
+    display: inline-block;
+    width: 21px;
+    height: 22px;
+    margin-left: -3px;
+    margin-right: 4px;
+    background: url("../../../images/common/half_start.png");
+    background-position: 0 -1px;
+    vertical-align: middle;
+}
+
+.send_weibo_simple .l_star_a {
+    display: inline-block;
+    width: 21px;
+    height: 22px;
+    margin-left: -3px;
+    margin-right: 4px;
+    background: url("../../../images/common/half_start.png");
+    background-position: 0 -26px;
+    vertical-align: middle;
+}
+
+.send_weibo_long {
+    height: auto;
+    overflow: visible;
+}
+
+.send_weibo_long .input, .send_weibo_long .input_simple, .send_weibo_long .input .W_input, .send_weibo_long .input_simple .W_input {
+    height: auto;
+    min-height: 68px;
+    _height: 68px;
+}
+
+.send_weibo_long .input_set_timer {
+    padding-bottom: 36px;
+}
+
+.send_weibo_long .input_set_timer .W_input {
+    height: auto;
+    min-height: 68px;
+    _height: 68px;
+}
+
+.send_weibo_long .func_area {
+    position: relative;
+}
+
+#js_style_css_module_global_send_weibo {
+    height: 42px;
+}
+
+.form_table_s .f_normal {
+    margin: 0 0 10px;
+}
+
+.form_table_s .f_tit {
+    float: left;
+    width: 57px;
+    line-height: 26px;
+}
+
+.form_table_s .f_con {
+    margin: 0 0 0 60px;
+    _margin: 0 0 0 57px;
+    _zoom: 1;
+}
+
+.form_table_s .f_btn .f_con {
+    margin: 0 0 0 60px;
+}
+
+.form_table_s .f_ipt label {
+    margin: 0 10px 0 0;
+    vertical-align: -5px;
+    _vertical-align: -7px;
+}
+
+.form_table_s .w1 {
+    width: 224px;
+}
+
+.form_table_s .w2 {
+    width: 100px;
+}
+
+.form_table_s .t1 {
+    display: inline-block;
+    width: 20px;
+    text-align: center;
+}
+
+.feed_pop_search {
+    position: relative;
+    margin-bottom: 10px !important;
+}
+
+#js_style_css_module_list_form_table_s {
+    height: 42px;
+}
+
+.feed_pop_tag {
+    position: relative;
+    _width: 100%;
+    margin-bottom: 10px !important;
+    _overflow: hidden;
+}
+
+.feed_pop_tag .m_wrap {
+    margin: -2px 0 -16px 5px;
+    *margin-bottom: -6px;
+}
+
+.feed_pop_tag ul {
+    padding: 0 0 8px;
+    _padding: 0 0 0 5px;
+}
+
+.feed_pop_tag li {
+    float: left;
+    height: 30px;
+    _height: 31px;
+    margin: 0 10px 2px 0;
+    _overflow: hidden;
+}
+
+.feed_pop_tag li .W_btn_tag {
+    margin-top: 4px;
+}
+
+.feed_pop_tag li .W_btn_a, .feed_pop_tag li .W_btn_b {
+    margin: 2px 5px 0;
+}
+
+.feed_pop_tag li .W_input {
+    margin: 0 5px 0 0;
+    vertical-align: top;
+}
+
+.feed_pop_tag .WB_cardpage .W_pages {
+    padding: 8px 0;
+    *padding: 7px 0 9px;
+}
+
+.feed_pop_tag .tag_btn {
+    padding: 7px 10px;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+}
+
+.feed_pop_tag .WB_cardtitle_b .opt_box {
+    right: 7px;
+}
+
+.feed_pop_tag .WB_cardtitle_b .WB_search_s {
+    margin-top: 6px;
+    line-height: normal;
+    vertical-align: top;
+}
+
+.feed_pop_tag .list_edit .W_btn_tag {
+    cursor: text;
+}
+
+.feed_pop_tag .tag_btn .ficon_edit {
+    margin-right: 5px;
+}
+
+.feed_pop_tag .W_btn_tag .ficon_eye {
+    margin-left: 5px;
+    color: #fa7d3c;
+}
+
+.WB_tab_a .fav_box {
+    margin-right: 10px;
+    line-height: 38px;
+}
+
+.WB_tab_a .fav_box .btn a {
+    margin-left: 10px;
+}
+
+.feed_pop_tag .tab_cur, .feed_pop_tag .WB_tab_b .inner .tab_ul .tab_cur .ani_border, .feed_pop_tag .WB_tab_b .inner .tab_ul .tab_item .ani_border {
+    border-color: #fa7d3c;
+}
+
+.feed_pop_tag .WB_tab_b .WB_search_s {
+    margin-right: 1px;
+}
+
+.WB_tab_a .ficon_eye {
+    margin-left: 5px;
+    color: #fa7d3c
+}
+
+#js_style_css_module_list_feed_pop_tag {
+    height: 42px;
+}
+
+#js_style_css_module_tab_comb_WB_tab_profile {
+    height: 42px;
+}

@@ -1,0 +1,156 @@
+.PCD_person_info .verify_area {
+    padding: 16px 16px 10px 16px;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+}
+
+.PCD_person_info .verify_area .verify {
+    margin-bottom: 7px;
+    *zoom: 1;
+}
+
+.PCD_person_info .verify_area .verify .t_link {
+    margin: 8px 0 0 7px;
+}
+
+.PCD_person_info .verify_area .info {
+    line-height: 18px;
+}
+
+.PCD_person_info .verify_area .info .tag {
+    display: inline-block;
+    margin-right: 4px;
+}
+
+.PCD_person_info .m_wrap {
+    *zoom: 1
+}
+
+.PCD_person_info .detail {
+    margin: -10px 0 -8px;
+    overflow: hidden;
+}
+
+.PCD_person_info .ul_detail {
+    margin-bottom: -1px;
+}
+
+.PCD_person_info .ul_detail .item {
+    padding: 7px 0 5px 0;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    line-height: 18px;
+}
+
+.PCD_person_info .ul_detail .item_ico {
+    width: 25px;
+}
+
+.PCD_person_info .ul_detail .item_text {
+    width: 243px;
+    margin-top: 1px;
+    word-wrap: break-word;
+}
+
+.PCD_person_info .ul_detail .ficon_edu, .PCD_person_info .ul_detail .ficon_cd_coupon, .PCD_person_info .ul_detail .ficon_longwb {
+    font-size: 14px;
+}
+
+.PCD_person_info .ul_detail .item .multibox .btn_box {
+    float: right;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.PCD_person_info .ul_detail .item .multitext {
+    display: block;
+    width: 239px;
+    height: 80px;
+}
+
+.PCD_person_info .ul_detail .item .ficon_edit {
+    margin-left: 5px;
+}
+
+.PCD_person_info .verify_area .icon_group {
+    height: 28px;
+    padding-left: 10px;
+    line-height: 28px;
+    border-left-style: solid;
+    border-left-width: 1px;
+}
+
+.PCD_person_info .verify_area .verify .icon_bed {
+    margin: 0 10px 0 0;
+}
+
+.PCD_person_info .verify_area .verify .apply_link {
+    height: 28px;
+    line-height: 28px;
+    *line-height: 30px;
+    margin-right: 10px;
+}
+
+.PCD_person_info .ul_detail .item_text .W_icon_level, .PCD_person_info .ul_detail .item_text .W_icon, .PCD_person_info .verify_area .icon_group .W_icon_level, .PCD_person_info .verify_area .icon_group .W_icon {
+    margin: 0 10px 0 0;
+    vertical-align: middle;
+}
+
+.PCD_person_info .verify_area .icon_group .W_icon_level, .PCD_person_info .verify_area .icon_group .W_icon {
+    _vertical-align: -8px;
+}
+
+.PCD_person_info .bars_box {
+    margin-top: -5px;
+}
+
+.PCD_person_info .bars_box .num {
+    margin-left: 5px;
+    font-size: 18px;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.PCD_person_info .bars_box .bar_box {
+    height: 4px;
+    margin-top: 4px;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.PCD_person_info .bars_box .bar_box .bar {
+    height: 4px;
+    background: #fa7d3c;
+    background: -moz-linear-gradient(left, #fb8b51 0%, #fa7d3c 100%);
+    background: -webkit-linear-gradient(left, #fb8b51 0%, #fa7d3c 100%);
+    background: -o-linear-gradient(left, #fb8b51 0%, #fa7d3c 100%);
+    background: -ms-linear-gradient(left, #fb8b51 0%, #fa7d3c 100%);
+    background: linear-gradient(left right, #fb8b51 0%, #fa7d3c 100%);
+}
+
+.pinfo_icon {
+    display: inline-block;
+    background: url("../../../images/pagecard/icon_pinfo.png?id=201501061723") no-repeat;
+    vertical-align: middle;
+    *vertical-align: -2px;
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (-moz-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2) {
+    .pinfo_icon {
+        background-image: url("../../../images/pagecard/icon_pinfo-x2.png?id=201501061723");
+        background-size: 12px 14px;
+    }
+}
+
+.pinfo_icon_baidu {
+    width: 12px;
+    height: 14px;
+}
+
+.WB_frame_c .PCD_person_info .ul_detail .item_text {
+    width: 543px;
+}
+
+#js_style_css_module_pagecard_PCD_person_info {
+    height: 42px;
+}
