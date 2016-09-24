@@ -1,0 +1,38 @@
+.PCD_photolist .WB_innerwrap {
+    padding: 6px;
+}
+
+.PCD_photolist .WB_innerwrap .m_wrap {
+    _width: 288px;
+    _overflow: hidden;
+}
+
+.PCD_photolist .WB_innerwrap ul {
+    margin: 0 -6px -6px 0
+}
+
+.PCD_photolist .WB_innerwrap li {
+    float: left;
+    height: 92px;
+    width: 92px;
+    margin: 0 6px 6px 0
+}
+
+.PCD_photolist .WB_innerwrap li img {
+    width: 92px;
+    height: 92px;
+}
+
+.PCD_photolist .WB_innerwrap .big_pic {
+    width: 190px;
+    height: 190px;
+}
+
+.PCD_photolist .WB_innerwrap .big_pic img {
+    width: 190px;
+    height: 190px;
+}
+
+#js_style_css_module_pagecard_PCD_photolist {
+    height: 42px;
+}

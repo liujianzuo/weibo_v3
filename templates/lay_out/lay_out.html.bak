@@ -244,9 +244,6 @@
                 </div>
                 <!--主栏  -->
                 <div class="W_main_a">
-                    <div class="W_follow_bg S_bg4 hide">
-                        <div style="width:300px;height: 300px;background-color: red;margin-left: 230px;margin-top: 115px;;text-align: center"></div>
-                    </div>
                     <div class="W_follow_bg S_bg4">
                         <div class="group_read">
                             <div class="title">
@@ -273,7 +270,7 @@
                                     <li class="title_name W_fb">登录名</li>
                                     <li class="title_content S_txt2" node-type="concise">132*****359</li>
                                     <li class="title_option W_tr">
-                                        <a style=" display: inline-block;width: 63px" href="#security.#account/security?topnav=1&amp;wvr=6&amp;option=chgpwd"
+                                        <a href="#security.#account/security?topnav=1&amp;wvr=6&amp;option=chgpwd"
                                            suda-uatrack="key=tblog_account&amp;value=password">修改密码»</a>
                                     </li>
                                 </ul>
@@ -294,8 +291,8 @@
                             </div>
                             <!--昵称收起  -->
                             <div class="account_fold SW_fun_bg" id="pl_personalInfo_nickname" >
-                                <ul class="account_title clearfix" action-type="drawer_toggle" suda-uatrack="key=tblog_account&amp;value=nick"
-                                    onclick="Diane(this);" >
+                                <ul class="account_title clearfix" action-type="drawer_toggle"
+                                    suda-uatrack="key=tblog_account&amp;value=nick" onclick="Diane(this);" >
                                     <li class="title_name W_fb">昵称</li>
                                     <li class="title_content S_txt2" node-type="concise">妈妈说名字越长用的人越少真麻烦</li>
                                     <li class="title_option W_tr">
@@ -305,7 +302,7 @@
                                     </li>
                                 </ul>
                                 <!--昵称编辑  -->
-                                <div class="ShutDown unfold_content clearfix hide " node-type="content">
+                                <div class="unfold_content clearfix hide" node-type="content">
                                     <div class="acc_form">
                                         <div class="info_item clearfix">
                                             <div class="tit">现昵称</div>
@@ -328,13 +325,12 @@
                                             </div>
                                         </div>
                                         <div class="info_item btn_item clearfix">
-                                        <div class="inp">
-                                            <a class="W_btn_a" node-type="" action-type="">
-                                                <span onclick="NickName(this)">保存</span></a>
-                                            <a class="W_btn_b" href=""
-                                               action-type="btn_cancel">
-                                                <span onclick="ShutDown(this)">关闭</span></a>
-                                        </div>
+                                            <div class="inp">
+                                                <a class="W_btn_a" node-type=""
+                                                   action-type=""><span onclick="NickName(this)">保存</span></a>
+                                                <a class="W_btn_b" href="http://127.0.0.1:8000/lay_out/"
+                                                   action-type="btn_cancel"><span>关闭</span></a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -342,8 +338,8 @@
 
                             <!--个人信息展开  -->
                             <div class="account_fold SW_fun_bg" id="pl_personalInfo_personalData">
-                                <ul class="account_title clearfix" action-type="drawer_toggle" suda-uatrack="key=tblog_account&amp;value=info"
-                                    onclick="Diane(this);">
+                                <ul class="account_title clearfix" action-type="drawer_toggle"
+                                    suda-uatrack="key=tblog_account&amp;value=info" onclick="Diane(this);">
                                     <li class="title_name W_fb">个人资料</li>
                                     <li class="title_content S_txt2" node-type="concise">完善资料，让大家更了解你</li>
                                     <li class="title_option W_tr">
@@ -351,12 +347,10 @@
                                            href="javascript:void(0)">编辑</a>
                                     </li>
                                 </ul>
-
-
-
-                                <!--   编辑个人信息         -->
-                                <div class="ShutDown unfold_content clearfix hide" node-type="content" >
+                                <div class="unfold_content clearfix hide" node-type="content" >
                                     <p class="hint_title S_txt2">以下信息将显示在个人资料页，方便大家了解你。</p>
+                                    <!--基本资料  -->
+                                    <div class="border_line"></div>
                                     <!--联系信息  -->
                                     <div class="acc_form visible_lev_form">
                                         <div class="info_item clearfix">联系信息</div>
@@ -389,21 +383,57 @@
                                         <div class="info_item btn_item clearfix">
                                             <div class="tit"></div>
                                             <div class="inp">
-                                                <a class="W_btn_a" action-type="btn_submit" node-type="btn_submit" href="">
-                                                    <span onclick="Infomation(this)">保存</span></a>
+                                                <a class="W_btn_a" action-type="btn_submit" node-type="btn_submit"
+                                                   href=""><span onclick="Infomation(this)">保存</span></a>
                                                 <a class="W_btn_b" action-type="btn_reset" node-type="btn_reset"
-                                                   href="">
-                                                    <span onclick="ShutDown(this)">关闭</span></a>
+                                                   href="http://127.0.0.1:8000/lay_out/">
+                                                    <span>关闭</span></a>
                                             </div>
                                         </div>
                                     </div>
 
                                 </div>
                             </div>
+                            <!--教育信息收起  -->
+                            <div class="account_fold SW_fun_bg" id="pl_personalInfo_education">
+                                <ul class="account_title clearfix" action-type="drawer_toggle"
+                                    suda-uatrack="key=tblog_account&amp;value=edu" onclick="Diane(this);">
+                                    <li class="title_name W_fb">教育信息</li>
+                                    <li class="title_content S_txt2" node-type="concise">
+                                        未填写学校
+                                    </li>
+                                    <li class="title_option W_tr">
+                                        <a class="set_opt" node-type="drawer_toggle" action-data="open=编辑&amp;close=收起"
+                                           href="javascript:void(0)">
+                                            编辑 </a>
+                                    </li>
+                                </ul >
+                                <div node-type="content" class="unfold_content clearfix hide">
+
+                                </div>
+                            </div>
+                            <!--职业信息收起  -->
+                            <div class="account_fold SW_fun_bg" id="pl_personalInfo_job">
+                                <ul class="account_title clearfix" action-type="drawer_toggle"
+                                    suda-uatrack="key=tblog_account&amp;value=career" onclick="Diane(this);">
+                                    <li class="title_name W_fb">职业信息</li>
+                                    <li class="title_content S_txt2" node-type="concise">
+                                        未填写公司
+                                    </li>
+                                    <li class="title_option W_tr">
+                                        <a class="set_opt" node-type="drawer_toggle" action-data="open=编辑&amp;close=收起"
+                                           href="javascript:void(0)">
+                                            编辑 </a>
+                                    </li>
+                                </ul>
+                                <div node-type="content" class="unfold_content clearfix hide">
+                                        <a>编辑</a>
+                                </div>
+                            </div>
                             <!--个人标签  -->
                             <div class="account_fold SW_fun_bg" id="pl_personalInfo_tag">
-                                <ul class="account_title clearfix" action-type="drawer_toggle" suda-uatrack="key=tblog_account&amp;value=tag"
-                                    onclick="Diane(this);">
+                                <ul class="account_title clearfix" action-type="drawer_toggle"
+                                    suda-uatrack="key=tblog_account&amp;value=tag" onclick="Diane(this);">
                                     <li class="title_name W_fb">个人标签</li>
                                     <li class="title_content S_txt2" node-type="concise">
                                         dsfsdf、dfgdf、sdfa 等5个标签
@@ -413,8 +443,8 @@
                                            href="javascript:void(0)">编辑</a>
                                     </li>
                                 </ul>
-                            <!--   编辑标签        -->
-                                <div node-type="content" class=" ShutDown unfold_content clearfix hide">
+
+                                <div node-type="content" class="unfold_content clearfix hide">
                                     <p class="hint_title S_txt2">添加描述职业、兴趣爱好等方面的词语，让更多人找到你，让你找到更多同类</p>
 										<div class="profile_pinfo profile_tag" node-type="tag">
 										<div class="pf_item clearfix">
@@ -460,6 +490,8 @@
                                                                                         <a href="javascript:void(0);" action-type="tag_add" action-data="value=吃" class="W_btn_arrow tag"><span class="S_func1"><em class="addicon">+</em>吃</span></a>
                                                                                         <a href="javascript:void(0);" action-type="tag_add" action-data="value=天秤座" class="W_btn_arrow tag"><span class="S_func1"><em class="addicon">+</em>天秤座</span></a>
                                                                                     </span>
+
+
 						<div class="tags_more"><a href="javascript:void(0)" action-type="tag_change">换一换</a></div>
 						<!--保存取消按钮  -->
 						<div class="info_item btn_item clearfix">
@@ -467,8 +499,8 @@
 							<div class="inp">
 								<a class="W_btn_a" action-type="btn_submit" node-type="btn_submit" href="">
                                     <span onclick="Clo(this)">保存</span></a>
-								<a class="W_btn_b" href="">
-                                    <span onclick="ShutDown(this)">关闭</span></a>
+								<a class="W_btn_b" action-type="btn_reset" node-type="btn_reset" href="http://127.0.0.1:8000/lay_out/">
+                                    <span>关闭</span></a>
 							</div>
 						</div>
 					</div>
@@ -478,44 +510,13 @@
 </div>
 
 </div>
-								</div></div>
-                            <!--教育信息收起  -->
-                            <div class="account_fold SW_fun_bg" id="pl_personalInfo_education">
-                                <ul class="account_title clearfix" action-type="drawer_toggle"
-                                    suda-uatrack="key=tblog_account&amp;value=edu" onclick="Diane(this);">
-                                    <li class="title_name W_fb">教育信息</li>
-                                    <li class="title_content S_txt2" node-type="concise">
-                                        未填写学校
-                                    </li>
-                                    <li class="title_option W_tr">
-                                        <a class="set_opt" node-type="drawer_toggle" action-data="open=编辑&amp;close=收起"
-                                           href="javascript:void(0)">
-                                            编辑 </a>
-                                    </li>
-                                </ul >
-                                <div node-type="content" class="unfold_content clearfix hide">
+								</div>
 
-                                </div>
-                            </div>
-                            <!--职业信息收起  -->
-                            <div class="account_fold SW_fun_bg" id="pl_personalInfo_job">
-                                <ul class="account_title clearfix" action-type="drawer_toggle"
-                                    suda-uatrack="key=tblog_account&amp;value=career" onclick="Diane(this);">
-                                    <li class="title_name W_fb">职业信息</li>
-                                    <li class="title_content S_txt2" node-type="concise">
-                                        未填写公司
-                                    </li>
-                                    <li class="title_option W_tr">
-                                        <a class="set_opt" node-type="drawer_toggle" action-data="open=编辑&amp;close=收起"
-                                           href="javascript:void(0)">
-                                            编辑 </a>
-                                    </li>
-                                </ul>
-                                <div node-type="content" class="unfold_content clearfix hide">
-                                        <a>编辑</a>
-                                </div>
-                            </div>
 
+
+
+
+                            </div>
                             <!--收货地址收起  -->
                             <div class="account_fold SW_fun_bg" id="pl_personalInfo_address">
                                 <ul class="account_title clearfix" action-type="drawer_toggle"
@@ -745,10 +746,8 @@
         $('#mos_tag').css('display', 'none');
         $('#mos_ul').removeClass('hide')
     }
-<!--   关闭按钮   ----------------------------           -->
-    function ShutDown(ths) {
-        $('.ShutDown').removeClass('hide')
-    }
+
+
 </script>
 
 
