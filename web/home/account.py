@@ -95,6 +95,3 @@ def search(request):
 
     return render(request, 'search/search.html')
 
-def personal(request):
-
-    return render(request, 'personal/personal.html')

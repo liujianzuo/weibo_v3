@@ -35,21 +35,21 @@
                                     <p class="photo_wrap">
                                         <a href="javascript:void(0);" action-type="setPhoto" title="更换头像"
                                            suda-uatrack="key=profile_head&amp;value=head_host">
-                                            <img src="http://tva1.sinaimg.cn/crop.69.1.120.120.180/eda1169dgw1ecr39pdiq6j205k04kwei.jpg"
-                                                 alt="MC的暖暖阳光" class="photo">
+                                            <img src="/{{ infomation.userinfo.head_img }}"
+                                                 alt="{{ infomation.userinfo.name }}" class="photo">
                                         </a>
 
                                     </p>
                                 </div>
 
                                 <div class="pf_username">
-                                    <h1 class="username">MC的暖暖阳光</h1>
+                                    <h1 class="username">{{ infomation.userinfo.name }}</h1>
                                     <span class="icon_bed"><a><i class="W_icon icon_pf_male"></i></a></span>
                                 </div>
 
 
                                 <div class="pf_intro">
-                                    <a class="tlink" href="/3986757277/info">一句话介绍一下自己吧，让别人更了解你</a></div>
+                                    <a class="tlink" href="/3986757277/info">{{ infomation.userinfo.brief }}</a></div>
                             </div>
                             <div class="upcover"><a href="javascript:void(0);" class="W_btn_b " node-type="custom"
                                                     style="display: none;"><em
@@ -66,7 +66,7 @@
                                 <ul class="list_ul">
                                     <li class="item"><a suda-data="key=tblog_otherprofile_v5&amp;value=whisper"
                                                         href="javascript:void(0);" action-type="addQuietFollow"
-                                                        action-data="fuid=3986757277&amp;fname=MC的暖暖阳光&amp;action=add"
+                                                        action-data="fuid=3986757277&amp;fname={{ infomation.userinfo.name }}&amp;action=add"
                                                         class="tlink"
                                                         suda-uatrack="key=tblog_profile_v6&amp;value=silently_concern">悄悄关注</a>
                                     </li>
@@ -145,16 +145,16 @@
                                             <td class="S_line1">
                                                 <a bpfilter="page_frame" class="t_link S_txt1"
                                                    href="http://weibo.com/3986757277/follow?from=page_100505&amp;wvr=6&amp;mod=headfollow#place"><strong
-                                                        class="W_f18">82</strong><span class="S_txt2">关注</span></a></td>
+                                                        class="W_f18">{{ infomation.followed_num }}</strong><span class="S_txt2">关注</span></a></td>
                                             <td class="S_line1">
                                                 <a bpfilter="page_frame" class="t_link S_txt1"
                                                    href="http://weibo.com/3986757277/fans?from=100505&amp;wvr=6&amp;mod=headfans&amp;current=fans#place"><strong
-                                                        class="W_f18">129</strong><span class="S_txt2">粉丝</span></a>
+                                                        class="W_f18">{{ infomation.my_fans_num }}</strong><span class="S_txt2">粉丝</span></a>
                                             </td>
                                             <td class="S_line1">
                                                 <a bpfilter="page_frame" class="t_link S_txt1"
                                                    href="http://weibo.com/p/1005053986757277/home?from=page_100505_profile&amp;wvr=6&amp;mod=data#place"><strong
-                                                        class="W_f18">137</strong><span class="S_txt2">微博</span></a>
+                                                        class="W_f18">{{ infomation.webo_count }}</strong><span class="S_txt2">微博</span></a>
                                             </td>
                                         </tr>
                                         </tbody>
@@ -201,7 +201,7 @@
                                         </div>
                                     </div>
                                     <a class="WB_cardmore S_txt1 S_line1 clearfix"
-                                       href="/p/1005053986757277/info?mod=pedit" bpfilter="page_frame" ontouchstart="">
+                                       href="/lay_out" bpfilter="page_frame" ontouchstart="">
                                         <span class="more_txt">编辑个人资料&nbsp;<em
                                                 class="W_ficon ficon_arrow_right S_ficon">a</em></span>
                                     </a>
@@ -535,10 +535,10 @@
                                         <div class="face"><a target="_blank" class="W_face_radius"
                                                              suda-uatrack="key=noload_singlepage&amp;value=user_pic"
                                                              href="http://weibo.com/u/3986757277?refer_flag=1005055010_"
-                                                             title="MC的暖暖阳光"><img
+                                                             title="{{ infomation.userinfo.name }}"><img
                                                 usercard="id=3986757277&amp;type=0&amp;refer_flag=1005055010_"
-                                                src="http://tva1.sinaimg.cn/crop.69.1.120.120.50/eda1169dgw1ecr39pdiq6j205k04kwei.jpg"
-                                                width="50" height="50" alt="MC的暖暖阳光" class="W_face_radius"></a></div>
+                                                src="/{{ infomation.userinfo.head_img }}"
+                                                width="50" height="50" alt="{{ infomation.userinfo.name }}" class="W_face_radius"></a></div>
                                     </div>
 
                                     <div class="WB_detail">
@@ -546,7 +546,7 @@
                                             <a href="http://weibo.com/u/3986757277?refer_flag=1005055010_"
                                                target="_blank" class="W_f14 W_fb S_txt1"
                                                usercard="id=3986757277&amp;type=0&amp;refer_flag=1005055010_"
-                                               suda-uatrack="key=noload_singlepage&amp;value=user_name">MC的暖暖阳光</a>
+                                               suda-uatrack="key=noload_singlepage&amp;value=user_name">{{ infomation.userinfo.name }}</a>
                                         </div>
                                         <div class="WB_from S_txt2">
                                             <a name="3983158858915159" target="_blank"
@@ -559,7 +559,7 @@
                                                                 action-type="app_source" target="_blank"
                                                                 href="http://weibo.com/" rel="nofollow">微博 weibo.com</a>
                                         </div>
-                                        <div class="WB_text W_f14" node-type="feed_list_content" nick-name="MC的暖暖阳光">
+                                        <div class="WB_text W_f14" node-type="feed_list_content" nick-name="{{ infomation.userinfo.name }}">
                                             <a target="_blank" render="ext"
                                                suda-uatrack="key=topic_click&amp;value=click_topic" class="a_topic"
                                                extra-data="type=topic"
@@ -653,7 +653,7 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a action-data="allowForward=1&amp;url=http://weibo.com/3986757277/DyTlbBpeT&amp;mid=3983158858915159&amp;name=MC的暖暖阳光&amp;uid=3986757277&amp;domain=3986757277"
+                                                <a action-data="allowForward=1&amp;url=http://weibo.com/3986757277/DyTlbBpeT&amp;mid=3983158858915159&amp;name={{ infomation.userinfo.name }}&amp;uid=3986757277&amp;domain=3986757277"
                                                    action-type="fl_forward" action-history="rec=1"
                                                    href="javascript:void(0);" class="S_txt2"
                                                    suda-uatrack="key=profile_feed&amp;value=transfer"><span class="pos"><span
@@ -730,10 +730,10 @@
                                         <div class="face"><a target="_blank" class="W_face_radius"
                                                              suda-uatrack="key=noload_singlepage&amp;value=user_pic"
                                                              href="http://weibo.com/u/3986757277?refer_flag=1005055010_"
-                                                             title="MC的暖暖阳光"><img
+                                                             title="{{ infomation.userinfo.name }}"><img
                                                 usercard="id=3986757277&amp;type=0&amp;refer_flag=1005055010_"
-                                                src="http://tva1.sinaimg.cn/crop.69.1.120.120.50/eda1169dgw1ecr39pdiq6j205k04kwei.jpg"
-                                                width="50" height="50" alt="MC的暖暖阳光" class="W_face_radius"></a></div>
+                                                src="/{{ infomation.userinfo.head_img }}"
+                                                width="50" height="50" alt="{{ infomation.userinfo.name }}" class="W_face_radius"></a></div>
                                     </div>
 
                                     <div class="WB_detail">
@@ -741,7 +741,7 @@
                                             <a href="http://weibo.com/u/3986757277?refer_flag=1005055010_"
                                                target="_blank" class="W_f14 W_fb S_txt1"
                                                usercard="id=3986757277&amp;type=0&amp;refer_flag=1005055010_"
-                                               suda-uatrack="key=noload_singlepage&amp;value=user_name">MC的暖暖阳光</a>
+                                               suda-uatrack="key=noload_singlepage&amp;value=user_name">{{ infomation.userinfo.name }}</a>
                                         </div>
                                         <div class="WB_from S_txt2">
                                             <a name="3982384129187222" target="_blank"
@@ -803,7 +803,7 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a action-data="allowForward=0&amp;url=http://weibo.com/3986757277/DyzbCCy10&amp;mid=3982384129187222&amp;name=MC的暖暖阳光&amp;uid=3986757277&amp;domain=3986757277"
+                                                <a action-data="allowForward=0&amp;url=http://weibo.com/3986757277/DyzbCCy10&amp;mid=3982384129187222&amp;name={{ infomation.userinfo.name }}&amp;uid=3986757277&amp;domain=3986757277"
                                                    action-type="fl_forward" action-history="rec=1"
                                                    href="javascript:void(0);" class="S_txt2"
                                                    suda-uatrack="key=profile_feed&amp;value=transfer"><span class="pos"><span
@@ -881,10 +881,10 @@
                                         <div class="face"><a target="_blank" class="W_face_radius"
                                                              suda-uatrack="key=noload_singlepage&amp;value=user_pic"
                                                              href="http://weibo.com/u/3986757277?refer_flag=1005055010_"
-                                                             title="MC的暖暖阳光"><img
+                                                             title="{{ infomation.userinfo.name }}"><img
                                                 usercard="id=3986757277&amp;type=0&amp;refer_flag=1005055010_"
-                                                src="http://tva1.sinaimg.cn/crop.69.1.120.120.50/eda1169dgw1ecr39pdiq6j205k04kwei.jpg"
-                                                width="50" height="50" alt="MC的暖暖阳光" class="W_face_radius"></a></div>
+                                                src="/{{ infomation.userinfo.head_img }}"
+                                                width="50" height="50" alt="{{ infomation.userinfo.name }}" class="W_face_radius"></a></div>
                                     </div>
 
                                     <div class="WB_detail">
@@ -892,7 +892,7 @@
                                             <a href="http://weibo.com/u/3986757277?refer_flag=1005055010_"
                                                target="_blank" class="W_f14 W_fb S_txt1"
                                                usercard="id=3986757277&amp;type=0&amp;refer_flag=1005055010_"
-                                               suda-uatrack="key=noload_singlepage&amp;value=user_name">MC的暖暖阳光</a>
+                                               suda-uatrack="key=noload_singlepage&amp;value=user_name">{{ infomation.userinfo.name }}</a>
                                         </div>
                                         <div class="WB_from S_txt2">
                                             <a name="3973551059062878" target="_blank"
@@ -905,7 +905,7 @@
                                                                       action-type="app_source" target="_blank"
                                                                       href="http://app.weibo.com/t/feed/PBP2P"
                                                                       rel="nofollow">微博 weibo.com</a></div>
-                                        <div class="WB_text W_f14" node-type="feed_list_content" nick-name="MC的暖暖阳光">
+                                        <div class="WB_text W_f14" node-type="feed_list_content" nick-name="{{ infomation.userinfo.name }}">
                                             发布了头条文章：《Python学习笔记》 <a
                                                 suda-uatrack="key=tblog_card&amp;value=click_title:3973551059062878:1022-article:1022%3A2309403973551060342072:page_100505_home:3986757277:3973551059062878:3986757277"
                                                 title="Python学习笔记" href="http://t.cn/Rq3pimj"
@@ -932,7 +932,7 @@
                                                                      alt="Python学习笔记" title="Python学习笔记">
                                                             </a>
                                                             <div class="WB_feed_spec_clearfix clearfix">
-                                                                <div class="W_fl W_autocut">MC的暖暖阳光</div>
+                                                                <div class="W_fl W_autocut">{{ infomation.userinfo.name }}</div>
                                                             </div>
                                                             <span class="W_icon_tag_artical"><em
                                                                     class="W_ficon ficon_cd_artical"></em></span>
@@ -979,7 +979,7 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a action-data="allowForward=1&amp;url=http://weibo.com/3986757277/DuRoJC1Fs&amp;mid=3973551059062878&amp;name=MC的暖暖阳光&amp;uid=3986757277&amp;domain=3986757277"
+                                                <a action-data="allowForward=1&amp;url=http://weibo.com/3986757277/DuRoJC1Fs&amp;mid=3973551059062878&amp;name={{ infomation.userinfo.name }}&amp;uid=3986757277&amp;domain=3986757277"
                                                    action-type="fl_forward" action-history="rec=1"
                                                    href="javascript:void(0);" class="S_txt2"
                                                    suda-uatrack="key=profile_feed&amp;value=transfer"><span class="pos"><span
