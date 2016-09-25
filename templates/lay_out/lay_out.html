@@ -297,7 +297,7 @@
                                 <ul class="account_title clearfix" action-type="drawer_toggle" suda-uatrack="key=tblog_account&amp;value=nick"
                                     onclick="Diane(this);" >
                                     <li class="title_name W_fb">昵称</li>
-                                    <li class="title_content S_txt2" node-type="concise">妈妈说名字越长用的人越少真麻烦</li>
+                                    <li class="title_content S_txt2" id="nickname2" node-type="concise">{{ infomation.userinfo.name }}</li>
                                     <li class="title_option W_tr">
                                         <a class="set_opt" node-type="drawer_toggle" action-data="open=编辑&amp;close=收起"
                                            href="javascript:void(0)">
@@ -309,7 +309,7 @@
                                     <div class="acc_form">
                                         <div class="info_item clearfix">
                                             <div class="tit">现昵称</div>
-                                            <div class="inp w_lh30" node-type="oldnick">妈妈说名字越长用的人越少真麻烦</div>
+                                            <div class="inp w_lh30" id="nickname1" node-type="oldnick">{{ infomation.userinfo.name }}</div>
                                             <div class="tips">
                                             </div>
                                         </div>
@@ -345,7 +345,7 @@
                                 <ul class="account_title clearfix" action-type="drawer_toggle" suda-uatrack="key=tblog_account&amp;value=info"
                                     onclick="Diane(this);">
                                     <li class="title_name W_fb">个人资料</li>
-                                    <li class="title_content S_txt2" node-type="concise">完善资料，让大家更了解你</li>
+                                    <li class="title_content S_txt2" id="profile_info" node-type="concise">我的邮箱{{ infomation.userinfo.email }} </li>
                                     <li class="title_option W_tr">
                                         <a class="set_opt" node-type="drawer_toggle" action-data="open=编辑&amp;close=收起"
                                            href="javascript:void(0)">编辑</a>
@@ -715,16 +715,22 @@
     <!--获取昵称-->
     function NickName(ths) {
         var input_val = $('.W_input_personal').val();
-        console.log(input_val);
+        console.log(input_val,{'data_tag':["name",input_val] });
         $.ajax({
+            url:'/change_userprofile_name/',
             type:'POST',
-            url:'',
-            data:{'data_tag':[input_val] },
+            data:{'data_tag':JSON.stringify(["name",input_val]) },
             dataType:'JOSN',
             success:function (callback) {
                 console.log(callback)
+                if (callback.status){
+                    $("#nickname1").text(input_val)
+                    $("#nickname2").text(input_val)
+                    }
                     }
         })
+        $("#nickname1").text(input_val)
+        $("#nickname2").text(input_val)
     }
     <!--  个人信息   -->
     function Infomation(ths) {
@@ -732,10 +738,11 @@
     console.log(input_val);
     $.ajax({
         type:'POST',
-        url:'',
-        data:{'data_tag':[input_val] },
+        url:'/change_userprofile_name/',
+        data:{'data_tag':JSON.stringify(["email",input_val]) },
         dataType:'JOSN',
         success:function (callback) {
+            $("#profile_info").text(input_val)
             console.log(callback)
                 }
     })

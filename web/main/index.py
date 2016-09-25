@@ -161,17 +161,22 @@ def change_userprofile_name(request):
     if not request.session.get("is_login", None):
         return redirect("/login")
 
-    # if request.method == "POST":
-    if request.method == "GET":
+    if request.method == "POST":
+    # if request.method == "GET":
         nid = request.session['userinfo']['data'][0]['id']
-        # data_dict = request.POST.get("data_dict")
-        data_dict = {"name":'玄霸天下2'}
-
+        print(request.POST)
+        data_dict = request.POST.get("data_tag")
+        print(nid,data_dict)
+        # data_dict = {"name":'玄霸天下2'}
+        data_list = json.loads(data_dict)
+        data_dict = {data_list[0]:data_list[1]}
+        print(data_dict)
         obj_user = UserRpostry()
         change_name = obj_user.change_colume(nid,data_dict)
+        request.session['userinfo']['data'][0][data_list[0]]=data_list[1]
+        request.session['userinfo'] = request.session['userinfo']
         if not change_name['status']:
             rep['status'] = False
-            rep['message'] = "但是"
-
-
+            rep['message'] = "昵称修改失败"
+    print('123123的说法是对方是否',rep)
     return HttpResponse(json.dumps(rep))
