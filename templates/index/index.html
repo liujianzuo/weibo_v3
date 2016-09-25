@@ -7,10 +7,23 @@
     <link href="/statics/index_profile_js_css/comb_login_v2.css" type="text/css" rel="stylesheet" charset="utf-8">
     <link href="/statics/index_profile_js_css/skin.css" type="text/css" rel="stylesheet" id="skin_style">
     <link href="/statics/bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet" >
+    <link href="/statics/search/face/jquery.sinaEmotion.css" type="text/css" rel="stylesheet" >
     <style>
         .hide {
             display: none;
         }
+    *{margin:0;padding:0;}
+	.fileImg{padding:20px;background:#ececec;overflow:hidden;width:800px;margin:20px auto;}
+	.fileImg ul li{position:relative;border:1px solid #c5c5c5;width:50px;height:50px;float:left;margin-right:50px;list-style-type:none;background:#f4f5f7;border-radius:5px;}
+	.fileImg ul li input{position:absolute;z-index:3;top:0;left:0;width:100%;height:100%;opacity:0;-webkit-tap-highlight-color:rgba(0,0,0,0);}
+	.fileImg ul li:after{position:absolute;content:' ';display:block;width:2px;height:30px;background:#cdcdcd;left:50%;margin-left:-1px;top:50%;margin-top:-15px;z-index:2;}
+	.fileImg ul li:before{position:absolute;content:' ';display:block;top:50%;margin-top:-1px;z-index:2;width:30px;height:2px;background:#cdcdcd;left:50%;margin-left:-15px;}
+	.fileImg ul li span:nth-child(2){display:none;width:50px;height:50px;position:absolute;left:0;top:0;background:#f4f5f7;cursor:pointer;border-radius:5px;overflow:hidden;z-index:3;}
+	.fileImg ul li span:nth-child(2):after{content:'x';display:block;z-index:4;width:20px;height:20px;line-height:16px;color:#fff;background:red;border-radius:50%;position:absolute;left:50%;top:50%;margin-left:-10px;margin-top:-10px;text-align:center;}
+	.fileImg ul li span:nth-child(2) img{width:100%;position:absolute;left:0;top:50%;}
+
+    .picture{width: 500px;height: auto;background-color: yellow}
+
     </style>
 
 {% endblock %}
@@ -231,7 +244,7 @@
             </div>
     </div>
     <div class="input" node-type="textElDiv" >
-        <textarea class="W_input " title="微博输入框" name="" node-type="textEl" range="0&amp;0" content=""></textarea>
+        <textarea class="W_input emotion " title="微博输入框" name="" node-type="textEl" range="0&amp;0" content=""></textarea>
         <div class="send_succpic" style="display:none" node-type="successTip"><span class="W_icon icon_succB"></span><span class="txt">发布成功</span></div>
         <form style="display:none;" node-type="extradata">
     		<input name="pollid" value="">
@@ -257,27 +270,97 @@
             <a title="取消发布定时微博" href="javascript:void()" action-type="close" class="W_ficon ficon_close S_ficon">X</a> <a href="http://weibo.com/5356516674/profile?profile_ftype=1&amp;timefeed=1#_0" node-type="timing_blog_manage" class="rt_txt W_fr">管理待发布微博</a>
         </div>
     </div>
-    <div class="func_area clearfix" node-type="widget">
-        <div class="func">
-            <div class="limits">
-            <a class="S_txt1" action-data="rank=0" suda-data="key=tblog_edit_exposure&amp;value=edit_click" action-type="showPublishTo" node-type="showPublishTo" href="javascript:void(0)" onclick="return false" title="公开-你发表的微博可以被大家公开查看哦"><span class="W_autocut" node-type="publishTotext">公开</span><em class="W_ficon ficon_arrow_down S_ficon">c</em></a>
-            </div>
-            <a href="javascript:void(0);" class="W_btn_a btn_30px W_btn_a_disable" diss-data="module=stissue" node-type="submit" title="发布微博按钮">发布</a>
-        </div>
-        <div class="kind">
+    <div class="func_area clearfix" node-type="widget" style="position: relative">
+{#        <div class="func">#}
+{#            <div class="limits">#}
+{#            <a class="S_txt1" action-data="rank=0" suda-data="key=tblog_edit_exposure&amp;value=edit_click" action-type="showPublishTo" node-type="showPublishTo" href="javascript:void(0)" onclick="return false" title="公开-你发表的微博可以被大家公开查看哦">#}
+{#                <span class="W_autocut" node-type="publishTotext">公开</span>#}
+{#                <em class="W_ficon ficon_arrow_down S_ficon"></em></a>#}
+{#            </div>#}
+{#            <a href="javascript:void(0);" class="W_btn_a btn_30px W_btn_a_disable" diss-data="module=stissue" node-type="submit" title="发布微博按钮">发布</a>#}
+{#        </div>#}
+         <div class="btn-group" style="width: 60px;height: 20px !important;">
+            <button style="padding: 2px 10px;border:0px;" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+              公开
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu" style="padding: 2px 10px">
+              <li><a href="">公开</a></li>
+              <li><a href="">好友圈</a></li>
+              <li><a href="">仅自己可见</a></li>
+              <li><a href="">群可见</a></li>
+            </ul>
+         </div>
+         <a style="display: inline-block;margin-top: 3px;margin-left: 74px"
+                 href="javascript:void(0);" class="W_btn_a btn_30px W_btn_a_disable"
+            diss-data="module=stissue" node-type="submit" title="发布微博按钮">
+             发布</a>
 
-          <button aria-describedby="popover316925" title="" data-original-title="" type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
-            表情
-          </button>
-            <a class="S_txt1" href="javascript:void(0);" action-type="multiimage" action-data="type=508&amp;action=1&amp;log=image&amp;cate=1" title="图片" suda-uatrack="key=tblog_new_image_upload&amp;value=image_button">
-                <em class="W_ficon ficon_image">p</em>图片</a>
+        <div class="kind">
+            <a id="face" class="S_txt1 face-icon" >
+                <em style="line-height: 1px;padding-top: 0px; font-size: 26px;color: #F56416" class="W_ficon ficon_image">
+                    ☺</em>表情</a>
+
+            <a onclick="Picture(this)" id="picture" class="S_txt1">
+                <em style="top: 4px;font-size: 16px; color: #F56416" class="glyphicon glyphicon-picture">
+                </em> 图片</a>
+<div class="picture hide" style="border: 1px solid orange;border-radius: 15px;z-index: 9999;position: absolute" >
+<div onclick="Close(this)" style="cursor: pointer;font-size: 50px;font-weight: 500;float: right">X</div>
+    <div style="width: 310px;height: auto;background-color: wheat" class="Picture_Home fileImg" id="fileImg">
+        <ul id="ul">
+            <li >
+				<input type="file" class="upfile" id="adfadfadsf">
+				<span></span>
+			</li>
+            <li>
+				<input type="file" class="upfile">
+				<span></span>
+			</li>
+            <li>
+				<input type="file" class="upfile">
+				<span></span>
+			</li>
+            <li>
+				<input type="file" class="upfile">
+				<span></span>
+			</li>
+            <li>
+				<input type="file" class="upfile">
+				<span></span>
+			</li>
+            <li>
+				<input type="file" class="upfile">
+				<span></span>
+			</li>
+            <li>
+				<input type="file" class="upfile">
+				<span></span>
+			</li>
+            <li>
+				<input type="file" class="upfile">
+				<span></span>
+			</li>
+            <li>
+				<input type="file" class="upfile">
+				<span></span>
+			</li>
+
+
+        </ul>
+    </div>
+</div>
+
+
+
+
+
             <a class="S_txt1" href="javascript:void(0);" action-type="video" action-data="type=502&amp;action=1&amp;log=video&amp;cate=1" title="视频" suda-uatrack="key=tblog_home_edit&amp;value=video_button">
-                <em class="W_ficon ficon_video">q</em>视频</a>
+                <em style="color: #F56416;top: 4px;font-size: 16px" class="glyphicon glyphicon-facetime-video"></em> 视频</a>
             <a class="S_txt1" href="javascript:void(0);" action-type="topic" action-data="type=504&amp;action=1&amp;log=topic&amp;cate=1" title="话题" suda-uatrack="key=tblog_home_edit&amp;value=topic_button">
-                <em class="W_ficon ficon_swtopic">"</em>话题</a>
+                <em style="color: #F56416;top: 4px;font-size: 20px" class="W_ficon ficon_swtopic">#</em> 话题</a>
             <a class="S_txt1" href="http://weibo.com/ttarticle/p/editor" target="_blank" title="头条文章" suda-uatrack="key=tblog_headline_article&amp;value=headline_article_button">
-                <em class="W_ficon ficon_artical"></em>头条文章</a>
-            <a href="javascript:void(0);" node-type="more" class="W_ficon ficon_more S_ficon" title="查看更多">…</a>
+                <em style="font-size:16px;top: 2px;color: #F56416;" class="glyphicon glyphicon-flash"></em>头条文章</a>
+            <a href="javascript:void(0);" node-type="more" class="W_ficon ficon_more S_ficon" title="查看更多"></a>
 	                </div>
     </div>
 </div>
@@ -637,13 +720,82 @@
 
 
     <script src="/statics/index_profile_js_css/jquery-1.8.2.min.js"></script>
+    <script src="/statics/search/bootstrap.min.js"></script>
+    <script src="/statics/search/face/jquery-1.8.0.min.js"></script>
+    <script src="/statics/search/face/jquery.sinaEmotion.js"></script>
 
     <script>
         $.ready(function () {
             Post_user();
             check_is_login();
-
+            out();
         });
+
+        $('#face').SinaEmotion($('.emotion'));
+
+		// 测试本地解析
+
+		function out() {
+
+			var inputText = $('.emotion').val();
+
+			$('#out').html(AnalyticEmotion(inputText));
+
+		}
+
+        //picture上传
+        function Close(ths) {
+            $('.picture').addClass('hide')
+        }
+
+
+
+        function Picture(ths) {
+            $('.picture').removeClass('hide')
+        }
+        var obj = document.getElementById('fileImg');
+	    var	ALi = obj.getElementsByTagName('li');
+	addFn();
+        function addFn(){
+		for(var i=0;i<ALi.length;i++){
+			ALi[i].getElementsByTagName('input')[0].index=i;
+			ALi[i].getElementsByTagName('span')[0].index=i;
+			// 文件域改变后执行
+			ALi[i].getElementsByTagName('input')[0].onchange=function(){
+				ALi[this.index].getElementsByTagName('span')[0].style.display='block'; //删除按钮显示
+				var oImg = document.createElement('img'); // 创建img元素
+				ALi[this.index].getElementsByTagName('span')[0].appendChild(oImg);
+				oImg.src=getFileUrl(this);  //地址增加
+
+				setTimeout(function(){  //图片高度居中
+					oImg.style.marginTop=-oImg.offsetHeight/2+'px';
+				}, 100);
+			};
+			// 删除按钮事件
+			ALi[i].getElementsByTagName('span')[0].onclick=function(){
+				ALi[this.index].innerHTML='<input type="file" class="upfile" ><span></span>';
+				addFn();
+			};
+		};
+	};
+	// 创建本地地址
+	function getFileUrl(sourceId) {
+		var url;
+		if (navigator.userAgent.indexOf("MSIE")>=1) { // IE
+		url = sourceId.value;
+		} else if(navigator.userAgent.indexOf("Firefox")>0) { // Firefox
+		url = window.URL.createObjectURL(sourceId.files.item(0));
+		} else if(navigator.userAgent.indexOf("Chrome")>0) { // Chrome
+		url = window.URL.createObjectURL(sourceId.files.item(0));
+		}
+        console.log(url);
+		return url;
+	};
+
+
+
+
+
 
 
 
