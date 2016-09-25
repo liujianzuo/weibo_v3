@@ -406,7 +406,7 @@
                                     onclick="Diane(this);">
                                     <li class="title_name W_fb">个人标签</li>
                                     <li class="title_content S_txt2" node-type="concise">
-                                        dsfsdf、dfgdf、sdfa 等5个标签
+                                        {{ infomation.tag_list.0 }},{{ infomation.tag_list.1 }},{{ infomation.tag_list.2 }},{{ infomation.tag_list.3 }}等标签
                                     </li>
                                     <li class="title_option W_tr">
                                         <a node-type="drawer_toggle" action-data="open=编辑&amp;close=收起"
@@ -422,13 +422,15 @@
                                             <div class="con">
                                                 <div class="tag_edit">
                                                     <div class="fake_input S_bg5 S_line2">
-														<div class="W_btn_arrow tag" node-type="tag_item" data="value=视频音乐&amp;tagid=201011160001445655"><span class="S_func1">视频音乐<a href="javascript:void(0)" action-type="tag_del" action-data="value=视频音乐&amp;tagid=201011160001445655" class="W_ico12 icon_close"></a></span></div>
-														<div class="W_btn_arrow tag" node-type="tag_item" data="value=校园生活&amp;tagid=37029"><span class="S_func1">校园生活<a href="javascript:void(0)" action-type="tag_del" action-data="value=校园生活&amp;tagid=37029" class="W_ico12 icon_close"></a></span></div>
-														<div class="W_btn_arrow tag" node-type="tag_item" data="value=搞笑幽默&amp;tagid=13596">
-                                                            <span class="S_func1">搞笑幽默
-                                                                <a href="javascript:void(0)" action-type="tag_del" action-data="value=搞笑幽默&amp;tagid=13596" class="W_ico12 icon_close"></a>
-                                                            </span>
-                                                        </div>
+                                                        {% for item in infomation.tag_list %}
+														<div class="W_btn_arrow tag" node-type="tag_item" data="value=视频音乐&amp;tagid=201011160001445655"><span class="S_func1">{{ item }}<a href="javascript:void(0)" action-type="tag_del" action-data="value=视频音乐&amp;tagid=201011160001445655" class="W_ico12 icon_close"></a></span></div>
+                                                        {% endfor %}
+{#														<div class="W_btn_arrow tag" node-type="tag_item" data="value=校园生活&amp;tagid=37029"><span class="S_func1">校园生活<a href="javascript:void(0)" action-type="tag_del" action-data="value=校园生活&amp;tagid=37029" class="W_ico12 icon_close"></a></span></div>#}
+{#														<div class="W_btn_arrow tag" node-type="tag_item" data="value=搞笑幽默&amp;tagid=13596">#}
+{#                                                            <span class="S_func1">搞笑幽默#}
+{#                                                                <a href="javascript:void(0)" action-type="tag_del" action-data="value=搞笑幽默&amp;tagid=13596" class="W_ico12 icon_close"></a>#}
+{#                                                            </span>#}
+{#                                                        </div>#}
 														<div ondblclick="Miss(this)" id="mosson" class="hide W_btn_arrow tag " node-type="tag_item" data="value=视频音乐&amp;tagid=201011160001445655">
                                                             <span class="S_func1">视频
                                                                 <a href="javascript:void(0)" action-type="tag_del" action-data="value=视频音乐&amp;tagid=201011160001445655" class="W_ico12 icon_close"></a>
