@@ -32,23 +32,7 @@ def create_weibo(request):
         channel.create_rab_queue(que_name,json.dumps(form_data))
         form_data = json.dumps(form_data)
         rep["data"] = form_data
-    elif request.method == 'GET':
-        timestamp = time.time()
-        user_id = request.session['userinfo']['data'][0]["user_id__id"]
-        pic_path = "statics/%s/%s" % (user_id, timestamp)
-        all_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), pic_path)
-        if not os.path.exists(all_path):
-            os.mkdir(all_path)
-        print(request)
-        print(request.FILES.get("fff"))
-        path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "statics/uploads/1/temp", )
-        obj = request.FILES.get("fff")
-        print(obj.name, obj.chunks(), type(obj.chunks()))
 
-        f = open(os.path.join(path, obj.name), "wb")
-        for chunk in obj.chunks():
-            f.write(chunk)
-        return HttpResponse("/%s" % pic_path)
 
     return HttpResponse(json.dumps(rep))
 
@@ -76,4 +60,6 @@ def get_all_new_weibo(request):
         print("get weibo item_weibo_detail ", all_new_weibo)
 
         return HttpResponse(json.dumps({"all_new_weibo": all_new_weibo}))
+
+
 

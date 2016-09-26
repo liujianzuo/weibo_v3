@@ -11,6 +11,8 @@ import json
 
 from dao.Repository.TagR import Tags_handler
 
+import time,os
+
 def wrapper(func):
     def inner(request):
         if not request.session.get("is_login", None):
@@ -213,6 +215,30 @@ def personal(request):
 
         return render(request, 'personal/personal.html',{'is_login': False,})
 
+
+def pic_handle(request):
+
+    timestamp = time.time()
+    user_id = request.session['userinfo']['data'][0]["user_id__id"]
+    pic_path = "statics/uploads/%s/%s" % (user_id, timestamp)
+
+    if request.method == "POST":
+
+        all_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), pic_path)
+        if not os.path.exists(all_path):
+            os.mkdir(all_path)
+        print(request)
+        print(request.FILES.get("fff"))
+        obj = request.FILES.get("fff")
+        print(obj.name, obj.chunks(), type(obj.chunks()))
+
+        f = open(os.path.join(all_path, obj.name), "wb")
+        for chunk in obj.chunks():
+            f.write(chunk)
+
+        return HttpResponse(os.path.join("/%s" % pic_path,obj.name))
+
+    return render(request,"test/test.html")
 
 
 
