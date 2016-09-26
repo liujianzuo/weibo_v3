@@ -22,7 +22,7 @@ from dao import models
 
 from Intrac import redis_conn
 
-# redis_cccon= redis_conn.conn_redis(settings)
+redis_cccon= redis_conn.conn_redis(settings)
 
 def login(request):
     ret = {"status":True,"message":""}
@@ -53,7 +53,7 @@ def login(request):
 
 
             #设置活跃用户
-            # redis_cccon.set("active_%s" % user.userprofile.id, True, ex=3600*12) #半天
+            redis_cccon.set("active_%s" % user.userprofile.id, True, ex=3600*12) #半天
             ret["message"] = "登录成功"
 
         else:

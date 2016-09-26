@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片处理</title>
+</head>
+<body>
+
+    <input type="file" id="img" value="上传文件">
+    <input type="button" onclick="UploadFile();" value="上传文件"/>
+
+    <script src="/statics/search/face/jquery-1.8.0.min.js"></script>
+    <script>
+        function UploadFile(){
+{#            console.log($("#img"))#}
+            var fileObj = $("#img")[0].files[0];
+            var form = new FormData();
+            form.append("k1", "v1");
+            form.append("fff", fileObj);
+
+            console.log(123123)
+
+            $.ajax({
+                type:'POST',
+                url: '/file_up/',
+                data: form,
+                processData: false,  // tell jQuery not to process the data
+                contentType: false,  // tell jQuery not to set contentType
+                success: function(arg){
+                    console.log(arg);
+                }
+            })
+        }
+    </script>
+
+</body>
+</html>

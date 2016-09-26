@@ -212,3 +212,7 @@ def personal(request):
             return render(request,"personal/personal.html",{'is_login':True,'infomation':infomation})
 
         return render(request, 'personal/personal.html',{'is_login': False,})
+
+
+
+

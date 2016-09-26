@@ -139,8 +139,10 @@ SESSION_SAVE_EVERY_REQUEST = False  # 是否每次请求都保存Session，默�
 
 
 REDIS_CONN = {
-    'host':'localhost',
+    'host':'115.28.147.110',
     'port':6379
 }
 
 FILE_CENTER_PATH = os.path.join(BASE_DIR, "web/statics/uploads")
+
+rabbit_host = "115.28.147.110"
