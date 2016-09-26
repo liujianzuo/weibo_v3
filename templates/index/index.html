@@ -761,7 +761,7 @@
         function UploadFile(){
 {#            console.log($('.MyPic'))#}
             var fileObj = $('.MyPic')[0].files;
-            console.log(fileObj);
+            console.log(fileObj,$('.MyPic')[0]);
             var form = new FormData();
             form.append('fff',fileObj);
             $.ajax({
@@ -776,7 +776,7 @@
                 }
             })
         }
-        var pub_list = []
+        pub_list = []
         function Sub() {
             $('#News').removeClass('hide');
             var content = $('#pub_content').val();
@@ -792,7 +792,7 @@
                 }
 
             })
-
+            pub_list = []
         }
 
 
