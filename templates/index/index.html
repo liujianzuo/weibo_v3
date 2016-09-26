@@ -21,8 +21,8 @@
 	.fileImg ul li span:nth-child(2){display:none;width:50px;height:50px;position:absolute;left:0;top:0;background:#f4f5f7;cursor:pointer;border-radius:5px;overflow:hidden;z-index:3;}
 	.fileImg ul li span:nth-child(2):after{content:'x';display:block;z-index:4;width:20px;height:20px;line-height:16px;color:#fff;background:red;border-radius:50%;position:absolute;left:50%;top:50%;margin-left:-10px;margin-top:-10px;text-align:center;}
 	.fileImg ul li span:nth-child(2) img{width:100%;position:absolute;left:0;top:50%;}
-
-    .picture{width: 500px;height: auto;background-color: yellow}
+    div{border: 0px}
+    .picture{border: 0px;width: 500px;height: auto;background-color: gainsboro}
 
     </style>
 
@@ -236,6 +236,7 @@
 {% if is_login %}
 <div id="v6_pl_content_publishertop" class=""><div class="send_weibo S_bg2 clearfix" node-type="wrap">
     <div class="title_area clearfix">
+            <div style="margin-top: -5px" class="title11"><img src="/statics/image/tu.png" alt=""></div>
             <div class="num S_txt2 hide" node-type="num">还可以输入<span>140</span>字</div>
             <div class="key" node-type="recommendTopic">
                 <a href="http://hot.weibo.com?refer=homright" target="_blank">热门微博</a>
@@ -244,7 +245,7 @@
             </div>
     </div>
     <div class="input" node-type="textElDiv" >
-        <textarea class="W_input emotion " title="微博输入框" name="" node-type="textEl" range="0&amp;0" content=""></textarea>
+        <textarea id="pub_content" class="W_input emotion " title="微博输入框" name="" node-type="textEl" range="0&amp;0" content=""></textarea>
         <div class="send_succpic" style="display:none" node-type="successTip"><span class="W_icon icon_succB"></span><span class="txt">发布成功</span></div>
         <form style="display:none;" node-type="extradata">
     		<input name="pollid" value="">
@@ -291,7 +292,7 @@
               <li><a href="">群可见</a></li>
             </ul>
          </div>
-         <a style="display: inline-block;margin-top: 3px;margin-left: 74px"
+         <a onclick="Sub();" style="display: inline-block;margin-top: 3px;margin-left: 74px"
                  href="javascript:void(0);" class="W_btn_a btn_30px W_btn_a_disable"
             diss-data="module=stissue" node-type="submit" title="发布微博按钮">
              发布</a>
@@ -304,49 +305,13 @@
             <a onclick="Picture(this)" id="picture" class="S_txt1">
                 <em style="top: 4px;font-size: 16px; color: #F56416" class="glyphicon glyphicon-picture">
                 </em> 图片</a>
-<div class="picture hide" style="border: 1px solid orange;border-radius: 15px;z-index: 9999;position: absolute" >
+<div class="picture hide" style="border-radius: 15px;z-index: 9999;position: absolute" >
 <div onclick="Close(this)" style="cursor: pointer;font-size: 50px;font-weight: 500;float: right">X</div>
-    <div style="width: 310px;height: auto;background-color: wheat" class="Picture_Home fileImg" id="fileImg">
-        <ul id="ul">
-            <li >
-				<input type="file" class="upfile" id="adfadfadsf">
-				<span></span>
-			</li>
-            <li>
-				<input type="file" class="upfile">
-				<span></span>
-			</li>
-            <li>
-				<input type="file" class="upfile">
-				<span></span>
-			</li>
-            <li>
-				<input type="file" class="upfile">
-				<span></span>
-			</li>
-            <li>
-				<input type="file" class="upfile">
-				<span></span>
-			</li>
-            <li>
-				<input type="file" class="upfile">
-				<span></span>
-			</li>
-            <li>
-				<input type="file" class="upfile">
-				<span></span>
-			</li>
-            <li>
-				<input type="file" class="upfile">
-				<span></span>
-			</li>
-            <li>
-				<input type="file" class="upfile">
-				<span></span>
-			</li>
-
-
-        </ul>
+    <div style="width: 460px;height: auto;background-color:white " class="Picture_Home fileImg" id="fileImg">
+         <!--  文件上传        --->
+        <input onchange="UploadFile();" style="width: 200px;height: 50px" name="file" class="MyPic" type="file" id="files" multiple />
+        <output id="list"></output>
+        <input type="button" >
     </div>
 </div>
 
@@ -366,149 +331,151 @@
 </div>
 </div>
 {% endif %}
-
+{% if is_login %}
+<div  class="" style="color: #EB7350; text-align: center;background-color: #FFF8BF;margin-bottom: 10px">您有<span></span>条未读消息</div>
+{% endif %}
 <!--中间内容-->
-                                                    <ul class="pt_ul clearfix" pagenum="" node-type="feed_list">
+                    <ul class="pt_ul clearfix" pagenum="" node-type="feed_list">
 
-                                                        <!--livetv card -->
-                                                        <li class="pt_li pt_li_1 S_bg2" id="livetv"
-                                                            mid="4021758757136711" action-type="feed_list_item"
-                                                            href="#">
-                                                            <div class="pic_txt clearfix">
-                                                                <div class="pic_box">
-                                                                    <a target="_blank" href="#">
-                                                                        <img src="/statics/index_profile_js_css/736f0c7ejw1f7zxm1yl3uj20no0dcwh9.jpg"
-                                                                             alt="" class="piccut_v">
-                                                                        <span class="miaopai_live"></span>
-                                                                    </a>
-                                                                </div>
-                                                                <div class="info_box">
-                                                                    <div class="info_box_inner">
-                                                                        <div class="text_box">
-                                                                            <div class="text text_cut2 W_f14"><a
-                                                                                    title="微博视频" href="#"></div>
-                                                                        </div>
-                                                                        <div class="subinfo_box clearfix">
-                                                                            <a target="_blank" href="#"></a>
-                                                                            <a target="_blank" href="#">@新浪娱乐</a>
-                                                                            <span class="subinfo S_txt2">9月20日 12:24</span>
-                                                                            <span class="subinfo_rgt S_txt2"><em
-                                                                                    class="W_ficon ficon_praised S_ficon W_f16">ñ</em><em>108340</em></span>
-                                                                            <span class="rgt_line W_fr"></span>
-                                                                            <span class="subinfo_rgt S_txt2"><em
-                                                                                    class="W_ficon ficon_repeat S_ficon W_f16"></em><em>16751</em></span>
-                                                                            <span class="rgt_line W_fr"></span>
-                                                                            <span class="subinfo_rgt S_txt2"><em
-                                                                                    class="W_ficon ficon_forward S_ficon W_f16"></em><em>33996</em></span>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                        <!--/livetv card-->
-                                                        <li class="pt_li pt_li_1 S_bg2" mid="4022464805088356"
-                                                            action-type="feed_list_item" href="#">
-                                                            <div class="pic_txt clearfix">
-                                                                <div class="pic_box">
-                                                                    <a target="_blank" href="#">
-                                                                        <img src="/statics/index_profile_js_css/rqMy1jrbK1xm-0KSR33fvQ___tmp_11_444_.jpg"
-                                                                             alt="" class="piccut_v">
-                                                                        <span class="W_icon icon_btn_imgvideo"></span>
-                                                                    </a>
-                                                                </div>
-                                                                <div class="info_box">
-                                                                    <div class="info_box_inner">
-                                                                        <div class="text_box">
-                                                                            <div class="text text_cut2 W_f14 S_txt1"><a
-                                                                                    target="_blank" render="ext"
-                                                                                    suda-uatrack="key=topic_click&amp;value=click_topic"
-                                                                                    class="a_topic"
-                                                                                    extra-data="type=topic"
-                                                                                    href="#">L</i>秒拍视频</a></div>
-                                                                        </div>
-                                                                        <div class="subinfo_box clearfix">
-                                                                            <a target="_blank" href="#"></a>
-                                                                            <a target="_blank" href="#">@娱乐有饭</a>
-                                                                            <span class="subinfo S_txt2">今天 11:10</span>
-                                                                            <span class="subinfo_rgt S_txt2"><em
-                                                                                    class="W_ficon ficon_praised S_ficon W_f16">ñ</em><em>18559</em></span>
-                                                                            <span class="rgt_line W_fr"></span>
-                                                                            <span class="subinfo_rgt S_txt2"><em
-                                                                                    class="W_ficon ficon_repeat S_ficon W_f16"></em><em>2022</em></span>
-                                                                            <span class="rgt_line W_fr"></span>
-                                                                            <span class="subinfo_rgt S_txt2"><em
-                                                                                    class="W_ficon ficon_forward S_ficon W_f16"></em><em>8346</em></span>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                        <li class="pt_li pt_li_2 S_bg2" mid="4022190125377955"
-                                                            action-type="feed_list_item" href="#">
-                                                            <div class="pic_txt clearfix">
-                                                                <div class="info_box">
-                                                                    <div class="text_box">
-                                                                        <div class="text text_cut2 W_f14">
-                                                                            P完果然和外面的妖艳贱货不一样<img render="ext"
-                                                                                                src="/statics/index_profile_js_css/doge_org.gif"
-                                                                                                title="[doge]"
-                                                                                                alt="[doge]"
-                                                                                                type="face"><img
-                                                                                render="ext"
-                                                                                src="/statics/index_profile_js_css/doge_org.gif"
-                                                                                title="[doge]" alt="[doge]" type="face"><img
-                                                                                render="ext"
-                                                                                src="/statics/index_profile_js_css/doge_org.gif"
-                                                                                title="[doge]" alt="[doge]" type="face">厉害了我的哥<img
-                                                                                render="ext"
-                                                                                src="/statics/index_profile_js_css/doge_org.gif"
-                                                                                title="[doge]" alt="[doge]" type="face"><img
-                                                                                render="ext"
-                                                                                src="/statics/index_profile_js_css/doge_org.gif"
-                                                                                title="[doge]" alt="[doge]" type="face">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="pic_mul">
-                                                                        <ul class="pic_m3 clearfix">
-                                                                            <li class="unlog_pic"><img
-                                                                                    src="/statics/index_profile_js_css/93a931b5gw1f81b68o67qj21ho1zk1kx.jpg"
-                                                                                    alt="" class="piccut_v piccut_h">
-                                                                            </li>
-                                                                            <li class="unlog_pic"><img
-                                                                                    src="/statics/index_profile_js_css/93a931b5gw1f81b42xfpxj20qo0xcgna.jpg"
-                                                                                    alt="" class="piccut_v piccut_h">
-                                                                            </li>
-                                                                            <li class="unlog_pic"><img
-                                                                                    src="/statics/index_profile_js_css/93a931b5gw1f81b40bw58j20hs0hsady.jpg"
-                                                                                    alt="" class="piccut_v piccut_h">
-                                                                            </li>
-                                                                        </ul>
-                                                                    </div>
-                                                                    <div class="subinfo_box clearfix">
-                                                                        <a target="_blank" href="#"></a>
-                                                                        <a target="_blank" href="#">@艾克里里</a>
-                                                                        <span class="subinfo S_txt2">9月21日 16:58</span>
-                                                                        <span class="subinfo_rgt S_txt2"><em
-                                                                                class="W_ficon ficon_praised S_ficon W_f16">ñ</em><em>143739</em></span>
-                                                                        <span class="rgt_line W_fr"></span>
-                                                                        <span class="subinfo_rgt S_txt2"><em
-                                                                                class="W_ficon ficon_repeat S_ficon W_f16"></em><em>23022</em></span>
-                                                                        <span class="rgt_line W_fr"></span>
-                                                                        <span class="subinfo_rgt S_txt2"><em
-                                                                                class="W_ficon ficon_forward S_ficon W_f16"></em><em>8040</em></span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                    </ul>                <!--/feed内容-->
-
-                                                </div>
-                                            </div>
+                        <!--livetv card -->
+                        <li class="pt_li pt_li_1 S_bg2" id="livetv"
+                            mid="4021758757136711" action-type="feed_list_item"
+                            href="#">
+                            <div class="pic_txt clearfix">
+                                <div class="pic_box">
+                                    <a target="_blank" href="#">
+                                        <img src="/statics/index_profile_js_css/736f0c7ejw1f7zxm1yl3uj20no0dcwh9.jpg"
+                                             alt="" class="piccut_v">
+                                        <span class="miaopai_live"></span>
+                                    </a>
+                                </div>
+                                <div class="info_box">
+                                    <div class="info_box_inner">
+                                        <div class="text_box">
+                                            <div class="text text_cut2 W_f14"><a
+                                                    title="微博视频" href="#"></div>
+                                        </div>
+                                        <div class="subinfo_box clearfix">
+                                            <a target="_blank" href="#"></a>
+                                            <a target="_blank" href="#">@新浪娱乐</a>
+                                            <span class="subinfo S_txt2">9月20日 12:24</span>
+                                            <span class="subinfo_rgt S_txt2"><em
+                                                    class="W_ficon ficon_praised S_ficon W_f16">ñ</em><em>108340</em></span>
+                                            <span class="rgt_line W_fr"></span>
+                                            <span class="subinfo_rgt S_txt2"><em
+                                                    class="W_ficon ficon_repeat S_ficon W_f16"></em><em>16751</em></span>
+                                            <span class="rgt_line W_fr"></span>
+                                            <span class="subinfo_rgt S_txt2"><em
+                                                    class="W_ficon ficon_forward S_ficon W_f16"></em><em>33996</em></span>
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                        </li>
+                        <!--/livetv card-->
+                        <li class="pt_li pt_li_1 S_bg2" mid="4022464805088356"
+                            action-type="feed_list_item" href="#">
+                            <div class="pic_txt clearfix">
+                                <div class="pic_box">
+                                    <a target="_blank" href="#">
+                                        <img src="/statics/index_profile_js_css/rqMy1jrbK1xm-0KSR33fvQ___tmp_11_444_.jpg"
+                                             alt="" class="piccut_v">
+                                        <span class="W_icon icon_btn_imgvideo"></span>
+                                    </a>
+                                </div>
+                                <div class="info_box">
+                                    <div class="info_box_inner">
+                                        <div class="text_box">
+                                            <div class="text text_cut2 W_f14 S_txt1"><a
+                                                    target="_blank" render="ext"
+                                                    suda-uatrack="key=topic_click&amp;value=click_topic"
+                                                    class="a_topic"
+                                                    extra-data="type=topic"
+                                                    href="#">L</i>秒拍视频</a></div>
+                                        </div>
+                                        <div class="subinfo_box clearfix">
+                                            <a target="_blank" href="#"></a>
+                                            <a target="_blank" href="#">@娱乐有饭</a>
+                                            <span class="subinfo S_txt2">今天 11:10</span>
+                                            <span class="subinfo_rgt S_txt2"><em
+                                                    class="W_ficon ficon_praised S_ficon W_f16">ñ</em><em>18559</em></span>
+                                            <span class="rgt_line W_fr"></span>
+                                            <span class="subinfo_rgt S_txt2"><em
+                                                    class="W_ficon ficon_repeat S_ficon W_f16"></em><em>2022</em></span>
+                                            <span class="rgt_line W_fr"></span>
+                                            <span class="subinfo_rgt S_txt2"><em
+                                                    class="W_ficon ficon_forward S_ficon W_f16"></em><em>8346</em></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="pt_li pt_li_2 S_bg2" mid="4022190125377955"
+                            action-type="feed_list_item" href="#">
+                            <div class="pic_txt clearfix">
+                                <div class="info_box">
+                                    <div class="text_box">
+                                        <div class="text text_cut2 W_f14">
+                                            P完果然和外面的妖艳贱货不一样<img render="ext"
+                                                                src="/statics/index_profile_js_css/doge_org.gif"
+                                                                title="[doge]"
+                                                                alt="[doge]"
+                                                                type="face"><img
+                                                render="ext"
+                                                src="/statics/index_profile_js_css/doge_org.gif"
+                                                title="[doge]" alt="[doge]" type="face"><img
+                                                render="ext"
+                                                src="/statics/index_profile_js_css/doge_org.gif"
+                                                title="[doge]" alt="[doge]" type="face">厉害了我的哥<img
+                                                render="ext"
+                                                src="/statics/index_profile_js_css/doge_org.gif"
+                                                title="[doge]" alt="[doge]" type="face"><img
+                                                render="ext"
+                                                src="/statics/index_profile_js_css/doge_org.gif"
+                                                title="[doge]" alt="[doge]" type="face">
+                                        </div>
+                                    </div>
+                                    <div class="pic_mul">
+                                        <ul class="pic_m3 clearfix">
+                                            <li class="unlog_pic"><img
+                                                    src="/statics/index_profile_js_css/93a931b5gw1f81b68o67qj21ho1zk1kx.jpg"
+                                                    alt="" class="piccut_v piccut_h">
+                                            </li>
+                                            <li class="unlog_pic"><img
+                                                    src="/statics/index_profile_js_css/93a931b5gw1f81b42xfpxj20qo0xcgna.jpg"
+                                                    alt="" class="piccut_v piccut_h">
+                                            </li>
+                                            <li class="unlog_pic"><img
+                                                    src="/statics/index_profile_js_css/93a931b5gw1f81b40bw58j20hs0hsady.jpg"
+                                                    alt="" class="piccut_v piccut_h">
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="subinfo_box clearfix">
+                                        <a target="_blank" href="#"></a>
+                                        <a target="_blank" href="#">@艾克里里</a>
+                                        <span class="subinfo S_txt2">9月21日 16:58</span>
+                                        <span class="subinfo_rgt S_txt2"><em
+                                                class="W_ficon ficon_praised S_ficon W_f16">ñ</em><em>143739</em></span>
+                                        <span class="rgt_line W_fr"></span>
+                                        <span class="subinfo_rgt S_txt2"><em
+                                                class="W_ficon ficon_repeat S_ficon W_f16"></em><em>23022</em></span>
+                                        <span class="rgt_line W_fr"></span>
+                                        <span class="subinfo_rgt S_txt2"><em
+                                                class="W_ficon ficon_forward S_ficon W_f16"></em><em>8040</em></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>                <!--/feed内容-->
 
-                                <div class="WB_main_r" fixed-box="true">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="WB_main_r" fixed-box="true">
 <!--登录用户上面的用户信息 -->
                                 {% if is_login %}
                                     <div id="v6_pl_rightmod_myinfo" id="x2" class="">
@@ -748,55 +715,85 @@
             $('.picture').addClass('hide')
         }
 
+        function handleFileSelect(evt) {
+            var files = evt.target.files;
+
+            // Loop through the FileList and render image files as thumbnails.
+            for (var i = 0, f; f = files[i]; i++) {
+
+              // Only process image files.
+              if (!f.type.match('image.*')) {
+                continue;
+              }
+
+              var reader = new FileReader();
+
+              // Closure to capture the file information.
+              reader.onload = (function(theFile) {
+                return function(e) {
+                  // Render thumbnail.
+                  var span = document.createElement('span');
+                  span.innerHTML =
+                  [
+                    '<img style="height: 75px; border: 1px solid #000; margin: 5px" src="',
+                    e.target.result,
+                    '" title="', escape(theFile.name),
+                    '"/>'
+                  ].join('');
+
+                  document.getElementById('list').insertBefore(span, null);
+                };
+              })(f);
+
+              // Read in the image file as a data URL.
+              reader.readAsDataURL(f);
+            }
+          }
+
+  document.getElementById('files').addEventListener('change', handleFileSelect, false);
 
 
         function Picture(ths) {
             $('.picture').removeClass('hide')
         }
-        var obj = document.getElementById('fileImg');
-	    var	ALi = obj.getElementsByTagName('li');
-	addFn();
-        function addFn(){
-		for(var i=0;i<ALi.length;i++){
-			ALi[i].getElementsByTagName('input')[0].index=i;
-			ALi[i].getElementsByTagName('span')[0].index=i;
-			// 文件域改变后执行
-			ALi[i].getElementsByTagName('input')[0].onchange=function(){
-				ALi[this.index].getElementsByTagName('span')[0].style.display='block'; //删除按钮显示
-				var oImg = document.createElement('img'); // 创建img元素
-				ALi[this.index].getElementsByTagName('span')[0].appendChild(oImg);
-				oImg.src=getFileUrl(this);  //地址增加
-
-				setTimeout(function(){  //图片高度居中
-					oImg.style.marginTop=-oImg.offsetHeight/2+'px';
-				}, 100);
-			};
-			// 删除按钮事件
-			ALi[i].getElementsByTagName('span')[0].onclick=function(){
-				ALi[this.index].innerHTML='<input type="file" class="upfile" ><span></span>';
-				addFn();
-			};
-		};
-	};
-	// 创建本地地址
-	function getFileUrl(sourceId) {
-		var url;
-		if (navigator.userAgent.indexOf("MSIE")>=1) { // IE
-		url = sourceId.value;
-		} else if(navigator.userAgent.indexOf("Firefox")>0) { // Firefox
-		url = window.URL.createObjectURL(sourceId.files.item(0));
-		} else if(navigator.userAgent.indexOf("Chrome")>0) { // Chrome
-		url = window.URL.createObjectURL(sourceId.files.item(0));
-		}
-        console.log(url);
-		return url;
-	};
 
 
+        function UploadFile(){
+{#            console.log($('.MyPic'))#}
+            var fileObj = $('.MyPic')[0].files;
+            console.log(fileObj);
+            var form = new FormData();
+            form.append('fff',fileObj);
+            $.ajax({
+                type:"POST",
+                url:"/file_up/",
+                dataType:'JSON',
+                data:form,
+                processData:false,
+                contentType:false,
+                success:function (data) {
+                    console.log(data)
+                }
+            })
+        }
+        var pub_list = []
+        function Sub() {
+            $('#News').removeClass('hide');
+            var content = $('#pub_content').val();
+            console.log(content)
+            $.ajax({
+                type:'GET',
+                url:'',
+                dataType:"JSON",
+                data:{'data_sub':pic_url},
+                success:function (data) {
+                    data={'pic_url':[],'content':content}
 
+                }
 
+            })
 
-
+        }
 
 
         function Post_user(ths) {
