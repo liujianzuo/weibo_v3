@@ -6,9 +6,11 @@
 </head>
 <body>
 
+<div>
     <input type="file" id="img" value="上传文件">
-    <input type="button" onclick="UploadFile();" value="上传文件"/>
 
+    <input type="button" onclick="UploadFile();" value="上传文件"/>
+</div>
     <script src="/statics/search/face/jquery-1.8.0.min.js"></script>
     <script>
         function UploadFile(){
@@ -22,7 +24,8 @@
 
             $.ajax({
                 type:'POST',
-                url: '/file_up/',
+{#                url: '/file_up/',#}
+                url: '/create_weibo/',
                 data: form,
                 processData: false,  // tell jQuery not to process the data
                 contentType: false,  // tell jQuery not to set contentType
@@ -31,6 +34,7 @@
                 }
             })
         }
+
     </script>
 
 </body>

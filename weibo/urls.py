@@ -45,4 +45,6 @@ urlpatterns = [
     url(r'^change_userprofile_name/',weibo_index.change_userprofile_name),
     url(r'^file_up/',tt.file_up),
     url(r'^create_weibo/',queue_handle.create_weibo),
+    url(r'^get_num_weibo/',queue_handle.get_new_message),
+    url(r'^get_all_new_weibo/',queue_handle.get_all_new_weibo),
 ]

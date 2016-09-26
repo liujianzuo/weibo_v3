@@ -25,5 +25,4 @@ def file_up(request):
         f = open(os.path.join(path,obj.name), "wb")
         for chunk in obj.chunks():
             f.write(chunk)
-
     return render(request,"test/test.html")

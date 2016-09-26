@@ -17,7 +17,7 @@ class Rab_conn_server:
 
         self.channel.basic_publish(exchange='',routing_key=name,body=body)  # 这里的exchange为空时exchange不工作，单独的客户端服务端就只用一个队列来通信  注意body主体信息
         print(" [x] Sent 'Hello World!'")
-        self.connection.close()
+        # self.connection.close()
 
 
     def get_num_weibo(self,user_id_que_name):

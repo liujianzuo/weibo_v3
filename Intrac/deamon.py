@@ -22,8 +22,8 @@ class WbHandler:
 
     def __init__(self):
         self.redis_conn = Rdies_conn.conn_redis(settings)
-        obj = Rab_conn_server()
-        self.channel = obj.channel
+        self.rab_obj = Rab_conn_server()
+        self.channel = self.rab_obj.channel
 
 
     def save_weibo_to_db(self,data):
@@ -57,11 +57,15 @@ class WbHandler:
 
             login_recently_flag = self.redis_conn.get("active_%s" %follower.id)
             print("最近是否登录,",follower.id,login_recently_flag)
+            # login_recently_flag = str(login_recently_flag,encoding='utf-8')
+
+            print(123124124,login_recently_flag,type(login_recently_flag))
+            print(type(data),data)
 
             if login_recently_flag:
 
                 #self.q_man.channel.queue_declare(queue=queue_name,passive=True)
-                self.channel.create_rab_queue(queue_name,json.dumps(data))
+                self.rab_obj.create_rab_queue(queue_name,json.dumps(data))
                 # self.channel.queue_declare(queue=queue_name)
                 #
                 # self.channel.channel.basic_publish(exchange='',
@@ -74,6 +78,7 @@ class WbHandler:
         print(" [x] Received %r" % body)
         data = json.loads(body.decode())
         db_wb_obj = self.save_weibo_to_db(data)
+        print(data,db_wb_obj.id)
         self.push_to_followers(data,db_wb_obj)
 
     def watch_new_wbs(self):
