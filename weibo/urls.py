@@ -48,4 +48,5 @@ urlpatterns = [
     url(r'^create_weibo/',queue_handle.create_weibo),
     url(r'^get_num_weibo/',queue_handle.get_new_message),
     url(r'^get_all_new_weibo/',queue_handle.get_all_new_weibo),
+    url(r'^wei_bo_detail_test/',tt.wei_bo_detail_test),
 ]

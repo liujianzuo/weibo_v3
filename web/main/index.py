@@ -13,6 +13,26 @@ from dao.Repository.TagR import Tags_handler
 
 import time,os
 
+import json
+from datetime import date
+from datetime import datetime
+from decimal import Decimal
+
+class JsonCustomEncoder(json.JSONEncoder):  # 序列化时候json处理不了的我们需要自己做转换为json可以转换的数据类型
+
+    def default(self, field):
+
+        if isinstance(field, datetime):  # 如果字段是时间类型
+            return field.strftime('%Y-%m-%d %H:%M:%S')
+        elif isinstance(field, date):  #
+            return field.strftime('%Y-%m-%d')
+        elif isinstance(field, Decimal):  # 如果是小数类型
+            return str(field)
+        else:
+            return json.JSONEncoder.default(self, field)
+
+
+
 def wrapper(func):
     def inner(request):
         if not request.session.get("is_login", None):
@@ -43,6 +63,10 @@ def index(request):
             webo_count = wei_user.count_user_num_weibo(user_nid)
             print(webo_count)
 
+            weibo_detail_ = wei_user.get_new_ten_weibo_item(user_nid)
+            # if weibo_detail_['status']:
+            weibo_detail_data = weibo_detail_['data']
+            print(weibo_detail_data)
 
             infomation  = {}
             if view_model["status"]:
@@ -51,6 +75,7 @@ def index(request):
                 infomation['userinfo'] = request.session['userinfo']['data'][0]
                 infomation["webo_count"] = webo_count['data']['count_user_weibo']
                 infomation["username"] = username
+                infomation["weibo_detail_data"] = weibo_detail_data
 
 
             # ret = json.dumps(infomation)

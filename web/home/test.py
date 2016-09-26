@@ -13,7 +13,7 @@ def test(request):
     # obj.insert_tags(name='test')
     #
     from dao.Repository.UserinfoRepository import UserRpostry
-    nid = request.GET.get("nid",1)
+    nid = request.GET.get("nid",2)
     # # ret2 = list(models.UserProfile.objects.filter(user__username="liu").values("user_id"))[0]['user_id']
     # obj = UserRpostry()
     # ret2 = obj.select_all_one_user_msg("liu")
@@ -23,10 +23,21 @@ def test(request):
     # print(11111,len(ret1),ret1,2222,ret2)
 
 
-    test1="name"
-    coloume_val = "玄霸天下"
-    dict = {test1:coloume_val}
-    ret = models.UserProfile.objects.filter(id=nid).update(**dict)
+    # test1="name"
+    # coloume_val = "玄霸天下"
+    # dict = {test1:coloume_val}
+    # ret = models.UserProfile.objects.filter(id=nid).update(**dict)
+    nid_list_followed =[]
+
+
+    ret1 = models.UserProfile.objects.filter(user_id__id=nid).values("follow_list__user_id",) # <QuerySet [{'follow_list__user_id': 1}]>
+    for item in ret1:
+        nid_list_followed.append(item['follow_list__user_id'])
+
+    ret = models.Weibo.objects.filter(user_id__in=nid_list_followed).values("wb_type","id","text","pictures_link_id","video_link_id","perm","date","user_id")
+
+    print(ret1)
+    print(ret)
 
     # ret = models.Weibo.objects.filter(user_id=1)
     if not ret:

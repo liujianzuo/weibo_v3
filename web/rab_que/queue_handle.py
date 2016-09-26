@@ -17,14 +17,24 @@ from dao.Repository.TagR import Tags_handler
 def create_weibo(request):
 
     rep = {"status":True,"message":"","data":""}
-    if request.method == "GET":
+    if request.method == "POST":
         timestamp = time.time()
         print(time.time())
+        dict_data =  request.POST.get("data_dict")
         user_id = request.session['userinfo']['data'][0]["user_id__id"]
+
+        perm = 0
+        wb_type = dict_data.get("wb_type")
+        text = dict_data.get("text")
+        pictures_link_id = dict_data.get("dict_data")
+
+        # test 数据
         # pic_path = "statics/%s/%s" %(user_id,timestamp)
         # if os.path.exists(os.path.join(os.path.dirname(os.path.dirname(__file__)),pic_path))
         # form_data = request.POST.get("weibo_data")
-        form_data = {"text":"这是一条新的微博","perm":0,"wb_type":0,"pictures_link_id":json.dumps(['/statics/uploads/1/temp/563DE154F522BCEAF9C81A383396C066.jpg']),"user_id":user_id}
+        # form_data = {"text":"这是一条新的微博","perm":0,"wb_type":0,"pictures_link_id":json.dumps(['/statics/uploads/1/temp/563DE154F522BCEAF9C81A383396C066.jpg']),"user_id":user_id}
+
+        form_data = {"text":text,"perm":perm,"wb_type":wb_type,"pictures_link_id":pictures_link_id,"user_id":user_id}
         print(form_data)
         que_name = "create_weibo_item"
         channel  = Rab_conn_server()
