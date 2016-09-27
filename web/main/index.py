@@ -56,7 +56,7 @@ def index(request):
             obj_user = UserRpostry()
             user_nid = obj_user.select_nid(username)
             user_nid = user_nid['data']
-
+            print(user_nid,"user_nid____++++++")
             view_model = obj_user.select_follow_list_and_num(user_nid) #{'data': {'followed_num': 1, 'data': [{'age': 23, 'email': '1223995142@qq.com', 'sex': 1, 'name': '刘健佐', 'user_id__id': 1, 'follow_list__user_id': 2, 'head_img': 'statics/head_img/024B00103A7C6061429E5F1DB2913C74.png', 'brief': '一江春水向东流', 'tags__name': 'test'}], 'my_fans_num': 2}, 'message': '', 'status': True}
 
             wei_user = WeiboRepo()
@@ -66,14 +66,13 @@ def index(request):
             weibo_detail_ = wei_user.get_new_ten_weibo_item(user_nid)
             # if weibo_detail_['status']:
             weibo_detail_data = weibo_detail_['data']
-            print(weibo_detail_data)
+            print(1111,weibo_detail_data)
 
             for i in weibo_detail_data["weibo_detail_item"]:
                 #     print(type(i))
                 index_num = weibo_detail_data["weibo_detail_item"].index(i)
                 weibo_detail_data["weibo_detail_item"][index_num]["pictures_link_id"] = json.loads(
                     weibo_detail_data["weibo_detail_item"][index_num]["pictures_link_id"])
-            print(weibo_detail_data)
 
 
             infomation  = {}

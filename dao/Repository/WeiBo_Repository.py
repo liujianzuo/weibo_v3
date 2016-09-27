@@ -42,10 +42,11 @@ class WeiboRepo:
             if user_nid:
                 nid = int(user_nid)
                 nid_list_followed = []
-                ret1 = models.UserProfile.objects.filter(user_id__id=nid).values(
-                    "follow_list__user_id", )  # <QuerySet [{'follow_list__user_id': 1}]>
+                ret1 = models.UserProfile.objects.filter(user_id__id=nid).values("follow_list__user_id", )  # <QuerySet [{'follow_list__user_id': 1}]>
                 for item in ret1:
                     nid_list_followed.append(item['follow_list__user_id'])
+                nid_list_followed.append(nid)
+                print(nid_list_followed)
 
                 model_obj = models.Weibo.objects.filter(user_id__in=nid_list_followed).values("wb_type", "id", "text",
                                                                                         "pictures_link_id",
@@ -55,7 +56,7 @@ class WeiboRepo:
 
 
             view_data = {"weibo_detail_item": list(model_obj),}
-            # print(view_data, "view_model")
+            print(view_data, "view_model")
             ret['data'] = view_data
         except Exception as e:
 

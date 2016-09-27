@@ -32,7 +32,7 @@ def dail_pic(request,pic_obj_list):
             f.write(chunk)
         path_list.append(os.path.join("/%s" % pic_path, "%s_%s"%(timestamp,obj.name)))
 
-    return path_list
+    return json.dumps(path_list)
 
 
 def create_weibo(request):
