@@ -68,6 +68,14 @@ def index(request):
             weibo_detail_data = weibo_detail_['data']
             print(weibo_detail_data)
 
+            for i in weibo_detail_data["weibo_detail_item"]:
+                #     print(type(i))
+                index_num = weibo_detail_data["weibo_detail_item"].index(i)
+                weibo_detail_data["weibo_detail_item"][index_num]["pictures_link_id"] = json.loads(
+                    weibo_detail_data["weibo_detail_item"][index_num]["pictures_link_id"])
+            print(weibo_detail_data)
+
+
             infomation  = {}
             if view_model["status"]:
                 infomation["followed_num"] = view_model['data']['followed_num']
@@ -253,15 +261,17 @@ def pic_handle(request):
         if not os.path.exists(all_path):
             os.mkdir(all_path)
         print(request)
-        print(request.FILES.get("fff"))
-        obj = request.FILES.get("fff")
-        print(obj.name, obj.chunks(), type(obj.chunks()))
+        print(request.FILES.getlist("fff"))
+        files_obj = request.FILES.getlist("fff")
+        # print(obj.name, obj.chunks(), type(obj.chunks()))
+        path_list = []
+        for obj in files_obj:
+            f = open(os.path.join(all_path, obj.name), "wb")
+            for chunk in obj.chunks():
+                f.write(chunk)
+            path_list.append(os.path.join("/%s" % pic_path, obj.name))
 
-        f = open(os.path.join(all_path, obj.name), "wb")
-        for chunk in obj.chunks():
-            f.write(chunk)
-
-        return HttpResponse(os.path.join("/%s" % pic_path,obj.name))
+        return HttpResponse(json.dumps(path_list))
 
     return render(request,"test/test.html")
 
