@@ -25,13 +25,15 @@ def dail_pic(request,pic_obj_list):
         os.mkdir(all_path)
 
     path_list = []
+
     for obj in pic_obj_list:
-        f = open(os.path.join(all_path, "%s_%s"%(timestamp,obj.name)), "wb")
+        f = open(os.path.join(all_path, "%s_%s"%(timestamp+1,obj.name)), "wb")
         # print(obj.name, obj.chunks(), type(obj.chunks()))
         for chunk in obj.chunks():
             f.write(chunk)
         path_list.append(os.path.join("/%s" % pic_path, "%s_%s"%(timestamp,obj.name)))
-
+        timestamp+=1
+    print(path_list)
     return json.dumps(path_list)
 
 
