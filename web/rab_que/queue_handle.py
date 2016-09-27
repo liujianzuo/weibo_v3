@@ -26,7 +26,7 @@ def dail_pic(request,pic_obj_list):
 
     path_list = []
     for obj in pic_obj_list:
-        f = open(os.path.join(all_path, obj.name), "wb")
+        f = open(os.path.join(all_path, "%s_%s"%(timestamp,obj.name)), "wb")
         # print(obj.name, obj.chunks(), type(obj.chunks()))
         for chunk in obj.chunks():
             f.write(chunk)
