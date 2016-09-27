@@ -20,13 +20,13 @@ def create_weibo(request):
     if request.method == "POST":
         timestamp = time.time()
         print(time.time())
-        dict_data =  request.POST.get("data_dict")
+        dict_data =  request.POST.get("data_sub")
         user_id = request.session['userinfo']['data'][0]["user_id__id"]
 
         perm = 0
         wb_type = dict_data.get("wb_type")
         text = dict_data.get("text")
-        pictures_link_id = dict_data.get("dict_data")
+        pictures_link_id = dict_data.get("pictures_link_id")
 
         # test 数据
         # pic_path = "statics/%s/%s" %(user_id,timestamp)

@@ -678,42 +678,50 @@
             $('.picture').removeClass('hide')
         }
 
-
+        form = new FormData();
         function UploadFile(){
 {#            console.log($('.MyPic'))#}
             var fileObj = $('.MyPic')[0].files;
-            console.log(fileObj);
-            var form = new FormData();
-            form.append('fff',fileObj);
-            $.ajax({
-                type:"POST",
-                url:"/file_up/",
-                dataType:'JSON',
-                data:form,
-                processData:false,
-                contentType:false,
-                success:function (data) {
-                    console.log(data)
-                }
+            $.each(fileObj,function (k,v) {
+                form.append('fff',v);
             })
+            console.log(fileObj);
+
+{#            form.append('fff',fileObj);#}
+{#            $.ajax({#}
+{#                type:"POST",#}
+{#                url:"/file_up/",#}
+{#                dataType:'JSON',#}
+{#                data:form,#}
+{#                processData:false,#}
+{#                contentType:false,#}
+{#                success:function (data) {#}
+{#                    console.log(data)#}
+{#                }#}
+{#            })#}
         }
-        pub_list = []
+{#        pub_list = []#}
         function Sub() {
             $('#News').removeClass('hide');
             var content = $('#pub_content').val();
             console.log(content)
+            var data_all_msg = {}
+            data_all_msg.text = content;
+            data_all_msg.wb_type = 0;
+            data_all_msg.pictures_link_id = form;
+
+
             $.ajax({
                 type:'GET',
                 url:'',
                 dataType:"JSON",
-                data:{'data_sub':pic_url},
+                data:{'data_sub':data_all_msg},
                 success:function (data) {
                     data={'pic_url':[],'content':content}
-
                 }
-
             })
-            pub_list = []
+{#            pub_list = []#}
+            form = new FormData();
         }
 
 
