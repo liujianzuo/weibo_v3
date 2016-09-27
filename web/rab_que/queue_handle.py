@@ -14,19 +14,39 @@ import time,os
 from dao.Repository.TagR import Tags_handler
 
 
+
+def dail_pic(request,pic_obj_list):
+    timestamp = time.time()
+    user_id = request.session['userinfo']['data'][0]["user_id__id"]
+    pic_path = "statics/uploads/%s/%s" % (user_id, timestamp)
+
+    all_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), pic_path)
+    if not os.path.exists(all_path):
+        os.mkdir(all_path)
+
+    path_list = []
+    for obj in pic_obj_list:
+        f = open(os.path.join(all_path, obj.name), "wb")
+        # print(obj.name, obj.chunks(), type(obj.chunks()))
+        for chunk in obj.chunks():
+            f.write(chunk)
+        path_list.append(os.path.join("/%s" % pic_path, "%s_%s"%(timestamp,obj.name)))
+
+    return path_list
+
+
 def create_weibo(request):
 
     rep = {"status":True,"message":"","data":""}
     if request.method == "POST":
         timestamp = time.time()
         print(time.time())
-        dict_data =  request.POST.get("data_sub")
+        pic_data_list =  request.FILES.getlist("fff") # [<InMemoryUploadedFile: 7A57C9B7FE5EF5082F305EF5B72AF274.png (image/png)>, <InMemoryUploadedFile: 024B00103A7C6061429E5F1DB2913C74.png (image/png)>]
         user_id = request.session['userinfo']['data'][0]["user_id__id"]
-
         perm = 0
-        wb_type = dict_data.get("wb_type")
-        text = dict_data.get("text")
-        pictures_link_id = dict_data.get("pictures_link_id")
+        wb_type = request.POST.get("wb_type")
+        text = request.POST.get("text")
+        pictures_link_id = dail_pic(request,pic_data_list)
 
         # test 数据
         # pic_path = "statics/%s/%s" %(user_id,timestamp)

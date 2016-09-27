@@ -671,7 +671,7 @@
             }
           }
 
-  document.getElementById('files').addEventListener('change', handleFileSelect, false);
+        document.getElementById('files').addEventListener('change', handleFileSelect, false);
 
 
         function Picture(ths) {
@@ -685,7 +685,7 @@
             $.each(fileObj,function (k,v) {
                 form.append('fff',v);
             })
-            console.log(fileObj);
+            console.log(fileObj,form);
 
 {#            form.append('fff',fileObj);#}
 {#            $.ajax({#}
@@ -706,16 +706,16 @@
             var content = $('#pub_content').val();
             console.log(content)
             var data_all_msg = {}
-            data_all_msg.text = content;
-            data_all_msg.wb_type = 0;
-            data_all_msg.pictures_link_id = form;
-
-
+            form.append("text",content);
+            form.append("wb_type",0);
+            console.log(form)
             $.ajax({
-                type:'GET',
-                url:'',
+                type:'POST',
+                url:'/create_weibo/',
                 dataType:"JSON",
-                data:{'data_sub':data_all_msg},
+                data:form,
+                processData: false,  // tell jQuery not to process the data
+                contentType: false,  // tell jQuery not to set contentType
                 success:function (data) {
                     data={'pic_url':[],'content':content}
                 }
