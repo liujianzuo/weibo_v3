@@ -54,7 +54,27 @@
     .tab_feed_a .tab li {  float: left;  margin: 0 0 0 -1px;  }
     .tab_feed_a .tab .line {  display: block;  margin: 5px 0;  padding: 0 10px;  border-left-width: 1px;  border-left-style: solid;  line-height: 10px;  }
     .tab_feed_a li .curr {  font-weight: bold;  }
+    .WB_feed_repeat .repeat_list .list_box {  margin: -4px 0 0;  }
+    .WB_feed_repeat .repeat_list .list_li {  margin: 0 0 -1px;  padding: 5px 0 7px;  border-bottom-width: 1px;  border-bottom-style: solid;  }
+    .WB_feed_repeat .repeat_list .WB_face {  margin-left: 0;  }
+    .WB_feed_repeat .repeat_list .WB_face {  padding: 6px 0 0;  }
+    .WB_feed_repeat .WB_face, .WB_feed_repeat .WB_face img {  width: 30px;  height: 30px;  }
+    .WB_feed_v3 .WB_face {  position: relative;  }
+    .WB_feed_repeat .list_con {  margin: 0 0 0 40px;  }
+    .WB_feed_repeat .repeat_list .WB_text {  margin-bottom: 0;  }
+    .WB_feed_repeat .repeat_list .WB_text {  padding: 0 0 2px;  }
+    .icon_airball {  width: 12px;  background-position: -75px -125px;  }
+    .WB_func .WB_handle ul {  margin-right: -9px;  overflow: visible;  }
+    .WB_func .WB_handle li .hover {  visibility: hidden;  }
+    .WB_func .WB_handle li .line {  display: block;  margin: 2px 0;  padding: 0 10px;  border-right-width: 1px;  border-right-style: solid;  line-height: 12px;  }
+    .WB_func .WB_handle li {  float: left;  margin: 0 -1px 0 0;  }
+    .WB_func .WB_handle .arrow {  visibility: hidden;  position: absolute;  margin: 15px 0 0 -5px;  }
+    .WB_func .WB_handle .W_arrow_bor {  position: absolute;  margin: -20px 0 0 20px;  }
+    .WB_func .WB_handle li .line span em.W_ficon {  margin-left: 0;  margin-right: -10px;  font-size: 15px;  vertical-align: top;  }
+    .WB_func .WB_handle li .line span em {  margin-left: 15px;  }
+    .ul_ul li{float: right;padding-left: 10px}
     </style>
+
 
 {% endblock %}
 
@@ -228,7 +248,7 @@
             </div>
     </div>
     <div class="input" node-type="textElDiv" >
-        <textarea oninput="font_size()" id="textarea" class="W_input emotion " title="微博输入框" name="" node-type="textEl" range="0&amp;0" content=""></textarea>
+        <textarea oninput="font_siz()" id="textarea" class="W_input emotion " title="微博输入框" name="" node-type="textEl" range="0&amp;0" content=""></textarea>
         <div class="send_succpic" style="display:none" node-type="successTip"><span class="W_icon icon_succB"></span><span class="txt">发布成功</span></div>
         <form style="display:none;" node-type="extradata">
     		<input name="pollid" value="">
@@ -349,18 +369,18 @@
                                                                         <a target="_blank" href="#">{{ item.user__name }}</a>
                                                                         <span class="subinfo S_txt2">{{ item.date }}</span>
                                                                         <span class="subinfo_rgt S_txt2"><em
-                                                                                class="W_ficon ficon_praised S_ficon W_f16">点赞</em><em>143739</em></span>
+                                                                                class="glyphicon glyphicon-thumbs-up"></em><em>143739</em></span>
+                                                                        <span class="rgt_line W_fr"></span>
+                                                                        <span onclick="Show_R(this);" class="subinfo_rgt S_txt2"><em
+                                                                                class="glyphicon glyphicon-comment"></em><em>23022</em></span>
                                                                         <span class="rgt_line W_fr"></span>
                                                                         <span class="subinfo_rgt S_txt2"><em
-                                                                                class="W_ficon ficon_repeat S_ficon W_f16">评论</em><em>23022</em></span>
-                                                                        <span class="rgt_line W_fr"></span>
-                                                                        <span class="subinfo_rgt S_txt2"><em
-                                                                                class="W_ficon ficon_forward S_ficon W_f16">转发</em><em>8040</em></span>
+                                                                                class="glyphicon glyphicon-share-alt"></em><em>8040</em></span>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        <div class="WB_feed_repeat S_bg1" style="width: 600px;height: auto;background-color: #F2F2F5;margin-left: -20px" >
-<div class="WB_repeat S_line1">
+<div class="repeat_area hide WB_feed_repeat S_bg1" style="width: 600px;height: auto;background-color: #F2F2F5;margin-left: -20px" >
+<div class="WB_repeat S_line1 ">
 <!--  评论框    -->
     <div class="WB_feed_publish clearfix">
         <div class="WB_face W_f1">
@@ -423,10 +443,51 @@
                 </ul>
             </div>
         </div>
+        <div class="list_box">
+            <div class="list_ul">
+                <div class="list_li S_line1 clearfix">
+                    <div class="WB_face W_fl">
+                        <a href="">
+                            <img style="width: 30px;height: 30px" src="" alt="">
+                        </a>
+                    </div>
+                    <div class="list_con">
+                        <div class="WB_text">
+                            <a href="">大佐</a>
+                            <a href="http://huodong.weibo.com/travel2016?ref=icon ">
+                                <i class="W_icon icon_airball">☺</i>
+                            </a>
+                            ：笑的肚子疼
+                            <img src="" alt="我是表情">
+                        </div>
+                        <div class="WB_func clearfix" style="display: block">
+                            <div class="WB_handler">
+                                <ul class="ul_ul" >
+                                    <li><span class="line S_line1">
+                                        <a class="S_txt1" href="">
+                                        <span  class="line S_line1">
+                                            <em class="glyphicon glyphicon-thumbs-up"></em>
+                                            <em>10</em>
+                                        </span>
+                                        </a>
+                                        </span>
+                                    </li>
+                                    <li><span class="line S_line1">
+                                        <a class="S_txt1" href="">回复</a>
+                                        </span>
+                                    </li>
+
+                                    <li class="hide">举报</li>
 
 
-
-        <div class="list_box"></div>
+                                </ul>
+                            </div>
+                            <div>今天 14:30</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 </div>
@@ -677,6 +738,7 @@
             $(".title2").addClass("hide")
         });
 
+        //文本矿中的输入内容字数进行相应的变化
         function font_siz() {
             var num = $("#textarea").val().length;
             if(num<140){
@@ -690,6 +752,18 @@
             }
 
         }
+
+        //评论区   点击隐藏   再点击显示
+        function Show_R(ths) {
+            var m = $(ths).parent().parent().parent().siblings();
+            if (m.hasClass('hide')) {
+                m.removeClass('hide')
+            } else {
+                m.addClass('hide')
+            }
+        }
+
+
 
         //picture上传
         function Close(ths) {
@@ -733,9 +807,13 @@
 
         document.getElementById('files').addEventListener('change', handleFileSelect, false);
 
-
+        $('#face').click(function () {
+{#            $('#face').siblings.addClass('hide')#}
+            $('.picture').addClass('hide')
+        });
         function Picture(ths) {
-            $('.picture').removeClass('hide')
+            $('.picture').removeClass('hide');
+            $('.picture').siblings.addClass('hide')
         }
 
         form = new FormData();
@@ -796,7 +874,7 @@
                       content,
                       '</span><span class="subinfo_rgt S_txt2"><em class="W_ficon ficon_praised S_ficon W_f16">点赞</em><em>',
                       content,
-                      '</em></span><span class="subinfo_rgt S_txt2"><em class="W_ficon ficon_praised S_ficon W_f16">评论</em><em>',
+                      '</em></span><span onclick="Show_R(this);" class="subinfo_rgt S_txt2"><em class="W_ficon ficon_praised S_ficon W_f16">评论</em><em>',
                       content,
                       '</em></span><span class="subinfo_rgt S_txt2"><em class="W_ficon ficon_praised S_ficon W_f16">转发</em><em>',
                       content,
@@ -804,12 +882,8 @@
                     ].join('');
                     $('#content_list').prepend(new_li);
 
-
-
-
-
-
                     console.log(data)
+
                 }
             });
 
@@ -840,7 +914,6 @@
 {#                }#}
 {#            })#}
 {#        }#}
-
 
 
 
