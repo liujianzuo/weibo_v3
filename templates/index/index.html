@@ -346,7 +346,8 @@
                                                         <!--livetv card -->
                                                         <li style="position: relative" class="pt_li pt_li_2 S_bg2" mid="4022190125377955"
                                                             action-type="feed_list_item" href="#">
-                                                            <div class="pic_txt clearfix">
+                                        <div id="web_id" class="hide web_id">{{ item.id }}</div>
+                                                        <div class="pic_txt clearfix">
                                                                 <div class="info_box">
                                                                     <div class="text_box">
                                                                         <div class="WWWW text text_cut2 W_f14">
@@ -374,7 +375,7 @@
                                                                         <span onclick="Show_R(this);" class="subinfo_rgt S_txt2"><em
                                                                                 class="glyphicon glyphicon-comment"></em><em>23022</em></span>
                                                                         <span class="rgt_line W_fr"></span>
-                                                                        <span class="subinfo_rgt S_txt2"><em
+                                                                        <span onclick="Forward(this)" class="subinfo_rgt S_txt2"><em
                                                                                 class="glyphicon glyphicon-share-alt"></em><em>8040</em></span>
                                                                     </div>
                                                                 </div>
@@ -388,15 +389,15 @@
         </div>
         <div class="WB_publish">
             <div class="p_input">
-                <textarea style="margin: 0px; padding: 5px 2px 0px 6px; border-style: solid; border-width: 1px; font-size: 12px; word-wrap: break-word; line-height: 18px; overflow: hidden; outline: none; height: 23px;" class="W_input" name="" id="" cols="30" rows="10"></textarea>
-            </div>
+                <textarea class="repeat_text em1111 W_input " style="margin: 0px; padding: 5px 2px 0px 6px; border-style: solid; border-width: 1px; font-size: 12px; word-wrap: break-word; line-height: 18px; overflow: hidden; outline: none; height: 23px;"  name=""  cols="30" rows="10"></textarea>
+            </div>      
             <div class="p_opt clearfix">
                 <div class="btn W_fr">
-                    <a class="W_btn_a W_btn_a_disable" href="">评论</a>
+                    <span onclick="Repeat();" class="W_btn_a " href="">评论</span>
                 </div>
                 <div class="opt clearfix">
                     <span class="ico">
-                        <a style="color:#F56416;font-size: 30px" href="">☺</a>
+                        <a class="face1" style="color:#F56416;font-size: 30px">☺</a>
                         <a style="position: relative;font-size: 18px;color: #F56416" class="glyphicon glyphicon-picture" href=""></a>
                     </span>
                     <ul class="ipt">
@@ -726,6 +727,7 @@
         });
 
         $('#face').SinaEmotion($('.emotion'));
+        $('.face1').SinaEmotion($('.em1111'));
 
 		// 测试本地解析
 
@@ -847,18 +849,14 @@
                 success:function (data) {
                     //data为对象
                     //data['data']是字符串
-{#                    console.log(typeof(data))#}
-{#                    console.log(typeof(data['data']),data['data'])#}
-
                     var con = JSON.parse(data['data'])['text']
-                    console.log(con,'22222255555')
+                    console.log(data,'1111111111111111111888888888888888')
                     var pic_list = JSON.parse(JSON.parse(data['data'])['pictures_link_id']);
-                    console.log(typeof(pic_list),pic_list)
+                    console.log(data['data'])
                     var leng = pic_list.length;
                     ll = '';
                     for(var i= 0;i<leng;i++){
                         ll = ll +'<li class="unlog_pic"><img src="'+pic_list[i]+'" class="piccut_v piccut_h"></li>'
-
                       }
                     var zane = AnalyticEmotion(con);
                     console.log(zane, 11111111);
@@ -889,6 +887,88 @@
 
             form = new FormData();
         }
+        //评论
+        function Repeat() {
+            var conn = $('.repeat_text').val();//获取评论框中的内容
+            $.ajax({
+                type:"POST",
+                url:"",
+                dataType:'JSON',
+                data: {'data':conn},
+                processData: false,  // tell jQuery not to process the data
+                contentType: false,  // tell jQuery not to set contentType
+                success:function (data) {
+                    var rep = [
+                    '<div class="list_li S_line1 clearfix"><div class="WB_face W_fl"><a href="">',
+                    '<img style="width: 30px;height: 30px" src="',
+                    '/statics/image/tu.png',
+                    '"alt=""></a></div><div class="list_con"><div class="WB_text"><a href="">',
+                    conn,
+                    '</a><a href="http://huodong.weibo.com/travel2016?ref=icon "><i class="W_icon icon_airball">☺</i></a>',
+                    conn,
+                    '<img src="" alt="我是表情"></div><div class="WB_func clearfix" style="display: block"><div class="WB_handler"><ul class="ul_ul"><li><span class="line S_line1"><a class="S_txt1" href=""><span class="line S_line1"><em>',
+                    10,
+                    '</em></span></a></span></li><li><span class="line S_line1"><a class="S_txt1" href="">回复</a></span></li><li class="hide">举报</li></ul></div><div>',
+                    conn,
+                    '</div></div></div></div>'
+                    ].join('');
+                    $('.list_ul').prepend(rep)
+                }
+            })
+
+        }
+        //转发 -------------------------------------------------
+
+
+        function Forward(ths) {
+            var n = $(ths).parent().parent().parent().parent();
+            console.log(n,'111111154999999999999999')
+            var web_id = $('#web_id').text();
+            var forward_web = n.clone();
+{#            var co = $(forward_web).find('#textarea').text();#}
+            $.ajax({
+                url:"",
+                type:"POST",
+                dataType:"JSON",
+                data:{'data':forward_web,"id":web_id,'wb_type':1},
+                success:function (data) {
+                    var con = JSON.parse(data['data'])['text']
+                    console.log(data,'1111111111111111111888888888888888')
+                    var pic_list = JSON.parse(JSON.parse(data['data'])['pictures_link_id']);
+
+                    var leng = pic_list.length;
+                    ll = '';
+                    for(var i= 0;i<leng;i++){
+                        ll = ll +'<li class="unlog_pic"><img src="'+pic_list[i]+'" class="piccut_v piccut_h"></li>'
+                      }
+                    var zane = AnalyticEmotion(con);
+                    console.log(zane, 11111111);
+                    console.log(typeof zane);
+                    var new_li = [
+                     '<li class="pt_li pt_li_2 S_bg2"><div class="pic_txt clearfix"><div class="info_box"><div class="text_box"><div id="out2" class="WWWW text text_cut2 W_f14">',
+                     zane,
+                     '</div></div><div class="pic_mul"><ul class="pic_m3 clearfix">',
+                      ll,
+                      '</ul></div><div class="subinfo_box clearfix"><a href="">',
+                      content,
+                      '</a><span class="subinfo S_txt2">',
+                      content,
+                      '</span><span class="subinfo_rgt S_txt2"><em class="W_ficon ficon_praised S_ficon W_f16">点赞</em><em>',
+                      content,
+                      '</em></span><span onclick="Show_R(this);" class="subinfo_rgt S_txt2"><em class="W_ficon ficon_praised S_ficon W_f16">评论</em><em>',
+                      content,
+                      '</em></span><span class="subinfo_rgt S_txt2"><em class="W_ficon ficon_praised S_ficon W_f16">转发</em><em>',
+                      content,
+                      '</em></span></div></div></div></li>'
+                    ].join('');
+                    $('#content_list').prepend(new_li);
+
+                    console.log(data)
+                }
+            })
+        }
+        
+        
 
         window.onload=function () {
             $('.WWWW').each(function () {
@@ -902,12 +982,13 @@
 {#        var new_message = setInterval(new_web, 3000);#}
 {#        function new_web() {#}
 {#            $.ajax({#}
-{#                url:"",#}
+{#                url:"/get_num_weibo/",#}
 {#                type:"POST",#}
 {#                dataType:"JSON",#}
 {#                success:function (data) {#}
+{#                    console.log(data)#}
 {#                    if (data.status){#}
-{#                        $('#message').text("您有" + data.data + "条未读内容, 点击查看").removeClass('hide')#}
+{#                        $('#message').text("您有" + data[new_weibo_count] + "条未读内容, 点击查看").removeClass('hide')#}
 {#                    }else {#}
 {##}
 {#                    }#}
