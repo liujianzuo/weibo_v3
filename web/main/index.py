@@ -7,6 +7,7 @@ from django.shortcuts import redirect
 
 from dao.Repository.UserinfoRepository import UserRpostry
 from dao.Repository.WeiBo_Repository import WeiboRepo
+from dao.Repository.Comment_Respo import Coment_R
 import json
 
 from dao.Repository.TagR import Tags_handler
@@ -334,9 +335,26 @@ def search(request):
     return render(request,"search/search.html",{"infomation":infomation})
 
 
-def create_comment(request):
+def pub_comment(request):
+    rep = {"status":True,"message":"","searhch_length":0}
 
+    if request.method == "POST":
+        to_weibo = request.POST.get("weibo_id",None)
+        comment = request.POST.get("te_comment",None)
+        comm_type = request.POST.get("comment_type",None)
+        user_id =request.session['userinfo']['data'][0]["id"]
+        comment_type = 0
 
+        if comm_type == "top":
+            print(to_weibo, comment)
 
+            message = {"to_weibo_id":int(to_weibo),"user_id":user_id,"comment_type":comment_type,"comment":comment}
+            model_obj = Coment_R()
+            obj_view = model_obj.create_new_weibo(message)
 
-    return
+        else:
+            pass
+
+    rep["data"] = "%s%s" %(to_weibo,comment)
+
+    return HttpResponse(json.dumps(rep))

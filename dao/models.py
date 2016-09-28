@@ -44,12 +44,12 @@ class Category(models.Model):
 class Comment(models.Model):
     '''评论'''
     to_weibo = models.ForeignKey(Weibo)
-    p_comment = models.ForeignKey('self',related_name="child_comments")
+    p_comment = models.ForeignKey('self',related_name="child_comments",blank=True,null=True)
     user = models.ForeignKey('UserProfile')
     comment_type_choices = ((0,'comment'),(1,'thumb_up'))
     comment_type = models.IntegerField(choices=comment_type_choices,default=0)
     comment = models.CharField(max_length=140)
-    date  = models.DateTimeField(auto_created=True)
+    date  = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.comment
