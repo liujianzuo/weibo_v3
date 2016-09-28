@@ -68,7 +68,7 @@ def index(request):
             weibo_detail_data = weibo_detail_['data']
             print(1111,weibo_detail_data)
 
-            for i in weibo_detail_data[" "]:
+            for i in weibo_detail_data["weibo_detail_item"]:
                 #     print(type(i))
                 index_num = weibo_detail_data["weibo_detail_item"].index(i)
                 weibo_detail_data["weibo_detail_item"][index_num]["pictures_link_id"] = json.loads(
