@@ -334,4 +334,9 @@ def search(request):
     return render(request,"search/search.html",{"infomation":infomation})
 
 
+def create_comment(request):
 
+
+
+
+    return
