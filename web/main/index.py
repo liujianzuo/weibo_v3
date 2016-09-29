@@ -336,7 +336,7 @@ def search(request):
 
 
 def pub_comment(request):
-    rep = {"status":True,"message":"","searhch_length":0}
+    rep = {"status":True,"message":"","searhch_length":0,'data':{}}
 
     if request.method == "POST":
         to_weibo = request.POST.get("weibo_id",None)
@@ -355,6 +355,9 @@ def pub_comment(request):
         else:
             pass
 
-    rep["data"] = "%s%s" %(to_weibo,comment)
+    # rep["data"] = "%s%s" %(to_weibo,comment)
+    rep['data']['to_weibo']=to_weibo
+    rep['data']['comment']=comment
+    print(rep['data'])
 
     return HttpResponse(json.dumps(rep))

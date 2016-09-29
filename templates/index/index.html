@@ -393,7 +393,7 @@
             </div>      
             <div class="p_opt clearfix">
                 <div class="btn W_fr">
-                    <span onclick="Repeat();" class="W_btn_a " href="">评论</span>
+                    <span weibo_id="{{ item.id }}" comment_type="top" onclick="Repeat(this);" class="W_btn_a " href="">评论</span>
                 </div>
                 <div class="opt clearfix">
                     <span class="ico">
@@ -474,7 +474,7 @@
                                         </span>
                                     </li>
                                     <li><span class="line S_line1">
-                                        <a class="S_txt1" href="">回复</a>
+                                        <span onclick="Sun_Repeat(this)" class="S_txt1">回复</span>
                                         </span>
                                     </li>
 
@@ -850,7 +850,7 @@
                     //data为对象
                     //data['data']是字符串
                     var con = JSON.parse(data['data'])['text']
-                    console.log(data,'1111111111111111111888888888888888')
+                    console.log(data,'111111111888888888')
                     var pic_list = JSON.parse(JSON.parse(data['data'])['pictures_link_id']);
                     console.log(data['data'])
                     var leng = pic_list.length;
@@ -888,7 +888,48 @@
             form = new FormData();
         }
         //评论
-        function Repeat() {
+        function Repeat(ths) {
+            var te_comment = $(ths).parent().parent().siblings(":eq(0)").children().val()
+            var weibo_id = $(ths).attr("weibo_id")
+            var comment_type = $(ths).attr("comment_type")
+            console.log(te_comment,weibo_id)
+            $.ajax({
+                url:"/pub_comment/",
+                type:"POST",
+                dataType:"JSON",
+                data:{'te_comment':te_comment,"weibo_id":weibo_id,"comment_type":comment_type},
+                success:function (callback) {
+
+                    console.log(typeof(callback['data']));
+                    comment = callback['data']['comment'];
+
+                     var rep = [
+                    '<div class="list_li S_line1 clearfix"><div class="WB_face W_fl"><a href="">',
+                    '<img style="width: 30px;height: 30px" src="',
+                    '/statics/image/tu.png',
+                    '"alt=""></a></div><div class="list_con"><div class="WB_text"><a href="">',
+                    comment,
+                    '</a><a href="http://huodong.weibo.com/travel2016?ref=icon "><i class="W_icon icon_airball">☺</i></a>',
+                    comment,
+                    '<img src="" alt="我是表情"></div><div class="WB_func clearfix" style="display: block"><div class="WB_handler"><ul class="ul_ul"><li><span class="line S_line1"><a class="S_txt1" href=""><span style="padding-right:3px" class="glyphicon glyphicon-thumbs-up"><em>',
+                    10,
+                    '</em></span></a></span></li><li><span class="line S_line1"><a class="S_txt1" href="">回复</a></span></li><li class="hide">举报</li></ul></div><div>',
+                    comment,
+                    '</div></div></div></div>'
+                    ].join('');
+                    $('.list_ul').prepend(rep)
+                    console.log(callback)
+                }
+
+            })
+        }
+
+
+
+
+
+
+        function Rep() {
             var conn = $('.repeat_text').val();//获取评论框中的内容
             $.ajax({
                 type:"POST",
@@ -906,7 +947,7 @@
                     conn,
                     '</a><a href="http://huodong.weibo.com/travel2016?ref=icon "><i class="W_icon icon_airball">☺</i></a>',
                     conn,
-                    '<img src="" alt="我是表情"></div><div class="WB_func clearfix" style="display: block"><div class="WB_handler"><ul class="ul_ul"><li><span class="line S_line1"><a class="S_txt1" href=""><span class="line S_line1"><em>',
+                    '<img src="" alt="我是表情"></div><div class="WB_func clearfix" style="display: block"><div class="WB_handler"><ul class="ul_ul"><li><span class="line S_line1"><a class="S_txt1" href=""><span class="line S_line1"><em class="glyphicon glyphicon-thumbs-up">',
                     10,
                     '</em></span></a></span></li><li><span class="line S_line1"><a class="S_txt1" href="">回复</a></span></li><li class="hide">举报</li></ul></div><div>',
                     conn,
