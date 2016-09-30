@@ -1,4 +1,5 @@
 {% extends "_lay_mu_out/_layout.html" %}
+{% load get_comment %}
 
 {% block newcss %}
     <link rel="mask-icon" sizes="any" href="#">
@@ -372,7 +373,7 @@
                                                                         <span class="subinfo_rgt S_txt2"><em
                                                                                 class="glyphicon glyphicon-thumbs-up"></em><em>143739</em></span>
                                                                         <span class="rgt_line W_fr"></span>
-                                                                        <span onclick="Show_R(this);" class="subinfo_rgt S_txt2"><em
+                                                                        <span onclick="Show_R(this);" weibo_id="{{ item.id }}" class="subinfo_rgt S_txt2"><em
                                                                                 class="glyphicon glyphicon-comment"></em><em>23022</em></span>
                                                                         <span class="rgt_line W_fr"></span>
                                                                         <span onclick="Forward(this)" class="subinfo_rgt S_txt2"><em
@@ -446,47 +447,7 @@
         </div>
         <div class="list_box">
             <div class="list_ul">
-                <div class="list_li S_line1 clearfix">
-                    <div class="WB_face W_fl">
-                        <a href="">
-                            <img style="width: 30px;height: 30px" src="" alt="">
-                        </a>
-                    </div>
-                    <div class="list_con">
-                        <div class="WB_text">
-                            <a href="">大佐</a>
-                            <a href="http://huodong.weibo.com/travel2016?ref=icon ">
-                                <i class="W_icon icon_airball">☺</i>
-                            </a>
-                            ：笑的肚子疼
-                            <img src="" alt="我是表情">
-                        </div>
-                        <div class="WB_func clearfix" style="display: block">
-                            <div class="WB_handler">
-                                <ul class="ul_ul" >
-                                    <li><span class="line S_line1">
-                                        <a class="S_txt1" href="">
-                                        <span  class="line S_line1">
-                                            <em class="glyphicon glyphicon-thumbs-up"></em>
-                                            <em>10</em>
-                                        </span>
-                                        </a>
-                                        </span>
-                                    </li>
-                                    <li><span class="line S_line1">
-                                        <span onclick="Sun_Repeat(this)" class="S_txt1">回复</span>
-                                        </span>
-                                    </li>
-
-                                    <li class="hide">举报</li>
-
-
-                                </ul>
-                            </div>
-                            <div>今天 14:30</div>
-                        </div>
-                    </div>
-                </div>
+                {% get_comment_handler "info_comment" %}
             </div>
         </div>
     </div>
@@ -755,11 +716,26 @@
 
         }
 
+        function get_comment(weibo_id) {
+
+            $.ajax({
+                url:"/get_comment/",
+                data:"get_comment",
+                type:"POST",
+                dataType:"JSON",
+                success:function (callback) {
+                    
+                }
+            })
+        }
+
         //评论区   点击隐藏   再点击显示
         function Show_R(ths) {
             var m = $(ths).parent().parent().parent().siblings();
             if (m.hasClass('hide')) {
                 m.removeClass('hide')
+                var weibo_id = $(ths).attr("weibo_id")
+                get_comment(weibo_id);
             } else {
                 m.addClass('hide')
             }

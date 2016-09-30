@@ -40,7 +40,7 @@ def wrapper(func):
             return redirect("/login")
 
         print(func)
-        func(request)
+        return func(request)
 
     return inner
 
@@ -351,6 +351,7 @@ def pub_comment(request):
             message = {"to_weibo_id":int(to_weibo),"user_id":user_id,"comment_type":comment_type,"comment":comment}
             model_obj = Coment_R()
             obj_view = model_obj.create_new_weibo(message)
+            print(obj_view) # {'status': True, 'data': '添加成功', 'message': ''}
 
         else:
             pass
