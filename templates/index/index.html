@@ -474,7 +474,7 @@
                                         </span>
                                     </li>
                                     <li><span class="line S_line1">
-                                        <span onclick="Sun_Repeat(this)" class="S_txt1">回复</span>
+                                        <span onclick="Show_Sun_Repeat(this)" class="S_txt1">回复</span>
                                         </span>
                                     </li>
 
@@ -484,6 +484,21 @@
                                 </ul>
                             </div>
                             <div>今天 14:30</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="WB_repeat_in S_bg2">
+                    <div class="WB_feed_publish clearfix">
+                        <div class="WB_publish">
+                            <div class="p_input">
+                                <textarea style="margin: 0px; padding: 5px 2px 0px 6px; border-style: solid; border-width: 1px; font-size: 12px; word-wrap: break-word; line-height: 18px; overflow: hidden; outline: none; height: 23px;" class="W_input" name="" id="" cols="30" rows="10"></textarea>
+                            </div>
+                            <div class="p_opt clearfix">
+                                <div class="btn W_fr">
+                                    <a class="W_btn_a" href="">评论</a>
+                                </div>
+                                <div class="opt clearfix"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -763,6 +778,11 @@
             } else {
                 m.addClass('hide')
             }
+        }
+        function Show_Sun_Repeat(ths) {
+            var m = $(ths).parent().parent().parent().parent().parent();
+            console.log(m)
+            
         }
 
 

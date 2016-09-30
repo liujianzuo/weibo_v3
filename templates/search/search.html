@@ -14,22 +14,12 @@
 <script>
     WBWidget({}).load();
 </script>
-<script>
-    //设置用户uid 用于同步赞状态
-    WEIBO_MUSIC_PLAYER.load({page_id: ''});
-    //监听赞事件
-    //监听分享事件
-    WEIBO_MUSIC_PLAYER.on('share', function (evt, song) {
-        alert(song.copy);
-        song //歌曲的所有信息
-    });
-</script>
 
 <!-- 视频播放 -->
 <script type="text/javascript" charset="UTF-8" src="./search_files/player.js.下载"></script>
 {% block js %}
 
-    <script type="text/javascript" charset="utf-8" async="" src="./search_files/suda.js.下载"></script>
+    <script type="text/javascript" charset="utf-8" async="" src="/statics/index_profile_js_css/suda.js"></script>
     <script type="text/javascript"></script>
     <!--[if lte IE 8]>
 <![endif]-->
@@ -76,7 +66,7 @@
                         </div>
                         <div class="searchInp_box">
                             <div class="searchInp_auto">
-                                <input class="searchInp_form" type="text" value="李露" node-type="text" maxlength="40"
+                                <input id="searchInp_form" class="searchInp_form" type="text" value="" node-type="text" maxlength="40"
                                        autocomplete="off">
                             </div>
                         </div>
@@ -88,9 +78,9 @@
         <div class="S_plwrap" id="pl_common_unLogin">
             <div class="S_plc" id="plc_main">
 
-                <div class="S_content clearfix">
+                <div class="S_content clearfix" style="position: relative">
                     <!-- 左边显示 匹配到的内容 -->
-                    <div class="S_content_l">
+                    <div style="width: 690px;height: auto;" class="S_content_l">
                         <div id="pl_common_loginBox"></div>
                         <!-- 模糊匹配你要查找的人  -->
                         <div id="pl_common_pinyinerr">
@@ -587,9 +577,7 @@
                         </div>
                         <div id="pl_gs_christmas2013" class="clearfix"></div>
                     </div>
-
-
-                    <div class="S_content_r">
+                    <div style="right: 0px; top: 0px;position: absolute; width: 300px;height: auto;" class="S_content_r">
                         <!--  <div id="pl_weibo_race"></div> -->
                         <div id="pl_weibo_directright">
                             <div class="WB_cardwrap S_bg2">
@@ -599,16 +587,16 @@
                                     </div>
                                     <div class="relaper_box2">
                                         <div class="rela_person2 clearfix">
-                                            <div class="pic"><a href="http://weibo.com/lulu8311" target="_blank"
+                                            <div class="pic"><a href="" target="_blank"
                                                                 suda-data="key=tblog_search_weibo&amp;value=relp_icon"><img
-                                                    src="./search_files/6a434bcejw8egl6gex3ccj20hs0hsaaz.jpg"
-                                                    height="50" width="50" title="心理咨询师李露"
+                                                    src="/statics/search/img/sweibo.png"
+                                                    height="50" width="50" title="心理咨询师佐胖子"
                                                     class="W_face_radius"></a></div>
                                             <div>
                                                 <p class="name">
                                                     <a href="http://weibo.com/lulu8311" target="_blank"
                                                        suda-data="key=tblog_search_weibo&amp;value=relp_name">心理咨询师<em
-                                                            class="red">李露</em></a>
+                                                            class="red">佐胖子</em></a>
                                                 </p>
                                                 <p class="intro">简介：婚恋情感问题专家</p>
                                             </div>
@@ -616,27 +604,26 @@
                                         <div class="rela_person2 clearfix">
                                             <div class="pic"><a href="http://weibo.com/u/3786033570" target="_blank"
                                                                 suda-data="key=tblog_search_weibo&amp;value=relp_icon"><img
-                                                    src="./search_files/e1aa49a2jw8f4vm6rtsxqj20ro0rp76p.jpg"
+                                                    src="/statics/head_img/024B00103A7C6061429E5F1DB2913C74.png"
                                                     height="50" width="50" title="葵儿Kuier李露" class="W_face_radius"></a>
                                             </div>
                                             <div>
                                                 <p class="name">
                                                     <a href="http://weibo.com/u/3786033570" target="_blank"
                                                        suda-data="key=tblog_search_weibo&amp;value=relp_name">葵儿Kuier<em
-                                                            class="red">李露</em></a>
+                                                            class="red">何菲</em></a>
                                                 </p>
                                                 <p class="intro">简介：妆后公司战略合作伙伴，V；L23182821</p>
                                             </div>
                                         </div>
                                         <div class="rela_person2 clearfix">
-                                            <div class="pic"><a href="http://weibo.com/u/1839633693" target="_blank"
-                                                                suda-data="key=tblog_search_weibo&amp;value=relp_icon"><img
-                                                    src="./search_files/6da6951djw8etk424zwutj20k00k03z6.jpg"
+                                            <div class="pic"><a href="" target="_blank"><img
+                                                    src="/statics/head_img/1.jpg"
                                                     height="50" width="50" title="smile李露"
                                                     class="W_face_radius"></a></div>
                                             <div>
                                                 <p class="name">
-                                                    <a href="http://weibo.com/u/1839633693" target="_blank"
+                                                    <a href="" target="_blank"
                                                        suda-data="key=tblog_search_weibo&amp;value=relp_name">smile<em
                                                             class="red">李露</em></a><a target="_blank"
                                                                                       href="http://verified.weibo.com/verify"
@@ -649,7 +636,7 @@
                                         <div class="rela_person2 clearfix">
                                             <div class="pic"><a href="http://weibo.com/u/1698361510" target="_blank"
                                                                 suda-data="key=tblog_search_weibo&amp;value=relp_icon"><img
-                                                    src="./search_files/653af0a6jw1e8qgp5bmzyj2050050aa8.jpg"
+                                                    src="/statics/head_img/2.jpg"
                                                     height="50" width="50" title="李小露露" class="W_face_radius"></a>
                                             </div>
                                             <div>
@@ -683,7 +670,7 @@
                                             <div class="content_book">
                                                 <a suda-data="key=tblog_search_weibo&amp;value=open_page_book_pic"
                                                    target="_blank" href="http://weibo.com/p/100202read7033751"><img
-                                                        src="./search_files/100x150x75x0.jpg" alt="中国近代教育立法研究"></a>
+                                                        src="/statics/head_img/3.jpg" alt="中国近代教育立法研究"></a>
                                                 <div>
                                                     <h2><i class="interset_icon book_icon"></i><a
                                                             suda-data="key=tblog_search_weibo&amp;value=open_page_book_title"
@@ -844,7 +831,10 @@
                             </div>
                         </div>
                     </div>
+
+
                 </div>
+
             </div>
         </div>
 
@@ -887,5 +877,42 @@
     </div>
 </div>
  {% endblock %}
+{% block js1 %}
+    <script src="/statics/index_profile_js_css/jquery-1.8.2.min.js"></script>
+    <script>
+    window.onkeydown = function (event) {
+        if(event.keyCode == 13){
+            var search_con = $("#searchInp_form").val()
+            console.log(search_con)
+            self.location.href="/search/?search_data="+search_con
+
+            console.log("123123")
+{#            $.ajax({#}
+{#                url:"/post_search/",#}
+{#                data:{"search_data":search_con},#}
+{#                type:"POST",#}
+{#                dataType:"JSON",#}
+{#                success:function (callback) {#}
+{#                    console.log(callback)#}
+{##}
+{#                }#}
+{#            })#}
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+   </script>
+{% endblock %}
 {#</body>#}
 {#</html>#}
