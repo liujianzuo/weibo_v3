@@ -359,3 +359,25 @@ def pub_comment(request):
     rep["data"] = "%s%s" %(to_weibo,comment)
 
     return HttpResponse(json.dumps(rep))
+
+def get_all_comment(request):
+    rep = {"status":True,"message":"","searhch_length":0}
+
+    if request.method == "POST":
+        to_weibo = request.POST.get("weibo_id",None)
+        # comment = request.POST.get("te_comment",None)
+        # comm_type = request.POST.get("comment_type",None)
+        # user_id =request.session['userinfo']['data'][0]["id"]
+        # comment_type = 0
+
+
+        print(to_weibo)
+
+        model_obj = Coment_R()
+        obj_view = model_obj.get_all_cur_weibo_id_coment(to_weibo)
+        print(obj_view) # {'status': True, 'data': '添加成功', 'message': ''}
+
+
+    rep["data"] = obj_view
+
+    return HttpResponse(json.dumps(rep,cls=JsonCustomEncoder))

@@ -298,7 +298,7 @@
             $("#hot_news").text(news_msg)
         }
     }
-    window.onkeydown = function (event) {
+    $("#search_inp").keydown(function (event) {
         if(event.keyCode == 13){
             var search_con = $("#search_inp").val()
             console.log(search_con)
@@ -316,7 +316,7 @@
 {#                }#}
 {#            })#}
         }
-    }
+    })
 
 
 </script>

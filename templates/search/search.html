@@ -880,7 +880,7 @@
 {% block js1 %}
     <script src="/statics/index_profile_js_css/jquery-1.8.2.min.js"></script>
     <script>
-    window.onkeydown = function (event) {
+    $("#searchInp_form").keydown(function (event) {
         if(event.keyCode == 13){
             var search_con = $("#searchInp_form").val()
             console.log(search_con)
@@ -898,7 +898,7 @@
 {#                }#}
 {#            })#}
         }
-    }
+    })
 
 
 

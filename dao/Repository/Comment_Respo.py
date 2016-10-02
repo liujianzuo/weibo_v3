@@ -32,3 +32,20 @@ class Coment_R:
         return ret
 
 
+    def get_all_cur_weibo_id_coment(self,weibo_id):
+        ret = {"status": True, "data": "", "message": ""}
+
+        try:
+            mod_obj = models.Comment.objects.filter(to_weibo=weibo_id).values("id","comment","comment_type", "to_weibo","p_comment","date")
+            # mod_obj = models.Comment.objects.create(**weibo_dict)
+            view_data = {"comment_weibo": list(mod_obj),}
+            print(1111, view_data)
+
+            # print(view_data, "mode_obj")
+            ret['data'] = view_data
+        except Exception as e:
+
+            ret['message'] = e
+            ret["status"] = False
+
+        return ret

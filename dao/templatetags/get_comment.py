@@ -63,6 +63,7 @@ my_comment_html = """
                     </div>
                 </div>
 """
+
 @register.simple_tag
 def get_comment_handler(info_comment):
 

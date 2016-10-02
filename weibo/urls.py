@@ -50,5 +50,6 @@ urlpatterns = [
     url(r'^get_all_new_weibo/',queue_handle.get_all_new_weibo),
     url(r'^wei_bo_detail_test/',tt.wei_bo_detail_test),
     url(r'^pub_comment/',weibo_index.pub_comment),
+    url(r'^get_all_comment/',weibo_index.get_all_comment),
     # url(r'^post_search/',weibo_index.post_search),
 ]
