@@ -373,7 +373,7 @@
                                                                         <span class="subinfo_rgt S_txt2"><em
                                                                                 class="glyphicon glyphicon-thumbs-up"></em><em>143739</em></span>
                                                                         <span class="rgt_line W_fr"></span>
-                                                                        <span onclick="Show_R(this);" weibo_id="{{ item.id }}" class="subinfo_rgt S_txt2"><em
+                                                                        <span onclick="Show_R(this);" head_img="/{{ infomation.userinfo.head_img }}" weibo_id="{{ item.id }}" class="subinfo_rgt S_txt2"><em
                                                                                 class="glyphicon glyphicon-comment"></em><em>23022</em></span>
                                                                         <span class="rgt_line W_fr"></span>
                                                                         <span onclick="Forward(this)" weibo_id="{{ item.id }}" class="subinfo_rgt S_txt2"><em
@@ -386,7 +386,7 @@
 <!--  评论框    -->
     <div class="WB_feed_publish clearfix">
         <div class="WB_face W_f1">
-            <img src="" alt="">
+            <img src="/{{ infomation.userinfo.head_img }}" alt="">
         </div>
         <div class="WB_publish">
             <div class="p_input">
@@ -394,7 +394,7 @@
             </div>      
             <div class="p_opt clearfix">
                 <div class="btn W_fr">
-                    <span weibo_id="{{ item.id }}" comment_type="top" username="{{ infomation.userinfo.name }}" onclick="Repeat(this);" class="W_btn_a " href="">评论</span>
+                    <span weibo_id="{{ item.id }}" comment_type="top" username="{{ infomation.userinfo.name }}" head_img="/{{ infomation.userinfo.head_img }}" onclick="Repeat(this);" class="W_btn_a " href="">评论</span>
                 </div>
                 <div class="opt clearfix">
                     <span class="ico">
@@ -716,7 +716,8 @@
 
         }
 
-        function get_comment(weibo_id) {
+        function get_comment(weibo_id,head_img) {
+
             var comment_str1 = '<div class=\"list_li S_line1 clearfix\" to_weibo_id=\"'
             var to_weibo_id = 45
             var comment_str1_4 = '\" comment_id=\"'
@@ -724,7 +725,7 @@
             var conment_str1_5 = '\">'+
                     '<div class=\"WB_face W_fl\">'+
                         '<a href=\"\">'+
-                            "<img style=\"width: 30px;height: 30px\" src=\"\" alt=\"\">"+
+                            "<img style=\"width: 30px;height: 30px\" src=\""+head_img+"\" alt=\"\">"+
                         "</a>"+
                     "</div>"+
                     "<div class=\"list_con\">"+
@@ -735,12 +736,12 @@
                             "</a>"+
                             "<a href=\"http://huodong.weibo.com/travel2016?ref=icon \">"+
                             "<i class=\"W_icon icon_airball\">"+
-                            "☺"+
+                            ":"+
                             "</i>"+
                             "</a>"
             var comment_content = "：笑的肚子疼"
 
-            var comment_str4 ="<img src=\"\" alt=\"我是表情\">"+
+            var comment_str4 ="<img src=\"\" alt=\"\">"+
                         "</div>"+
                         "<div class=\"WB_func clearfix\" style=\"display: block\">"+
                             "<div class=\"WB_handler\">"+
@@ -794,7 +795,7 @@
                                     $.each(item,function (ziduan,val_mes_dic) {
 {#                                        console.log(ziduan,val_mes_dic)#}
                                         $.each(val_mes_dic,function (name,val) {
-                                            console.log(name,val)
+{#                                            console.log(name,val)#}
                                             if (name == "user__name"){
                                                 comment_user = val
                                             }else if(name == "comment"){
@@ -815,7 +816,7 @@
                                         var tag = $("#comment_my_non_"+weibo_id)
                                             var comment_div = comment_str1+weibo_id+comment_str1_4+comment_id+conment_str1_5+comment_user+comment_str2+comment_content+comment_str4+thumb_up+comment_str5+comment_time+comment_str6
                                             tag.append(comment_div)
-                                            console.log(tag,comment_div)
+{#                                            console.log(tag,comment_div)#}
                                         
                                     })
                                 })
@@ -841,7 +842,9 @@
             if (m.hasClass('hide')) {
                 m.removeClass('hide')
                 var weibo_id = $(ths).attr("weibo_id")
-                get_comment(weibo_id);
+                var head_img = $(ths).attr("head_img")
+                console.log(head_img)
+                get_comment(weibo_id,head_img);
             } else {
                 m.addClass('hide')
                 var weibo_id = $(ths).attr("weibo_id")
@@ -981,6 +984,7 @@
             var te_comment = $(ths).parent().parent().siblings(":eq(0)").children().val()
             var weibo_id = $(ths).attr("weibo_id")
             var comment_type = $(ths).attr("comment_type")
+            var head_img = $(ths).attr("head_img")
             console.log(te_comment,weibo_id)
             $.ajax({
                 url:"/pub_comment/",
@@ -993,17 +997,18 @@
                     user_name = $(ths).attr("username")
                     var myDate = new Date();
                     var mytime=myDate.toLocaleTimeString();
-                    comment = callback['data'];
+                    comment = te_comment;
+                    console.log(comment)
 
                      var rep = [
                     '<div class="list_li S_line1 clearfix"><div class="WB_face W_fl"><a href="">',
                     '<img style="width: 30px;height: 30px" src="',
-                    '/statics/image/tu.png',
+                    head_img,
                     '"alt=""></a></div><div class="list_con"><div class="WB_text"><a href="">',
                          user_name,
-                    '</a><a href="http://huodong.weibo.com/travel2016?ref=icon "><i class="W_icon icon_airball">☺</i></a>',
+                    '</a><a href=" "><i class="W_icon icon_airball">:</i></a>',
                     comment,
-                    '<img src="" alt="我是表情"></div><div class="WB_func clearfix" style="display: block"><div class="WB_handler"><ul class="ul_ul"><li><span class="line S_line1"><a class="S_txt1" href=""><span style="padding-right:3px" class="glyphicon glyphicon-thumbs-up"><em>',
+                    '<img src="" alt=""></div><div class="WB_func clearfix" style="display: block"><div class="WB_handler"><ul class="ul_ul"><li><span class="line S_line1"><a class="S_txt1" href=""><span style="padding-right:3px" class="glyphicon glyphicon-thumbs-up"><em>',
                     10,
                     '</em></span></a></span></li><li><span class="line S_line1"><a class="S_txt1" href="">回复</a></span></li><li class="hide">举报</li></ul></div><div>',
                     mytime,
