@@ -272,7 +272,7 @@
 
                             </select>
             <span class="set_time_txt W_fl">分</span>
-            <a title="取消发布定时微博" href="javascript:void()" action-type="close" class="W_ficon ficon_close S_ficon">X</a> <a href="http://weibo.com/5356516674/profile?profile_ftype=1&amp;timefeed=1#_0" node-type="timing_blog_manage" class="rt_txt W_fr">管理待发布微博</a>
+            <a title="取消发布定时微博" href="javascript:void(0)" action-type="close" class="W_ficon ficon_close S_ficon">X</a> <a href="http://weibo.com/5356516674/profile?profile_ftype=1&amp;timefeed=1#_0" node-type="timing_blog_manage" class="rt_txt W_fr">管理待发布微博</a>
         </div>
     </div>
     <div class="func_area clearfix" node-type="widget" style="position: relative">
@@ -347,7 +347,7 @@
                                                         <!--livetv card -->
                                                         <li style="position: relative" class="pt_li pt_li_2 S_bg2" mid="4022190125377955"
                                                             action-type="feed_list_item" href="#">
-                                        <div id="web_id" class="hide web_id">{{ item.id }}</div>
+                                        <div id="web_id"  class="hide web_id">{{ item.id }}</div>
                                                         <div class="pic_txt clearfix">
                                                                 <div class="info_box">
                                                                     <div class="text_box">
@@ -376,7 +376,7 @@
                                                                         <span onclick="Show_R(this);" weibo_id="{{ item.id }}" class="subinfo_rgt S_txt2"><em
                                                                                 class="glyphicon glyphicon-comment"></em><em>23022</em></span>
                                                                         <span class="rgt_line W_fr"></span>
-                                                                        <span onclick="Forward(this)" class="subinfo_rgt S_txt2"><em
+                                                                        <span onclick="Forward(this)" weibo_id="{{ item.id }}" class="subinfo_rgt S_txt2"><em
                                                                                 class="glyphicon glyphicon-share-alt"></em><em>8040</em></span>
                                                                     </div>
                                                                 </div>
@@ -394,7 +394,7 @@
             </div>      
             <div class="p_opt clearfix">
                 <div class="btn W_fr">
-                    <span weibo_id="{{ item.id }}" comment_type="top" onclick="Repeat(this);" class="W_btn_a " href="">评论</span>
+                    <span weibo_id="{{ item.id }}" comment_type="top" username="{{ infomation.userinfo.name }}" onclick="Repeat(this);" class="W_btn_a " href="">评论</span>
                 </div>
                 <div class="opt clearfix">
                     <span class="ico">
@@ -990,20 +990,23 @@
                 success:function (callback) {
 
                     console.log(typeof(callback['data']));
-                    comment = callback['data']['comment'];
+                    user_name = $(ths).attr("username")
+                    var myDate = new Date();
+                    var mytime=myDate.toLocaleTimeString();
+                    comment = callback['data'];
 
                      var rep = [
                     '<div class="list_li S_line1 clearfix"><div class="WB_face W_fl"><a href="">',
                     '<img style="width: 30px;height: 30px" src="',
                     '/statics/image/tu.png',
                     '"alt=""></a></div><div class="list_con"><div class="WB_text"><a href="">',
-                    comment,
+                         user_name,
                     '</a><a href="http://huodong.weibo.com/travel2016?ref=icon "><i class="W_icon icon_airball">☺</i></a>',
                     comment,
                     '<img src="" alt="我是表情"></div><div class="WB_func clearfix" style="display: block"><div class="WB_handler"><ul class="ul_ul"><li><span class="line S_line1"><a class="S_txt1" href=""><span style="padding-right:3px" class="glyphicon glyphicon-thumbs-up"><em>',
                     10,
                     '</em></span></a></span></li><li><span class="line S_line1"><a class="S_txt1" href="">回复</a></span></li><li class="hide">举报</li></ul></div><div>',
-                    comment,
+                    mytime,
                     '</div></div></div></div>'
                     ].join('');
                     $('.list_ul').prepend(rep)
@@ -1053,7 +1056,7 @@
         function Forward(ths) {
             var n = $(ths).parent().parent().parent().parent();
             console.log(n,'111111154999999999999999')
-            var web_id = $('#web_id').text();
+            var web_id = $(ths).attr("weibo_id");
             var forward_web = n.clone();
 {#            var co = $(forward_web).find('#textarea').text();#}
             $.ajax({
