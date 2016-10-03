@@ -446,7 +446,7 @@
             </div>
         </div>
         <div class="list_box">
-            <div class="list_ul">
+            <div class="list_ul" id="comment_my_non_{{ item.id }}">
                 {% get_comment_handler "info_comment" %}
             </div>
         </div>
@@ -717,7 +717,11 @@
         }
 
         function get_comment(weibo_id) {
-            var comment_str1 = '<div class=\"list_li S_line1 clearfix\">'+
+            var comment_str1 = '<div class=\"list_li S_line1 clearfix\" to_weibo_id=\"'
+            var to_weibo_id = 45
+            var comment_str1_4 = '\" comment_id=\"'
+            var comment_id = 33
+            var conment_str1_5 = '\">'+
                     '<div class=\"WB_face W_fl\">'+
                         '<a href=\"\">'+
                             "<img style=\"width: 30px;height: 30px\" src=\"\" alt=\"\">"+
@@ -725,17 +729,18 @@
                     "</div>"+
                     "<div class=\"list_con\">"+
                         "<div class=\"WB_text\">"+
-                            "<a href=\"\">"+
-                            "大佐"
+                            "<a href=\"\">"
+            var comment_user = "大佐"
             var comment_str2 =
-                    "</a>"+
+                            "</a>"+
                             "<a href=\"http://huodong.weibo.com/travel2016?ref=icon \">"+
                             "<i class=\"W_icon icon_airball\">"+
                             "☺"+
                             "</i>"+
-                            "</a>"+
-                            "：笑的肚子疼"+
-                            "<img src=\"\" alt=\"我是表情\">"+
+                            "</a>"
+            var comment_content = "：笑的肚子疼"
+
+            var comment_str4 ="<img src=\"\" alt=\"我是表情\">"+
                         "</div>"+
                         "<div class=\"WB_func clearfix\" style=\"display: block\">"+
                             "<div class=\"WB_handler\">"+
@@ -746,8 +751,9 @@
                                         "<span  class=\"line S_line1\">"+
                                             "<em class=\"glyphicon glyphicon-thumbs-up\">"+
                                             "</em>"+
-                                            "<em>"+10+
-                                            "</em>"+
+                                            "<em>"
+            var thumb_up = 10
+            var  comment_str5 = "</em>"+
                                         "</span>"+
                                         "</a>"+
                                         "</span>"+
@@ -767,13 +773,13 @@
 
                                 "</ul>"+
                             "</div>"+
-                            "<div>"+
-                        "今天 14:30"+
-                        "</div>"+
+                            "<div>"
+            var comment_time = "今天 14:30"
+            var comment_str6 = "</div>"+
                         "</div>"+
                     "</div>"+
                 "</div>"
-                                
+
             $.ajax({
                 url:"/get_all_comment/",
                 data:{"weibo_id":weibo_id},
@@ -789,13 +795,42 @@
 {#                                        console.log(ziduan,val_mes_dic)#}
                                         $.each(val_mes_dic,function (name,val) {
                                             console.log(name,val)
+                                            if (name == "user__name"){
+                                                comment_user = val
+                                            }else if(name == "comment"){
+                                                comment_content = val
+                                            }else if(name == "to_weibo"){
+                                                to_weibo_id = val
+                                            }else if(name == "id"){
+                                                comment_id = val
+                                            }else  if(name == "date"){
+                                                comment_time = val
+                                            }else if(name == "comment_type"){
+                                                if (val == 1){
+                                                    thumb_up == val
+                                                }
+                                            }
+
                                         })
+                                        var tag = $("#comment_my_non_"+weibo_id)
+                                            var comment_div = comment_str1+weibo_id+comment_str1_4+comment_id+conment_str1_5+comment_user+comment_str2+comment_content+comment_str4+thumb_up+comment_str5+comment_time+comment_str6
+                                            tag.append(comment_div)
+                                            console.log(tag,comment_div)
                                         
                                     })
                                 })
                             }
                         })
                     }
+
+{#                    var new_ele = document.createElement('div')#}
+{#                    new_ele.className = "list_box"#}
+{#                    var tag = document.createElement("div")#}
+{#                    tag.className = "list_ul"#}
+
+
+{#                    new_ele.appendChild(tag)#}
+
                 }
             })
         }
@@ -809,6 +844,8 @@
                 get_comment(weibo_id);
             } else {
                 m.addClass('hide')
+                var weibo_id = $(ths).attr("weibo_id")
+                $("#comment_my_non_"+weibo_id).empty()
             }
         }
         function Show_Sun_Repeat(ths) {

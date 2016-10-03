@@ -34,9 +34,9 @@ class Coment_R:
 
     def get_all_cur_weibo_id_coment(self,weibo_id):
         ret = {"status": True, "data": "", "message": ""}
-
+        print("shujuceng",weibo_id)
         try:
-            mod_obj = models.Comment.objects.filter(to_weibo=weibo_id).values("id","comment","comment_type", "to_weibo","p_comment","date")
+            mod_obj = models.Comment.objects.filter(to_weibo=weibo_id).values("id","comment","comment_type", "to_weibo","p_comment","date","user__name")
             # mod_obj = models.Comment.objects.create(**weibo_dict)
             view_data = {"comment_weibo": list(mod_obj),}
             print(1111, view_data)
