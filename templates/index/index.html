@@ -296,7 +296,7 @@
               <li><a href="">群可见</a></li>
             </ul>
          </div>
-         <a id="analytic" onclick="Sub();" style=" cursor: pointer;display: inline-block;margin-top: 3px;margin-left: 74px"
+         <a id="analytic" username="{{ infomation.userinfo.name }}" onclick="Sub(this);" style=" cursor: pointer;display: inline-block;margin-top: 3px;margin-left: 74px"
                  href="javascript:void(0);" class="W_btn_a btn_30px W_btn_a_disable"
             diss-data="module=stissue" node-type="submit" title="发布微博按钮">
              发布</a>
@@ -922,7 +922,7 @@
 
         }
 {#        pub_list = []#}
-        function Sub() {
+        function Sub(ths) {
             $('.picture').addClass('hide');
             $('#News').removeClass('hide');
             var content = $('#textarea').val();
@@ -946,6 +946,9 @@
                     var pic_list = JSON.parse(JSON.parse(data['data'])['pictures_link_id']);
                     console.log(data['data'])
                     var leng = pic_list.length;
+                    var myDate = new Date();
+                    var mytime=myDate.toLocaleTimeString();
+                    var username = $(ths).attr("username")
                     ll = '';
                     for(var i= 0;i<leng;i++){
                         ll = ll +'<li class="unlog_pic"><img src="'+pic_list[i]+'" class="piccut_v piccut_h"></li>'
@@ -959,15 +962,15 @@
                      '</div></div><div class="pic_mul"><ul class="pic_m3 clearfix">',
                       ll,
                       '</ul></div><div class="subinfo_box clearfix"><a href="">',
-                      content,
+                      username,
                       '</a><span class="subinfo S_txt2">',
-                      content,
+                      mytime,
                       '</span><span class="subinfo_rgt S_txt2"><em class="W_ficon ficon_praised S_ficon W_f16">点赞</em><em>',
-                      content,
+                      0,
                       '</em></span><span onclick="Show_R(this);" class="subinfo_rgt S_txt2"><em class="W_ficon ficon_praised S_ficon W_f16">评论</em><em>',
-                      content,
+                      0,
                       '</em></span><span class="subinfo_rgt S_txt2"><em class="W_ficon ficon_praised S_ficon W_f16">转发</em><em>',
-                      content,
+                      0,
                       '</em></span></div></div></div></li>'
                     ].join('');
                     $('#content_list').prepend(new_li);
