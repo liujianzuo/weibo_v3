@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="70f0196b-bd95-4a57-97a9-648e54781bef" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/index/index.html" afterPath="$PROJECT_DIR$/templates/index/index.html" />
-    </list>
+    <list default="true" id="70f0196b-bd95-4a57-97a9-648e54781bef" name="Default" comment="" />
     <ignored path="weibo.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -46,8 +44,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/index/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-256">
-              <caret line="962" column="25" selection-start-line="962" selection-start-column="25" selection-end-line="962" selection-end-column="25" />
+            <state relative-caret-position="184">
+              <caret line="984" column="12" selection-start-line="984" selection-start-column="12" selection-end-line="984" selection-end-column="12" />
               <folding>
                 <element signature="e#34398#34404#0#HTML" expanded="true" />
                 <element signature="e#34404#34410#0#HTML" expanded="true" />
@@ -750,8 +748,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/index/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-256">
-          <caret line="962" column="25" selection-start-line="962" selection-start-column="25" selection-end-line="962" selection-end-column="25" />
+        <state relative-caret-position="184">
+          <caret line="984" column="12" selection-start-line="984" selection-start-column="12" selection-end-line="984" selection-end-column="12" />
           <folding>
             <element signature="e#34398#34404#0#HTML" expanded="true" />
             <element signature="e#34404#34410#0#HTML" expanded="true" />
