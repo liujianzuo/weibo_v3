@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="70f0196b-bd95-4a57-97a9-648e54781bef" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
+=======
+    <list default="true" id="70f0196b-bd95-4a57-97a9-648e54781bef" name="Default" comment="" />
+>>>>>>> 835c6dcd75a30ad09be2cde7ba594e50fcf46f9f
     <ignored path="weibo.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -44,8 +48,94 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/index/index.html">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="50">
               <caret line="1057" column="9" selection-start-line="0" selection-start-column="0" selection-end-line="1178" selection-end-column="14" />
+=======
+            <state relative-caret-position="184">
+              <caret line="984" column="12" selection-start-line="984" selection-start-column="12" selection-end-line="984" selection-end-column="12" />
+              <folding>
+                <element signature="e#34398#34404#0#HTML" expanded="true" />
+                <element signature="e#34404#34410#0#HTML" expanded="true" />
+                <element signature="e#35484#35490#0#HTML" expanded="true" />
+                <element signature="e#35490#35496#0#HTML" expanded="true" />
+                <marker date="1475508205000" expanded="false" signature="27094:27164" ph="..." />
+                <marker date="1475508205000" expanded="false" signature="27514:27698" ph="..." />
+                <marker date="1475508205000" expanded="false" signature="28218:28247" ph="..." />
+                <marker date="1475508205000" expanded="false" signature="28289:28338" ph="..." />
+                <marker date="1475508205000" expanded="false" signature="30893:31005" ph="..." />
+                <marker date="1475508205000" expanded="false" signature="32141:32147" ph=" " />
+                <marker date="1475508205000" expanded="false" signature="32147:32153" ph=" " />
+                <marker date="1475508205000" expanded="false" signature="32153:32159" ph=" " />
+                <marker date="1475508205000" expanded="false" signature="32159:32165" ph=" " />
+                <marker date="1475508205000" expanded="false" signature="32165:32171" ph=" " />
+                <marker date="1475508205000" expanded="false" signature="33756:33762" ph=" " />
+                <marker date="1475508205000" expanded="false" signature="33766:33772" ph=" " />
+                <marker date="1475508205000" expanded="false" signature="34961:34967" ph=" " />
+                <marker date="1475508205000" expanded="false" signature="34967:34973" ph=" " />
+                <marker date="1475508205000" expanded="false" signature="36028:36047" ph="..." />
+                <marker date="1475508205000" expanded="false" signature="36108:36182" ph="..." />
+                <marker date="1475508205000" expanded="false" signature="38611:38623" ph="..." />
+                <marker date="1475508205000" expanded="false" signature="38719:38747" ph="..." />
+                <marker date="1475508205000" expanded="false" signature="39547:39559" ph="..." />
+                <marker date="1475508205000" expanded="false" signature="39753:39765" ph="..." />
+                <marker date="1475508205000" expanded="false" signature="40444:40456" ph="..." />
+                <marker date="1475508205000" expanded="false" signature="44472:44517" ph="..." />
+                <marker date="1475508205000" expanded="false" signature="44701:44832" ph="..." />
+                <marker date="1475508205000" expanded="false" signature="45146:45235" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dao/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="362">
+              <caret line="53" column="22" selection-start-line="53" selection-start-column="22" selection-end-line="53" selection-end-column="22" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index1.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/test/index1.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2414">
+              <caret line="942" column="49" selection-start-line="942" selection-start-column="49" selection-end-line="942" selection-end-column="49" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/weibo/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="342">
+              <caret line="52" column="36" selection-start-line="52" selection-start-column="36" selection-end-line="52" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/main/index.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="342">
+              <caret line="376" column="65" selection-start-line="376" selection-start-column="57" selection-end-line="376" selection-end-column="65" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Comment_Respo.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dao/Repository/Comment_Respo.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="142">
+              <caret line="38" column="153" selection-start-line="38" selection-start-column="153" selection-end-line="38" selection-end-column="153" />
+>>>>>>> 835c6dcd75a30ad09be2cde7ba594e50fcf46f9f
               <folding />
             </state>
           </provider>
@@ -667,6 +757,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/lay_out/lay_out.html">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="640">
           <caret line="32" column="30" selection-start-line="32" selection-start-column="30" selection-end-line="32" selection-end-column="30" />
         </state>
@@ -676,6 +767,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="52">
           <caret line="126" column="22" selection-start-line="126" selection-start-column="22" selection-end-line="126" selection-end-column="22" />
+=======
+        <state relative-caret-position="184">
+          <caret line="984" column="12" selection-start-line="984" selection-start-column="12" selection-end-line="984" selection-end-column="12" />
+>>>>>>> 835c6dcd75a30ad09be2cde7ba594e50fcf46f9f
           <folding>
             <marker date="1475643624378" expanded="true" signature="94:17477" placeholder="..." />
             <marker date="1475643624378" expanded="true" signature="102:1653" placeholder="..." />
