@@ -437,6 +437,7 @@
             <div class="list_ul" id="comment_my_non_{{ item.id }}">
                 {% get_comment_handler "info_comment" %}
             </div>
+
         </div>
     </div>
 </div>
@@ -720,7 +721,7 @@
                     "</div>"+
                     "<div class=\"list_con\">"+
                         "<div class=\"WB_text\">"+
-                            "<a href=\"\">"
+                            "<a class=\"WB_text_username\" href=\"\">"
             var comment_user = "大佐"
             var comment_str2 =
                             "</a>"+
@@ -751,7 +752,7 @@
                                     "</li>"+
                                     "<li>"+
                                         "<span class=\"line S_line1\">"+
-                                        "<span onclick=\"Sun_Repeat(this)\" class=\"S_txt1\">"+
+                                        "<span onclick=\"Show_Sun_Repeat(this)\" class=\"S_txt1\">"+
                                         "回复"+
                                         "</span>"+
                                         "</span>"+
@@ -768,6 +769,42 @@
             var comment_time = "今天 14:30"
             var comment_str6 = "</div>"+
                         "</div>"+
+                         "<div class=\"hide WB_repeat_in S_bg2\">"+
+                         "<div class=\"WB_feed_publish clearfix\">"+
+                         "<div class=\"WB_publish\"> "+
+                         "<div class=\"p_input\">"  +
+                         "<textarea class=\"W_input\" range=\"8&amp;0\" style=\"margin: 0px; padding: 5px 2px 0px 6px; border-style: solid; border-width: 1px; font-size: 12px; word-wrap: break-word; line-height: 18px; overflow: hidden; outline: none; height: 23px;\"></textarea>" +
+                         "</div>"+
+                         "<div class=\"p_opt clearfix\">"+
+                         "<div head_img=\"/{{ infomation.userinfo.head_img }}\" username=\"{{ infomation.userinfo.name }}\" onclick=\"Sun_Repeat(this)\" class=\"btn W_fr\">"+
+                         "<a class=\"W_btn_a W_btn_a_disable\">"+
+                         "评论"+
+                         "</a>"+
+                         "</div>"+
+                         "<div node-type=\"widget\" class=\"opt clearfix\">" +
+                         "<span class=\"ico\">"+
+                         "<a>"+
+                         "<i style=\"font-size:26px\">"+
+                         "☺"+
+                         "</i>"+
+                         "</a>"+
+                         "</span>"+
+                         "<ul class=\"ipt\">"+
+                         "<li>"+
+                         "<lable class=\"W_label\">"+
+                         "<input type=\"checkbox\" class=\"W_checkbox\">"+
+                         "<span>" +
+                         "同时转发到我的微博"+
+                         "</span>"+
+                         "</lable>"+
+                         "</li>"+
+                         "</ul>"+
+                         "</div>"+
+                         "</div>"+
+                         "</div>"+
+                         "</div>"+
+                         "</div>"+
+                         "</div>"+
                     "</div>"+
                 "</div>"
 
@@ -844,9 +881,44 @@
         }
 
         function Show_Sun_Repeat(ths) {
-            var m = $(ths).parent().parent().parent().parent().parent();
+            var m = $(ths).parentsUntil('.list_con').siblings('.WB_repeat_in ');
             console.log(m)
+            var repeat_who = $(ths).parentsUntil('.list_con').siblings('.WB_text').children('.WB_text_username').text()
+            var at_sb = $(ths).parentsUntil('.list_con').siblings('.WB_repeat_in ').children('.WB_feed_publish ').children('.WB_publish').children('.p_input').children('.W_input')
+            at_sb.text('回复@'+repeat_who+':')
+            if(m.hasClass('hide')){
+                m.removeClass('hide');
+            }else {
+                m.addClass('hide')
+            }
             
+        }
+        function Sun_Repeat(ths) {
+            var conn = $(ths).parentsUntil('.WB_publish').siblings('.p_input').children('.W_input').val()
+            console.log(conn)
+            var head_img = $(ths).attr("head_img")
+            var user_name = $(ths).attr("username")
+            var myDate = new Date();
+            var mytime=myDate.toLocaleTimeString();
+
+            var rep = [
+                    '<div class="list_li S_line1 clearfix"><div class="WB_face W_fl"><a href="">',
+                    '<img style="width: 30px;height: 30px" src="',
+                    head_img,
+                    '"alt=""></a></div><div class="list_con"><div class="WB_text"><a href="">',
+                    user_name,
+                    '</a><a href=" "><i class="W_icon icon_airball">:</i></a>',
+                    conn,
+                    '<img src="" alt=""></div><div class="WB_func clearfix" style="display: block"><div class="WB_handler"><ul class="ul_ul"><li><span class="line S_line1"><a class="S_txt1" href=""><span style="padding-right:3px" class="glyphicon glyphicon-thumbs-up"><em>',
+                    10,
+                    '</em></span></a></span></li><li><span class="line S_line1"><a class="S_txt1" href="">回复</a></span></li><li class="hide">举报</li></ul></div><div>',
+                    mytime,
+                    '</div></div></div></div>'
+                    ].join('');
+                    $('.list_ul').prepend(rep)
+
+
+
         }
 
 
