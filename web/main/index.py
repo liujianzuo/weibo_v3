@@ -344,17 +344,21 @@ def pub_comment(request):
         comm_type = request.POST.get("comment_type",None)
         user_id =request.session['userinfo']['data'][0]["id"]
         comment_type = 0
+        comment_id = request.POST.get("comment_id",None)
 
-        if comm_type == "top":
-            print(to_weibo, comment)
 
-            message = {"to_weibo_id":int(to_weibo),"user_id":user_id,"comment_type":comment_type,"comment":comment}
-            model_obj = Coment_R()
-            obj_view = model_obj.create_new_weibo(message)
-            print(obj_view) # {'status': True, 'data': '添加成功', 'message': ''}
-
+        # if comm_type == "top":
+        print(to_weibo, comment)
+        if comment_id:
+            message = {"p_comment_id":comment_id,"to_weibo_id":int(to_weibo),"user_id":user_id,"comment_type":comment_type,"comment":comment}
         else:
-            pass
+            message = {"to_weibo_id":int(to_weibo),"user_id":user_id,"comment_type":comment_type,"comment":comment}
+        model_obj = Coment_R()
+        obj_view = model_obj.create_new_weibo(message)
+        print(obj_view) # {'status': True, 'data': '添加成功', 'message': ''}
+
+        # else:
+        #     pass
 
     rep["data"] = "%s%s" %(to_weibo,comment)
 

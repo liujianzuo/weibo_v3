@@ -776,7 +776,11 @@
                          "<textarea class=\"W_input\" range=\"8&amp;0\" style=\"margin: 0px; padding: 5px 2px 0px 6px; border-style: solid; border-width: 1px; font-size: 12px; word-wrap: break-word; line-height: 18px; overflow: hidden; outline: none; height: 23px;\"></textarea>" +
                          "</div>"+
                          "<div class=\"p_opt clearfix\">"+
-                         "<div head_img=\"/{{ infomation.userinfo.head_img }}\" username=\"{{ infomation.userinfo.name }}\" onclick=\"Sun_Repeat(this)\" class=\"btn W_fr\">"+
+                         "<div head_img=\"/{{ infomation.userinfo.head_img }}\" username=\"{{ infomation.userinfo.name }}\" onclick=\"Sun_Repeat(this,"
+            var comment_id
+            var fu_dou = ","
+            var to_weibo_id
+            var comment_str7 = ")\" class=\"btn W_fr\">"+
                          "<a class=\"W_btn_a W_btn_a_disable\">"+
                          "评论"+
                          "</a>"+
@@ -841,9 +845,9 @@
 
                                         })
                                         var tag = $("#comment_my_non_"+weibo_id)
-                                            var comment_div = comment_str1+weibo_id+comment_str1_4+comment_id+conment_str1_5+comment_user+comment_str2+comment_content+comment_str4+thumb_up+comment_str5+comment_time+comment_str6
-                                            tag.append(comment_div)
-{#                                            console.log(tag,comment_div)#}
+                                        var comment_div = comment_str1+weibo_id+comment_str1_4+comment_id+conment_str1_5+comment_user+comment_str2+comment_content+comment_str4+thumb_up+comment_str5+comment_time+comment_str6+comment_id+fu_dou+to_weibo_id+comment_str7
+                                        tag.append(comment_div)
+                                            console.log(comment_id,to_weibo_id,fu_dou)
                                         
                                     })
                                 })
@@ -893,31 +897,42 @@
             }
             
         }
-        function Sun_Repeat(ths) {
+
+        //二级评论
+        function Sun_Repeat(ths,comment_id,to_weibo_id) {
             var conn = $(ths).parentsUntil('.WB_publish').siblings('.p_input').children('.W_input').val()
-            console.log(conn)
+            console.log(conn,comment_id,to_weibo_id,111123123)
             var head_img = $(ths).attr("head_img")
             var user_name = $(ths).attr("username")
             var myDate = new Date();
             var mytime=myDate.toLocaleTimeString();
+            $.ajax({
+                url: "/pub_comment/",
+                type: "POST",
+                dataType: "JSON",
+                data: {'te_comment': conn, "weibo_id": to_weibo_id,"comment_id":comment_id},
+                success: function (callback) {
 
-            var rep = [
-                    '<div class="list_li S_line1 clearfix"><div class="WB_face W_fl"><a href="">',
-                    '<img style="width: 30px;height: 30px" src="',
-                    head_img,
-                    '"alt=""></a></div><div class="list_con"><div class="WB_text"><a href="">',
-                    user_name,
-                    '</a><a href=" "><i class="W_icon icon_airball">:</i></a>',
-                    conn,
-                    '<img src="" alt=""></div><div class="WB_func clearfix" style="display: block"><div class="WB_handler"><ul class="ul_ul"><li><span class="line S_line1"><a class="S_txt1" href=""><span style="padding-right:3px" class="glyphicon glyphicon-thumbs-up"><em>',
-                    10,
-                    '</em></span></a></span></li><li><span class="line S_line1"><a class="S_txt1" href="">回复</a></span></li><li class="hide">举报</li></ul></div><div>',
-                    mytime,
-                    '</div></div></div></div>'
+                    console.log(typeof(callback['data']));
+
+                    var rep = [
+                        '<div class="list_li S_line1 clearfix"><div class="WB_face W_fl"><a href="">',
+                        '<img style="width: 30px;height: 30px" src="',
+                        head_img,
+                        '"alt=""></a></div><div class="list_con"><div class="WB_text"><a href="">',
+                        user_name,
+                        '</a><a href=" "><i class="W_icon icon_airball">:</i></a>',
+                        conn,
+                        '<img src="" alt=""></div><div class="WB_func clearfix" style="display: block"><div class="WB_handler"><ul class="ul_ul"><li><span class="line S_line1"><a class="S_txt1" href=""><span style="padding-right:3px" class="glyphicon glyphicon-thumbs-up"><em>',
+                        10,
+                        '</em></span></a></span></li><li><span class="line S_line1"><a class="S_txt1" href="">回复</a></span></li><li class="hide">举报</li></ul></div><div>',
+                        mytime,
+                        '</div></div></div></div>'
                     ].join('');
                     $('.list_ul').prepend(rep)
+                }
 
-
+            })
 
         }
 
@@ -1084,7 +1099,7 @@
                     '</div></div></div></div>'
                     ].join('');
                     $('.list_ul').prepend(rep)
-                    console.log(callback)
+                    console.log(callback,123123)
                 }
 
             })
